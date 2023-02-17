@@ -9,13 +9,13 @@ part 'app_router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
-      initial: true,
       page: HomePage,
+      initial: true,
       children: [
-        AutoRoute(path: 'first', page: GoodsCatalogPage),
-        AutoRoute(path: 'first', page: GoodsCatalogPage),
-        AutoRoute(path: 'first', page: GoodsCatalogPage),
-        RedirectRoute(path: '', redirectTo: 'first')
+        AutoRoute(page: GoodsCatalogPage, path: 'first'),
+        AutoRoute(page: GoodsCatalogPage, path: 'first'),
+        AutoRoute(page: GoodsCatalogPage, path: 'first'),
+        RedirectRoute(path: '', redirectTo: 'first'),
       ],
     ),
   ],

@@ -20,26 +20,18 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
       ],
       builder: (context, child, controller) {
         final tabsRouter = context.tabsRouter;
+
         return Scaffold(
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.menu),
-                label: 'Каталог товаров',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.warehouse),
-                label: 'Приход',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline),
-                label: 'Профиль',
-              ),
-            ],
-          ),
           body: child,
+          bottomNavigationBar: BottomNavigationBar(
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Каталог товаров'),
+              BottomNavigationBarItem(icon: Icon(Icons.warehouse), label: 'Приход'),
+              BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Профиль'),
+            ],
+            onTap: tabsRouter.setActiveIndex,
+            currentIndex: tabsRouter.activeIndex,
+          ),
         );
       },
     );

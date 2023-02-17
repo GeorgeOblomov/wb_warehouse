@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wb_warehouse/utils/assets.dart';
+import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
 class GoodsCatalogPage extends StatelessWidget {
   const GoodsCatalogPage({super.key});
@@ -16,26 +19,19 @@ class _EmptyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.read<ThemeProvider>().appTheme;
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset('assets/icons/empty_list_placeholder.png'),
+        Image.asset(Assets.emptyListPlaceholder),
         const SizedBox(height: 24),
-        const Text(
-          'Пусто',
-          style: TextStyle(
-            color: Color(0xFF7C7E92),
-            fontSize: 18,
-          ),
-        ),
+        Text('Пусто', style: theme.emptyWidgetTitleStyle),
         const SizedBox(height: 8),
-        const Text(
+        Text(
           'Добавляйте новые товары\nи они появятся здесь!',
-          style: TextStyle(
-            color: Color(0xFF7C7E92),
-            fontSize: 14,
-          ),
+          style: theme.emptyWidgetSubtitleStyle,
           textAlign: TextAlign.center,
         ),
       ],
