@@ -1,5 +1,9 @@
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+  plugins:
+    - dart_code_metrics
+
 dart_code_metrics:
   metrics:
     cyclomatic-complexity: 20
@@ -14,6 +18,25 @@ dart_code_metrics:
     - prefer-trailing-comma
     - prefer-conditional-expressions
     - no-equal-then-else
+    - avoid-unnecessary-setstate
+    - arguments-ordering
+    - avoid-unnecessary-conditionals
+    - prefer-trailing-comma
+    - newline-before-return
+    - member-ordering:
+        order:
+          - public-fields
+          - private-fields
+          - constructors
+          - close-method
+          - dispose-method
+        widgets-order:
+          - constructor
+          - build-method
+          - init-state-method
+          - did-change-dependencies-method
+          - did-update-widget-method
+          - dispose-method
   anti-patterns:
     - long-method
     - long-parameter-list
