@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wb_warehouse/router/app_router.dart';
+import 'package:wb_warehouse/utils/locale/locale_provider.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:wb_warehouse/utils/themes/wb_theme_data.dart';
 
 class App extends StatelessWidget {
@@ -13,17 +15,21 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<ThemeProvider>(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider()),
       ],
       // (egrischenkov): Lately it will be used as repositories provider.
       // I use it because I need access to "DataManager", which will be injected through the MultiProvider
-      child: Consumer<ThemeProvider>(
-        builder: (_, themeProvider, ___) {
+      child: Consumer2<ThemeProvider, LocaleProvider>(
+        builder: (_, themeProvider, localeProvider, ___) {
           return MaterialApp.router(
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
             title: 'WB Warehouse',
             theme: themeProvider.isLightTheme ? WbThemeData.lightTheme : WbThemeData.darkTheme,
+            locale: localeProvider.locale,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
           );
         },
       ),
