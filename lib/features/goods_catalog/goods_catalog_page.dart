@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wb_warehouse/utils/assets.dart';
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
 class GoodsCatalogPage extends StatelessWidget {
@@ -27,10 +28,10 @@ class _EmptyWidget extends StatelessWidget {
       children: [
         Image.asset(Assets.emptyListPlaceholder),
         const SizedBox(height: 24),
-        Text('Пусто', style: theme.emptyWidgetTitleStyle),
+        Text(context.localizations.empty, style: theme.emptyWidgetTitleStyle),
         const SizedBox(height: 8),
         Text(
-          'Добавляйте новые товары\nи они появятся здесь!',
+          context.localizations.addNewGoods,
           style: theme.emptyWidgetSubtitleStyle,
           textAlign: TextAlign.center,
         ),
