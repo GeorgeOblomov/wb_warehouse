@@ -19,7 +19,7 @@ class NetworkClient {
     _initDio();
   }
 
-  Future<Map<String, Object>> get({
+  Future<T> get<T>({
     required String path,
     required NetworkClientType type,
     Map<String, Object?>? payload,
@@ -29,9 +29,7 @@ class NetworkClient {
     final options = Options(headers: _getRequestHeaders(type));
     try {
       final response = await _dio.get<String>(path, data: payload ?? {}, options: options);
-      final result = response.data != null && response.data!.isNotEmpty
-          ? Map<String, Object>.from(json.decode(response.data!) as Map)
-          : <String, Object>{};
+      final result = _getResponseResult<T>(response.data);
 
       return result;
     } on DioError {
@@ -39,7 +37,7 @@ class NetworkClient {
     }
   }
 
-  Future<Map<String, Object>> post({
+  Future<T> post<T>({
     required String path,
     required NetworkClientType type,
     Map<String, Object?>? payload,
@@ -48,9 +46,7 @@ class NetworkClient {
     final options = Options(headers: _getRequestHeaders(type));
     try {
       final response = await _dio.post<String>(path, data: payload ?? {}, options: options);
-      final result = response.data != null && response.data!.isNotEmpty
-          ? Map<String, Object>.from(json.decode(response.data!) as Map)
-          : <String, Object>{};
+      final result = _getResponseResult<T>(response.data);
 
       return result;
     } on DioError {
@@ -90,5 +86,15 @@ class NetworkClient {
       case NetworkClientType.ads:
         return ApiTokens.ads;
     }
+  }
+
+  dynamic _getResponseResult<T>(String? data) {
+    if (data != null && data.isNotEmpty) {
+      final jsonData = json.decode(data);
+
+      return T is Map ? Map<String, Object?>.from(jsonData as Map) : List.from(jsonData as List);
+    }
+
+    return <String, Object?>{};
   }
 }

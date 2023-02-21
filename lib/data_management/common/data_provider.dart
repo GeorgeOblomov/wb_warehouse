@@ -13,16 +13,20 @@ abstract class DataProvider {
   DataProvider({required NetworkClient networkClient}) : _networkClient = networkClient;
 
   @protected
-  ApiAccessor<Map<String, Object?>> getApiAccessor(String path, NetworkClientType type) {
+  ApiAccessor<T> getApiAccessor<T>(String path, NetworkClientType type) {
+    assert(T is Map || T is List);
+
     return ([payload]) async {
-      return _networkClient.get(path: path, type: type, payload: payload);
+      return _networkClient.get<T>(path: path, type: type, payload: payload);
     };
   }
 
   @protected
-  ApiAccessor<Map<String, Object?>> postApiAccessor(String path, NetworkClientType type) {
+  ApiAccessor<T> postApiAccessor<T>(String path, NetworkClientType type) {
+    assert(T is Map || T is List);
+
     return ([payload]) async {
-      return _networkClient.post(path: path, type: type, payload: payload);
+      return _networkClient.post<T>(path: path, type: type, payload: payload);
     };
   }
 }
