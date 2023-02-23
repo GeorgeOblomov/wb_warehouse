@@ -3,5 +3,6 @@
     "arrival": "Arrival",
     "profile": "Profile",
     "empty": "Empty",
-    "addNewGoods": "Add new goods and soon\nthey will be visible here!"
+    "addNewGoods": "Add new goods and soon\nthey will be visible here!",
+    "searchBarHint": "Search"
 }
