@@ -16,8 +16,23 @@ class DarkTheme extends BaseTheme {
   Color searchBarFillColor = const Color(0xFF4CAF50);
 
   @override
+  Color filtersIconColor = const Color(0xFF4CAF50);
+
+  @override
   Color tableRowFillColor = const Color(0xFFF5F5F5);
 
   @override
   Color progressIndicatorColor = const Color(0xFF4CAF50);
+
+  @override
+  Color commonButtonInactiveBackgroundColor = const Color(0xFFF5F5F5);
+
+  @override
+  Color commonButttonActiveBackgroundColor = const Color(0xFF4CAF50);
+
+  @override
+  TextStyle commonButtonActiveTitleColor = TextStyles.base14White.copyWith(fontWeight: FontWeight.w700);
+
+  @override
+  TextStyle commonButtonInactiveTitleColor = TextStyles.baseDarkGrey.copyWith(fontWeight: FontWeight.w700);
 }

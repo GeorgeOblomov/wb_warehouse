@@ -9,4 +9,5 @@ class TextStyles {
   static final base14White = _baseWhiteTextStyle.copyWith(fontSize: 14);
   static final base14Grey = base14Black.copyWith(color: const Color(0xFF7C7E92));
   static final base18Grey = base14Grey.copyWith(fontSize: 18);
+  static final baseDarkGrey = base14Grey.copyWith(color: const Color(0xFF7C7E92));
 }

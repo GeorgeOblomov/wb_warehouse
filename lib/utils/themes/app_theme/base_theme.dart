@@ -8,10 +8,17 @@ abstract class BaseTheme {
   /// Search bar widget.
   abstract Color searchBarFillColor;
   abstract Color searchBarElementsColor;
+  abstract Color filtersIconColor;
 
   /// Table widget.
   abstract Color tableRowFillColor;
 
   /// Circular progress indicator.
   abstract Color progressIndicatorColor;
+
+  /// Common button.
+  abstract Color commonButttonActiveBackgroundColor;
+  abstract Color commonButtonInactiveBackgroundColor;
+  abstract TextStyle commonButtonActiveTitleColor;
+  abstract TextStyle commonButtonInactiveTitleColor;
 }

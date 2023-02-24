@@ -4,5 +4,6 @@
     "profile": "Profile",
     "empty": "Empty",
     "addNewGoods": "Add new goods and soon\nthey will be visible here!",
-    "searchBarHint": "Search"
+    "searchBarHint": "Search",
+    "updateButtonTitle": "Update"
 }

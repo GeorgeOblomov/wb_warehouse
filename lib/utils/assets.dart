@@ -5,4 +5,6 @@ class Assets {
   static const emptyListPlaceholder = '$_icons/empty_list_placeholder.png';
 
   static const searchIcon = '$_icons/search.svg';
+
+  static const filtersIcon = '$_icons/filters.svg';
 }

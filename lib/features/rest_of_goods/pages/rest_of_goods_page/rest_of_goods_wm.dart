@@ -29,7 +29,10 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   Stream<bool> get loadingStream => _loadingController.stream;
   Stream<TableWidgetData> get tableDataStream => _tableDataController.stream;
 
+  String get updateButtonTitle => _l10n.updateButtonTitle;
+
   Color get progressIndicatorColor => context.watch<ThemeProvider>().appTheme.progressIndicatorColor;
+  Color get filtersIconColor => context.watch<ThemeProvider>().appTheme.filtersIconColor;
 
   @override
   void initWidgetModel() {
@@ -43,6 +46,8 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     _tableDataController.close();
     super.dispose();
   }
+
+  void showFiltersDialog() {}
 
   TableWidgetData getTableData() {
     return TableWidgetData(
