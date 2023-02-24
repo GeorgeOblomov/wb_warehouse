@@ -17,4 +17,7 @@ class LightTheme extends BaseTheme {
 
   @override
   Color tableRowFillColor = const Color(0xFFF5F5F5);
+
+  @override
+  Color progressIndicatorColor = const Color(0xFF4CAF50);
 }

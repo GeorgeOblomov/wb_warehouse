@@ -11,4 +11,7 @@ abstract class BaseTheme {
 
   /// Table widget.
   abstract Color tableRowFillColor;
+
+  /// Circular progress indicator.
+  abstract Color progressIndicatorColor;
 }

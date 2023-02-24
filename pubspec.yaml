@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.8.0
   surf_logger: ^1.1.0
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:
