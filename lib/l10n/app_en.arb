@@ -5,5 +5,13 @@
     "empty": "Empty",
     "addNewGoods": "Add new goods and soon\nthey will be visible here!",
     "searchBarHint": "Search",
-    "updateButtonTitle": "Update"
+    "updateButtonTitle": "Update",
+    "restOfGoodsName": "Name",
+    "restOfGoodsSupplierArticle": "Supplier article",
+    "restOfGoodsBarcode": "Barcode",
+    "restOfGoodsQuantity": "Quantity",
+    "restOfGoodsCostPrice": "Cost price",
+    "restOfGoodsTotalCostPrice": "Total cost price",
+    "restOfGoodsChooseSearchFilterTitle": "Choose search filter",
+    "restOfGoodsChooseButtonTitle": "Choose"
 }

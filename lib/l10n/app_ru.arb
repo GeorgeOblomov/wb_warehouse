@@ -5,5 +5,13 @@
     "empty": "Пусто",
     "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
     "searchBarHing": "Поиск",
-    "updateButtonTitle": "Обновить"
+    "updateButtonTitle": "Обновить",
+    "restOfGoodsName": "Название",
+    "restOfGoodsSupplierArticle": "Артикул продавца",
+    "restOfGoodsBarcode": "Баркод",
+    "restOfGoodsQuantity": "Количество",
+    "restOfGoodsCostPrice": "Себестоимость",
+    "restOfGoodsTotalCostPrice": "Сумма",
+    "restOfGoodsChooseSearchFilterTitle": "Выберите фильтр поиска",
+    "restOfGoodsChooseButtonTitle": "Выбрать"
 }

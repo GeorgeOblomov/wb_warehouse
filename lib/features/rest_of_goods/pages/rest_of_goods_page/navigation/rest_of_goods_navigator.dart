@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_wm.dart';
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 
 // ignore_for_file: unused_field
 class RestOfGoodsNavigator {
@@ -16,7 +17,7 @@ class RestOfGoodsNavigator {
         int selectedRadio = initialType == null ? 0 : FilterType.values.indexOf(initialType);
 
         return AlertDialog(
-          title: const Text('Выберите фильтр поиска'),
+          title: Text(_context.localizations.restOfGoodsChooseSearchFilterTitle),
           content: StatefulBuilder(builder: (_, setState) {
             return Column(
               mainAxisSize: MainAxisSize.min,
@@ -35,7 +36,7 @@ class RestOfGoodsNavigator {
           actions: [
             TextButton(
               onPressed: () => _router.pop(FilterType.values[selectedRadio]),
-              child: const Text('Выбрать'),
+              child: Text(_context.localizations.restOfGoodsChooseButtonTitle),
             ),
           ],
           actionsPadding: const EdgeInsets.all(16),

@@ -99,7 +99,14 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
 
   TableWidgetData _getTableData(Iterable<RestOfGoodsRowData> data) {
     return TableWidgetData(
-      columnNames: ['Название', 'Артикул поставщика', 'Баркод', 'Количество', 'Себестоимость', 'Сумма'],
+      columnNames: [
+        _l10n.nameColumnTitle,
+        _l10n.supplierArticleColumnTitle,
+        _l10n.barcodeColumnTitle,
+        _l10n.quantityColumnTitle,
+        _l10n.costPriceColumnTitle,
+        _l10n.totalPriceColumnTitle,
+      ],
       rows: data
           .map((e) => <String>[e.name, e.supplierArticle, e.barcode, e.quantity.toString(), e.costPrice, e.sum])
           .toList(),
