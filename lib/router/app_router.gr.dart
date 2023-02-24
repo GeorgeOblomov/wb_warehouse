@@ -23,10 +23,10 @@ class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
-    GoodsCatalogRoute.name: (routeData) {
+    RestOfGoodsRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const GoodsCatalogPage(),
+        child: const RestOfGoodsPage(),
       );
     },
   };
@@ -38,17 +38,17 @@ class _$AppRouter extends RootStackRouter {
           path: '/',
           children: [
             RouteConfig(
-              GoodsCatalogRoute.name,
+              RestOfGoodsRoute.name,
               path: 'first',
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              GoodsCatalogRoute.name,
+              RestOfGoodsRoute.name,
               path: 'first',
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              GoodsCatalogRoute.name,
+              RestOfGoodsRoute.name,
               path: 'first',
               parent: HomeRoute.name,
             ),
@@ -78,13 +78,13 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [GoodsCatalogPage]
-class GoodsCatalogRoute extends PageRouteInfo<void> {
-  const GoodsCatalogRoute()
+/// [RestOfGoodsPage]
+class RestOfGoodsRoute extends PageRouteInfo<void> {
+  const RestOfGoodsRoute()
       : super(
-          GoodsCatalogRoute.name,
+          RestOfGoodsRoute.name,
           path: 'first',
         );
 
-  static const String name = 'GoodsCatalogRoute';
+  static const String name = 'RestOfGoodsRoute';
 }

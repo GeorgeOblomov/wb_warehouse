@@ -4,23 +4,20 @@ import 'package:wb_warehouse/utils/assets.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
-class GoodsCatalogPage extends StatelessWidget {
-  const GoodsCatalogPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: _EmptyWidget()),
-    );
-  }
-}
-
+// ignore_for_file: unused_element
 class _EmptyWidget extends StatelessWidget {
-  const _EmptyWidget({Key? key}) : super(key: key);
+  final String? title;
+  final String? subtitle;
+
+  const _EmptyWidget({
+    Key? key,
+    this.title,
+    this.subtitle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.read<ThemeProvider>().appTheme;
+    final appTheme = context.watch<ThemeProvider>().appTheme;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -28,11 +25,11 @@ class _EmptyWidget extends StatelessWidget {
       children: [
         Image.asset(Assets.emptyListPlaceholder),
         const SizedBox(height: 24),
-        Text(context.localizations.empty, style: theme.emptyWidgetTitleStyle),
+        Text(title ?? context.localizations.empty, style: appTheme.emptyWidgetTitleStyle),
         const SizedBox(height: 8),
         Text(
-          context.localizations.addNewGoods,
-          style: theme.emptyWidgetSubtitleStyle,
+          subtitle ?? context.localizations.addNewGoods,
+          style: appTheme.emptyWidgetSubtitleStyle,
           textAlign: TextAlign.center,
         ),
       ],

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:wb_warehouse/data_management/common/data_manager.dart';
 import 'package:wb_warehouse/data_management/common/network_client.dart';
-import 'package:wb_warehouse/features/goods_catalog/repositories/rest_of_goods_repository.dart';
+import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
 import 'package:wb_warehouse/router/app_router.dart';
 import 'package:wb_warehouse/utils/locale/locale_provider.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';

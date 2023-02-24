@@ -3,5 +3,7 @@
     "arrival": "Приход",
     "profile": "Профиль",
     "empty": "Пусто",
-    "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!"
+    "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
+    "searchBarHing": "Поиск",
+    "updateButtonTitle": "Обновить"
 }
