@@ -36,6 +36,7 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                         onPressed: wm.showFiltersDialog,
                         icon: SvgPicture.asset(Assets.filtersIcon, color: wm.filtersIconColor),
                       ),
+                      onChanged: wm.onSearchInput,
                     ),
                   ),
                   CommonButton(
@@ -55,7 +56,7 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                     return const SizedBox.shrink();
                   }
 
-                  return Expanded(child: TableWidget(data: wm.getTableData()));
+                  return Expanded(child: TableWidget(data: tableData.data!));
                 },
               ),
             ],

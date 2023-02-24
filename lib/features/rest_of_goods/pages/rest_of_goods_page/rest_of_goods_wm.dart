@@ -19,6 +19,9 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
 
   final _loadingController = StreamController<bool>.broadcast();
   final _tableDataController = BehaviorSubject<TableWidgetData>();
+  final _filterController = BehaviorSubject<FilterType>.seeded(FilterType.name);
+
+  final _loadedRows = <RestOfGoodsRowData>[];
 
   RestOfGoodsWm(
     this._l10n,
@@ -47,9 +50,46 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     super.dispose();
   }
 
-  void showFiltersDialog() {}
+  Future<void> showFiltersDialog() async {
+    final selectedFilter =
+        (await _navigator.showFiltersDialog(initialType: _filterController.value)) ?? _filterController.value;
+    _filterController.add(selectedFilter);
+  }
 
-  TableWidgetData getTableData() {
+  void onSearchInput(String query) {
+    final suggestions = _loadedRows.where((row) {
+      final filteredRowData = _getFilteredRowData(row).toLowerCase();
+      final input = query.toLowerCase();
+
+      return filteredRowData.contains(input);
+    });
+
+    final suggestedRows = _loadedRows.where((row) => suggestions.contains(row));
+    _tableDataController.add(_getTableData(suggestedRows));
+  }
+
+  Future<void> _initialLoading() async {
+    _loadingController.add(true);
+
+    return Future.delayed(const Duration(seconds: 2), () {
+      _loadedRows.addAll(data);
+      _tableDataController.add(_getTableData(data));
+      _loadingController.add(false);
+    });
+  }
+
+  String _getFilteredRowData(RestOfGoodsRowData rowData) {
+    switch (_filterController.value) {
+      case FilterType.name:
+        return rowData.name;
+      case FilterType.supplierArticle:
+        return rowData.supplierArticle;
+      case FilterType.barcode:
+        return rowData.barcode;
+    }
+  }
+
+  TableWidgetData _getTableData(Iterable<RestOfGoodsRowData> data) {
     return TableWidgetData(
       columnNames: ['Название', 'Артикул поставщика', 'Баркод', 'Количество', 'Себестоимость', 'Сумма'],
       rows: data
@@ -57,21 +97,14 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
           .toList(),
     );
   }
-
-  Future<void> _initialLoading() async {
-    _loadingController.add(true);
-
-    return Future.delayed(const Duration(seconds: 2), () {
-      _tableDataController.add(getTableData());
-      _loadingController.add(false);
-    });
-  }
 }
+
+enum FilterType { name, supplierArticle, barcode }
 
 final data = [
   RestOfGoodsRowData(
     name: 'Grass',
-    supplierArticle: '123456',
+    supplierArticle: '4632',
     barcode: '456123',
     quantity: 3,
     costPrice: '20₽',
@@ -80,7 +113,7 @@ final data = [
   RestOfGoodsRowData(
     name: 'Test',
     supplierArticle: '123456',
-    barcode: '456123',
+    barcode: '908',
     quantity: 3,
     costPrice: '20₽',
     sum: '60₽',

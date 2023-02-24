@@ -11,6 +11,7 @@ class SearchBarWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final Widget? suffixIcon;
   final VoidCallback? onTap;
+  final ValueChanged<String>? onChanged;
 
   const SearchBarWidget({
     this.textEditingController,
@@ -18,6 +19,7 @@ class SearchBarWidget extends StatelessWidget {
     this.isEnabled = true,
     this.suffixIcon,
     this.onTap,
+    this.onChanged,
     super.key,
   });
 
@@ -50,6 +52,7 @@ class SearchBarWidget extends StatelessWidget {
             ),
           ),
           readOnly: !isEnabled,
+          onChanged: onChanged,
           onTap: onTap,
         ),
       ),
