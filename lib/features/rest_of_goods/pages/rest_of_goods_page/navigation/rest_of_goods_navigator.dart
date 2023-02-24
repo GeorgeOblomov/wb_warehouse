@@ -43,6 +43,7 @@ class RestOfGoodsNavigator {
           alignment: Alignment.center,
         );
       },
+      barrierDismissible: false,
     );
 
     return selectedType;

@@ -14,6 +14,8 @@ import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
 // ignore_for_file: unused_field
 class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
+  final searchTextController = TextEditingController();
+
   final RestOfGoodsL10n _l10n;
   final RestOfGoodsNavigator _navigator;
 
@@ -47,16 +49,22 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   void dispose() {
     _loadingController.close();
     _tableDataController.close();
+    _filterController.close();
+    searchTextController.dispose();
     super.dispose();
   }
 
   Future<void> showFiltersDialog() async {
     final selectedFilter =
         (await _navigator.showFiltersDialog(initialType: _filterController.value)) ?? _filterController.value;
+
     _filterController.add(selectedFilter);
+    _searchProccess(searchTextController.text);
   }
 
-  void onSearchInput(String query) {
+  void onSearchInput(String query) => _searchProccess(query);
+
+  void _searchProccess(String query) {
     final suggestions = _loadedRows.where((row) {
       final filteredRowData = _getFilteredRowData(row).toLowerCase();
       final input = query.toLowerCase();

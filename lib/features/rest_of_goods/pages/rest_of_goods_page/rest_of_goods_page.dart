@@ -30,6 +30,7 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                 children: [
                   Expanded(
                     child: SearchBarWidget(
+                      textEditingController: wm.searchTextController,
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       isEnabled: true,
                       suffixIcon: IconButton(
