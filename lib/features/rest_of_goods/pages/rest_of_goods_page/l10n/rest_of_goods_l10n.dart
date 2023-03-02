@@ -16,4 +16,6 @@ class RestOfGoodsL10n extends BaseL10n {
   String get costPriceColumnTitle => localizations.restOfGoodsCostPrice;
 
   String get totalPriceColumnTitle => localizations.restOfGoodsTotalCostPrice;
+
+  String get pictureColumnTitle => localizations.restOfGoodsPicture;
 }

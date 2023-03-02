@@ -40,13 +40,13 @@ class TableWidget extends StatelessWidget {
     );
   }
 
-  TableRow _buildRow(List<String> cells) {
+  TableRow _buildRow(List<String?> cells) {
     return TableRow(
       children: cells.map((cell) {
         return Container(
           alignment: Alignment.center,
           padding: const EdgeInsets.all(8),
-          child: Text(cell),
+          child: Text(cell ?? ''),
         );
       }).toList(),
     );

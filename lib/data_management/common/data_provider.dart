@@ -5,7 +5,7 @@ enum DataProviderType {
   restOfGoods,
 }
 
-typedef ApiAccessor<T> = Future<T> Function([Map<String, Object?>? payload]);
+typedef ApiAccessor<T> = Future<T> Function([Map<String, dynamic>? payload]);
 
 abstract class DataProvider {
   final NetworkClient _networkClient;

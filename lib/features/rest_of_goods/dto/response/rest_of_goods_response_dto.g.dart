@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'warhouses_list_response_dto.dart';
+part of 'rest_of_goods_response_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WarhousesListResponseDto _$WarhousesListResponseDtoFromJson(
+RestOfGoodsResponseDto _$RestOfGoodsResponseDtoFromJson(
         Map<String, dynamic> json) =>
-    WarhousesListResponseDto(
-      id: json['id'] as int,
-      name: json['name'] as String,
+    RestOfGoodsResponseDto(
+      stocks: (json['stocks'] as List<dynamic>)
+          .map((e) => RestOfGoodsStockDto.fromJson(e as Map<String, dynamic>)),
     );

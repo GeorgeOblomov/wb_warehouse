@@ -23,7 +23,7 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   final _tableDataController = BehaviorSubject<TableWidgetData>();
   final _filterController = BehaviorSubject<FilterType>.seeded(FilterType.name);
 
-  final _loadedRows = <RestOfGoodsRowData>[];
+  var _loadedRows = const Iterable<RestOfGoodsRowData>.empty();
 
   RestOfGoodsWm(
     this._l10n,
@@ -79,11 +79,9 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   Future<void> _initialLoading() async {
     _loadingController.add(true);
 
-    return Future.delayed(const Duration(seconds: 2), () {
-      _loadedRows.addAll(data);
-      _tableDataController.add(_getTableData(data));
-      _loadingController.add(false);
-    });
+    _loadedRows = await model.getWarehouseGoodsTableData();
+    _tableDataController.add(_getTableData(_loadedRows));
+    _loadingController.add(false);
   }
 
   String _getFilteredRowData(RestOfGoodsRowData rowData) {
@@ -100,269 +98,17 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   TableWidgetData _getTableData(Iterable<RestOfGoodsRowData> data) {
     return TableWidgetData(
       columnNames: [
+        _l10n.pictureColumnTitle,
         _l10n.nameColumnTitle,
         _l10n.supplierArticleColumnTitle,
         _l10n.barcodeColumnTitle,
         _l10n.quantityColumnTitle,
-        _l10n.costPriceColumnTitle,
-        _l10n.totalPriceColumnTitle,
       ],
       rows: data
-          .map((e) => <String>[e.name, e.supplierArticle, e.barcode, e.quantity.toString(), e.costPrice, e.sum])
+          .map((e) => <String?>[e.pictureUrl, e.name, e.supplierArticle, e.barcode, e.quantity.toString()])
           .toList(),
     );
   }
 }
 
 enum FilterType { name, supplierArticle, barcode }
-
-final data = [
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '4632',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Test',
-    supplierArticle: '123456',
-    barcode: '908',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Lolkek',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'OG KUSH',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Filter',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Furminator',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Layout',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Some good',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Shampoo',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Soap',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-  RestOfGoodsRowData(
-    name: 'Grass',
-    supplierArticle: '123456',
-    barcode: '456123',
-    quantity: 3,
-    costPrice: '20₽',
-    sum: '60₽',
-  ),
-];

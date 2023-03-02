@@ -1,6 +1,6 @@
 class TableWidgetData {
   final List<String> columnNames;
-  final List<List<String>> rows;
+  final List<List<String?>> rows;
 
   TableWidgetData({
     required this.columnNames,
