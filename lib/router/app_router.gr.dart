@@ -23,6 +23,12 @@ class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    UpdateRestOfGoodsRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const UpdateRestOfGoodsPage(),
+      );
+    },
     RestOfGoodsRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
@@ -48,11 +54,6 @@ class _$AppRouter extends RootStackRouter {
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              RestOfGoodsRoute.name,
-              path: 'first',
-              parent: HomeRoute.name,
-            ),
-            RouteConfig(
               '#redirect',
               path: '',
               parent: HomeRoute.name,
@@ -60,7 +61,11 @@ class _$AppRouter extends RootStackRouter {
               fullMatch: true,
             ),
           ],
-        )
+        ),
+        RouteConfig(
+          UpdateRestOfGoodsRoute.name,
+          path: '/update-rest-of-goods-page',
+        ),
       ];
 }
 
@@ -75,6 +80,18 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [UpdateRestOfGoodsPage]
+class UpdateRestOfGoodsRoute extends PageRouteInfo<void> {
+  const UpdateRestOfGoodsRoute()
+      : super(
+          UpdateRestOfGoodsRoute.name,
+          path: '/update-rest-of-goods-page',
+        );
+
+  static const String name = 'UpdateRestOfGoodsRoute';
 }
 
 /// generated route for
