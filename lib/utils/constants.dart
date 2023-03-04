@@ -6,3 +6,4 @@ const adsEndpoint = 'https://advert-api.wb.ru';
 /// Warehouse request parameters
 const limit = 1000;
 const withPhotoMode = -1;
+const restOfGoodsCardsAmount = 100;

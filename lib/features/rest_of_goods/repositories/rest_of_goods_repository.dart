@@ -38,7 +38,7 @@ class RestOfGoodsRepository {
   }
 
   Future<WarehouseCardsResponseDto> getWarehouseCards(Iterable<String> vendorCodes) {
-    final vendorCodesRequestDto = VendorCodesRequestDto(vendorCodes: vendorCodes.skip(90));
+    final vendorCodesRequestDto = VendorCodesRequestDto(vendorCodes: vendorCodes);
 
     return _dataProvider.getWarehouseCards(vendorCodesRequestDto);
   }

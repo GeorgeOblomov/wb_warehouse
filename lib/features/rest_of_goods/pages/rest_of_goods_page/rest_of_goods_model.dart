@@ -1,8 +1,11 @@
 import 'package:elementary/elementary.dart';
+import 'package:quiver/iterables.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/rest_of_goods_response_dto.dart';
+import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouse_cards_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/table_data/rest_of_goods_row_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
 import 'package:wb_warehouse/utils/card_characteristics.dart';
+import 'package:wb_warehouse/utils/constants.dart';
 
 class RestOfGoodsModel extends ElementaryModel {
   final RestOfGoodsRepository _repository;
@@ -14,10 +17,10 @@ class RestOfGoodsModel extends ElementaryModel {
     final vendorCodes = warehouseGoods.data.cards.map((card) => card.vendorCode);
     final barcodes = warehouseGoods.data.cards.map((card) => card.sizes.first.skus.first);
 
-    final warehouseCards = await _repository.getWarehouseCards(vendorCodes);
+    final warehouseCardsDto = await _getWarehouseCards(vendorCodes);
     final restOfGoods = await _repository.getRestOfGoods(barcodes);
 
-    final rowData = warehouseCards.data.map((card) {
+    final rowData = warehouseCardsDto.data.map((card) {
       final barcode = card.sizes.first.skus.first;
 
       return RestOfGoodsRowData(
@@ -30,6 +33,24 @@ class RestOfGoodsModel extends ElementaryModel {
     });
 
     return rowData;
+  }
+
+  Future<WarehouseCardsResponseDto> _getWarehouseCards(Iterable<String> vendorCodes) async {
+    final warehouseCardsDtos = <WarehouseCardsResponseDto>[];
+    final requestChunks = partition(vendorCodes, restOfGoodsCardsAmount);
+
+    for (var requestChunk in requestChunks) {
+      final warehouseCardsDto = await _repository.getWarehouseCards(requestChunk);
+      warehouseCardsDtos.add(warehouseCardsDto);
+    }
+
+    final data = warehouseCardsDtos.expand((e) => e.data);
+
+    return WarehouseCardsResponseDto(
+      data: data,
+      error: warehouseCardsDtos.last.error,
+      errorText: warehouseCardsDtos.last.errorText,
+    );
   }
 
   String _getMainPictureUrl(Iterable<String> urls) {
