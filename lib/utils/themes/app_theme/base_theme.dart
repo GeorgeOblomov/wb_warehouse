@@ -24,4 +24,7 @@ abstract class BaseTheme {
 
   /// Network picture cell.
   abstract Color networkPictureCellErrorIconColor;
+
+  /// Rest item good widget.
+  abstract Color restGoodItemWidgetBackgroundColor;
 }

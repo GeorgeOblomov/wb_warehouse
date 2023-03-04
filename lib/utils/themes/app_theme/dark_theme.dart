@@ -38,4 +38,7 @@ class DarkTheme extends BaseTheme {
 
   @override
   Color networkPictureCellErrorIconColor = Colors.red;
+
+  @override
+  Color restGoodItemWidgetBackgroundColor = const Color(0xFFF5F5F5);
 }

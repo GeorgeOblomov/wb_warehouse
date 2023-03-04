@@ -18,5 +18,6 @@
     "restOfGoodsPicture": "Картинка",
     "restOfGoodsFilterName": "По имени",
     "restOfGoodsFilterSupplierArticle": "По артиклу поставика",
-    "restOfGoodsFilterBarcode": "По баркоду"
+    "restOfGoodsFilterBarcode": "По баркоду",
+    "updateRestOfGoodsPageTitle": "Обновление остатков"
 }

@@ -18,5 +18,6 @@
     "restOfGoodsPicture": "Picture",
     "restOfGoodsFilterName": "By name",
     "restOfGoodsFilterSupplierArticle": "By supplier article",
-    "restOfGoodsFilterBarcode": "By barcode"
+    "restOfGoodsFilterBarcode": "By barcode",
+    "updateRestOfGoodsPageTitle": "Update rest of goods"
 }

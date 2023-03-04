@@ -1,15 +1,55 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/di/update_rest_of_goods_wm_builder.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_Item_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_wm.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/widgets/rest_good_item_widget.dart';
 
 class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
   const UpdateRestOfGoodsPage({super.key}) : super(createUpdateRestOfGoodsWm);
 
   @override
   Widget build(wm) {
-    // ignore: todo
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(wm.pageTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
+      ),
+      body: StreamBuilder<bool>(
+        initialData: false,
+        stream: wm.loadingStream,
+        builder: (context, isLoading) {
+          if (isLoading.data ?? true) {
+            return const Center(child: ProgressIndicatorWidget());
+          }
+
+          return StreamBuilder<Iterable<RestGoodItemData>>(
+            stream: wm.restOfGoodsItemsStream,
+            builder: (_, restOfGoodsData) {
+              if (restOfGoodsData.hasData) {
+                return GridView.count(
+                  padding: const EdgeInsets.all(16),
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 16,
+                  crossAxisSpacing: 16,
+                  childAspectRatio: 5,
+                  children: restOfGoodsData.data!.map((e) {
+                    return RestGoodItemWidget(
+                      url: e.url,
+                      name: e.name,
+                      barcode: e.barcode,
+                      amount: e.amount,
+                    );
+                  }).toList(),
+                );
+              }
+
+              //temporary
+              return const SizedBox.shrink();
+            },
+          );
+        },
+      ),
+    );
   }
 }

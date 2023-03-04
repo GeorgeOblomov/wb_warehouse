@@ -128,8 +128,9 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     _navigator.showPictureDialog(url);
   }
 
-  // ignore: no-empty-block
-  void _onRowTap() {}
+  void _onRowTap() {
+    _navigator.goToUpdateRestOfGoodsPage();
+  }
 
   String _getFilterTitle(FilterType type) {
     switch (type) {
