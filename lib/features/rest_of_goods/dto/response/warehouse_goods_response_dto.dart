@@ -8,9 +8,9 @@ part 'warehouse_goods_response_dto.g.dart';
 @JsonSerializable(createToJson: false)
 class WarehouseGoodsResponseDto {
   final WarehouseGoodsDataDto data;
-  final String error;
+  final bool error;
   final String errorText;
-  
+
   const WarehouseGoodsResponseDto({required this.data, required this.error, required this.errorText});
 
   factory WarehouseGoodsResponseDto.fromJson(Map<String, dynamic> json) => _$WarehouseGoodsResponseDtoFromJson(json);

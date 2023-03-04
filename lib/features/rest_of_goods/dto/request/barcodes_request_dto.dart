@@ -8,7 +8,7 @@ part 'barcodes_request_dto.g.dart';
   createFactory: false,
 )
 class BarcodesRequestDto {
-  final List<String> skus;
+  final Iterable<String> skus;
 
   const BarcodesRequestDto({required this.skus});
 

@@ -9,5 +9,5 @@ part of 'rest_of_goods_stock_dto.dart';
 RestOfGoodsStockDto _$RestOfGoodsStockDtoFromJson(Map<String, dynamic> json) =>
     RestOfGoodsStockDto(
       barcode: json['sku'] as String,
-      amount: json['amount'] as String,
+      amount: json['amount'] as int,
     );

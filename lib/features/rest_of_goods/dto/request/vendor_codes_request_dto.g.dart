@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'warehouse_goods_request_dto.dart';
+part of 'vendor_codes_request_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$WarehouseGoodsRequestDtoToJson(
-        WarehouseGoodsRequestDto instance) =>
+Map<String, dynamic> _$VendorCodesRequestDtoToJson(
+        VendorCodesRequestDto instance) =>
     <String, dynamic>{
-      'cursor': instance.cursor.toJson(),
-      'filter': instance.filter.toJson(),
+      'vendorCodes': instance.vendorCodes.toList(),
     };

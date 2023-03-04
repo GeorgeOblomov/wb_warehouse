@@ -8,6 +8,7 @@ part 'warehouse_goods_request_dto.g.dart';
 @immutable
 @JsonSerializable(
   createFactory: false,
+  explicitToJson: true,
 )
 class WarehouseGoodsRequestDto {
   final CursorRequestDto cursor;

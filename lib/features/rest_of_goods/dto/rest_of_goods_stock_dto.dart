@@ -8,7 +8,7 @@ part 'rest_of_goods_stock_dto.g.dart';
 class RestOfGoodsStockDto {
   @JsonKey(name: 'sku')
   final String barcode;
-  final String amount;
+  final int amount;
 
   const RestOfGoodsStockDto({required this.barcode, required this.amount});
 

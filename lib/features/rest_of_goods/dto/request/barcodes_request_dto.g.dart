@@ -8,5 +8,5 @@ part of 'barcodes_request_dto.dart';
 
 Map<String, dynamic> _$BarcodesRequestDtoToJson(BarcodesRequestDto instance) =>
     <String, dynamic>{
-      'skus': instance.skus,
+      'skus': instance.skus.toList(),
     };
