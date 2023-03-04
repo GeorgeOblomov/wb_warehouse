@@ -15,5 +15,8 @@
     "restOfGoodsTotalCostPrice": "Сумма",
     "restOfGoodsChooseSearchFilterTitle": "Выберите фильтр поиска",
     "restOfGoodsChooseButtonTitle": "Выбрать",
-    "restOfGoodsPicture": "Картинка"
+    "restOfGoodsPicture": "Картинка",
+    "restOfGoodsFilterName": "По имени",
+    "restOfGoodsFilterSupplierArticle": "По артиклу поставика",
+    "restOfGoodsFilterBarcode": "По баркоду"
 }

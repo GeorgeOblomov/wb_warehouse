@@ -15,5 +15,8 @@
     "restOfGoodsTotalCostPrice": "Total cost price",
     "restOfGoodsChooseSearchFilterTitle": "Choose search filter",
     "restOfGoodsChooseButtonTitle": "Choose",
-    "restOfGoodsPicture": "Picture"
+    "restOfGoodsPicture": "Picture",
+    "restOfGoodsFilterName": "By name",
+    "restOfGoodsFilterSupplierArticle": "By supplier article",
+    "restOfGoodsFilterBarcode": "By barcode"
 }
