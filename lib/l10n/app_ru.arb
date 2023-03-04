@@ -6,6 +6,7 @@
     "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
     "searchBarHing": "Поиск",
     "updateButtonTitle": "Обновить",
+    "restOfGoods": "Остатки товаров",
     "restOfGoodsName": "Название",
     "restOfGoodsSupplierArticle": "Артикул продавца",
     "restOfGoodsBarcode": "Баркод",

@@ -17,7 +17,6 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
       routes: const [
         RestOfGoodsRoute(),
         RestOfGoodsRoute(),
-        RestOfGoodsRoute(),
       ],
       builder: (context, child, controller) {
         final tabsRouter = context.tabsRouter;
@@ -26,8 +25,10 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
           body: child,
           bottomNavigationBar: BottomNavigationBar(
             items: [
-              BottomNavigationBarItem(icon: const Icon(Icons.menu), label: context.localizations.goodsCatalog),
-              BottomNavigationBarItem(icon: const Icon(Icons.warehouse), label: context.localizations.arrival),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.warehouse_outlined),
+                label: context.localizations.restOfGoods,
+              ),
               BottomNavigationBarItem(icon: const Icon(Icons.person_outline), label: context.localizations.profile),
             ],
             onTap: tabsRouter.setActiveIndex,
