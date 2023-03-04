@@ -4,6 +4,9 @@ import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:wb_warehouse/common/ui/table_widget/cell/base_cell_widget.dart';
+import 'package:wb_warehouse/common/ui/table_widget/cell/network_image_cell_widget.dart';
+import 'package:wb_warehouse/common/ui/table_widget/cell/text_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/l10n/rest_of_goods_l10n.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/navigation/rest_of_goods_navigator.dart';
@@ -36,7 +39,6 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
 
   String get updateButtonTitle => _l10n.updateButtonTitle;
 
-  Color get progressIndicatorColor => context.watch<ThemeProvider>().appTheme.progressIndicatorColor;
   Color get filtersIconColor => context.watch<ThemeProvider>().appTheme.filtersIconColor;
 
   @override
@@ -105,10 +107,26 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
         _l10n.quantityColumnTitle,
       ],
       rows: data
-          .map((e) => <String?>[e.pictureUrl, e.name, e.supplierArticle, e.barcode, e.quantity.toString()])
+          .map((e) => <BaseCellWidget>[
+                NetworkImageCellWidget(
+                  url: e.pictureUrl,
+                  onTap: () => onPictureTap(e.pictureUrl!),
+                ),
+                TextCellWidget(title: e.name, onTap: _onRowTap),
+                TextCellWidget(title: e.supplierArticle, onTap: _onRowTap),
+                TextCellWidget(title: e.barcode, onTap: _onRowTap),
+                TextCellWidget(title: e.quantity.toString(), onTap: _onRowTap),
+              ])
           .toList(),
     );
   }
+
+  void onPictureTap(String url) {
+    _navigator.showPictureDialog(url);
+  }
+
+  // ignore: no-empty-block
+  void _onRowTap() {}
 }
 
 enum FilterType { name, supplierArticle, barcode }

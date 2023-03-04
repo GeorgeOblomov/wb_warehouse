@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wb_warehouse/common/ui/table_widget/cell/base_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
@@ -24,7 +25,7 @@ class TableWidget extends StatelessWidget {
               child: DecoratedBox(
                 decoration: BoxDecoration(color: appTheme.tableRowFillColor),
                 child: Table(
-                  children: data.rows.map((dataList) => _buildRow(dataList)).toList(),
+                  children: data.rows.map(_buildRow).toList(),
                   border: TableBorder.all(
                     borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(12),
@@ -40,14 +41,10 @@ class TableWidget extends StatelessWidget {
     );
   }
 
-  TableRow _buildRow(List<String?> cells) {
+  TableRow _buildRow(List<BaseCellWidget> cells) {
     return TableRow(
       children: cells.map((cell) {
-        return Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(8),
-          child: Text(cell ?? ''),
-        );
+        return cell;
       }).toList(),
     );
   }
@@ -71,7 +68,10 @@ class _Header extends StatelessWidget {
               return Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(8),
-                child: Text(name),
+                child: Text(
+                  name,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               );
             }).toList(),
           ),

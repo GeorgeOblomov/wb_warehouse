@@ -35,4 +35,7 @@ class DarkTheme extends BaseTheme {
 
   @override
   TextStyle commonButtonInactiveTitleColor = TextStyles.baseDarkGrey.copyWith(fontWeight: FontWeight.w700);
+
+  @override
+  Color networkPictureCellErrorIconColor = Colors.red;
 }

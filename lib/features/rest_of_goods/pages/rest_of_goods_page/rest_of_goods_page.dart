@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/common/ui/common_button.dart';
+import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/common/ui/searh_bar_widget/search_bar_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
@@ -20,7 +21,7 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
         stream: wm.loadingStream,
         builder: (_, isLoading) {
           if (isLoading.data ?? true) {
-            return Center(child: CircularProgressIndicator(color: wm.progressIndicatorColor));
+            return const Center(child: ProgressIndicatorWidget());
           }
 
           return Column(
