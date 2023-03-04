@@ -21,4 +21,7 @@ abstract class BaseTheme {
   abstract Color commonButtonInactiveBackgroundColor;
   abstract TextStyle commonButtonActiveTitleColor;
   abstract TextStyle commonButtonInactiveTitleColor;
+
+  /// Network picture cell.
+  abstract Color networkPictureCellErrorIconColor;
 }

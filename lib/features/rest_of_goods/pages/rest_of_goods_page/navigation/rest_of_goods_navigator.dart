@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wb_warehouse/common/ui/table_widget/network_picture_dialog.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_wm.dart';
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 
 // ignore_for_file: unused_field
 class RestOfGoodsNavigator {
@@ -9,14 +11,25 @@ class RestOfGoodsNavigator {
 
   RestOfGoodsNavigator(this._context) : _router = _context.router;
 
-  Future<FilterType?> showFiltersDialog({FilterType? initialType}) async {
+  Future<void> showPictureDialog(String url) {
+    return showDialog(
+      context: _context,
+      builder: (_) {
+        return NetworkPictureDialog(url: url);
+      },
+    );
+  }
+
+  Future<FilterType?> showFiltersDialog({
+    FilterType? initialType,
+    required String Function(FilterType) getFilterTitle,
+  }) async {
+    int selectedRadio = initialType == null ? 0 : FilterType.values.indexOf(initialType);
     final selectedType = await showDialog(
       context: _context,
       builder: (_) {
-        int selectedRadio = initialType == null ? 0 : FilterType.values.indexOf(initialType);
-
         return AlertDialog(
-          title: const Text('Выберите фильтр поиска'),
+          title: Text(_context.localizations.restOfGoodsChooseSearchFilterTitle),
           content: StatefulBuilder(builder: (_, setState) {
             return Column(
               mainAxisSize: MainAxisSize.min,
@@ -27,24 +40,19 @@ class RestOfGoodsNavigator {
                   onChanged: (value) {
                     setState(() => selectedRadio = value!);
                   },
-                  title: Text(FilterType.values[index].toString()),
+                  title: Text(getFilterTitle(FilterType.values[index])),
                 );
               }),
             );
           }),
-          actions: [
-            TextButton(
-              onPressed: () => _router.pop(FilterType.values[selectedRadio]),
-              child: const Text('Выбрать'),
-            ),
-          ],
           actionsPadding: const EdgeInsets.all(16),
           actionsAlignment: MainAxisAlignment.center,
           alignment: Alignment.center,
         );
       },
-      barrierDismissible: false,
-    );
+    ).then((_) {
+      return FilterType.values[selectedRadio];
+    });
 
     return selectedType;
   }

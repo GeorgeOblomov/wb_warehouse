@@ -29,7 +29,7 @@ class NetworkClient {
     final options = Options(headers: _getRequestHeaders(type));
     try {
       final response = await _dio.get<String>(path, data: payload ?? {}, options: options);
-      final result = _getResponseResult<T>(response.data);
+      final result = _getResponseResult(response.data);
 
       return result;
     } on DioError {
@@ -46,7 +46,7 @@ class NetworkClient {
     final options = Options(headers: _getRequestHeaders(type));
     try {
       final response = await _dio.post<String>(path, data: payload ?? {}, options: options);
-      final result = _getResponseResult<T>(response.data);
+      final result = _getResponseResult(response.data);
 
       return result;
     } on DioError {
@@ -73,6 +73,8 @@ class NetworkClient {
     final headers = <String, dynamic>{};
 
     headers[authorizationHeaderName] = _getToken(type);
+    headers['Accept'] = 'application/json';
+    headers['Content-Type'] = 'application/json';
 
     return headers;
   }
@@ -88,13 +90,13 @@ class NetworkClient {
     }
   }
 
-  dynamic _getResponseResult<T>(String? data) {
+  dynamic _getResponseResult(String? data) {
     if (data != null && data.isNotEmpty) {
       final jsonData = json.decode(data);
 
-      return T is Map ? Map<String, Object?>.from(jsonData as Map) : List.from(jsonData as List);
+      return jsonData is Map ? Map<String, dynamic>.from(jsonData) : List.from(jsonData as List);
     }
 
-    return <String, Object?>{};
+    return <String, dynamic>{};
   }
 }

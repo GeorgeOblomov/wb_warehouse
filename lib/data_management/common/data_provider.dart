@@ -5,7 +5,7 @@ enum DataProviderType {
   restOfGoods,
 }
 
-typedef ApiAccessor<T> = Future<T> Function([Map<String, Object?>? payload]);
+typedef ApiAccessor<T> = Future<T> Function([Map<String, dynamic>? payload]);
 
 abstract class DataProvider {
   final NetworkClient _networkClient;
@@ -14,8 +14,6 @@ abstract class DataProvider {
 
   @protected
   ApiAccessor<T> getApiAccessor<T>(String path, NetworkClientType type) {
-    assert(T is Map || T is List);
-
     return ([payload]) async {
       return _networkClient.get<T>(path: path, type: type, payload: payload);
     };
@@ -23,8 +21,6 @@ abstract class DataProvider {
 
   @protected
   ApiAccessor<T> postApiAccessor<T>(String path, NetworkClientType type) {
-    assert(T is Map || T is List);
-
     return ([payload]) async {
       return _networkClient.post<T>(path: path, type: type, payload: payload);
     };

@@ -1,6 +1,8 @@
+import 'package:wb_warehouse/common/ui/table_widget/cell/base_cell_widget.dart';
+
 class TableWidgetData {
   final List<String> columnNames;
-  final List<List<String>> rows;
+  final List<List<BaseCellWidget>> rows;
 
   TableWidgetData({
     required this.columnNames,
