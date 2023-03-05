@@ -1,5 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
+import 'package:wb_warehouse/common/ui/empty_widget.dart';
 import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/di/update_rest_of_goods_wm_builder.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_item_data.dart';
@@ -30,7 +31,7 @@ class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
           return StreamBuilder<Iterable<RestGoodItemData>>(
             stream: wm.restOfGoodsItemsStream,
             builder: (_, restOfGoodsData) {
-              if (restOfGoodsData.hasData) {
+              if (restOfGoodsData.hasData && (restOfGoodsData.data?.isNotEmpty ?? false)) {
                 return GridView.count(
                   padding: const EdgeInsets.all(16),
                   crossAxisCount: 2,
@@ -43,13 +44,15 @@ class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
                       name: e.name,
                       barcode: e.barcode,
                       amount: e.amount,
+                      onDelete: () => wm.onDeleteItem(e),
+                      onAmountChanged: (value) => wm.onItemAmountChange(e, value),
+                      key: ValueKey(e.barcode),
                     );
                   }).toList(),
                 );
               }
 
-              //temporary
-              return const SizedBox.shrink();
+              return const Center(child: EmptyWidget());
             },
           );
         },

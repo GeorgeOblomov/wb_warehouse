@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:wb_warehouse/common/ui/common_network_image_widget.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
@@ -9,12 +10,16 @@ class RestGoodItemWidget extends StatelessWidget {
   final String name;
   final String barcode;
   final int amount;
+  final VoidCallback onDelete;
+  final ValueChanged<String> onAmountChanged;
 
   const RestGoodItemWidget({
     this.url,
     required this.name,
     required this.barcode,
     required this.amount,
+    required this.onDelete,
+    required this.onAmountChanged,
     super.key,
   });
 
@@ -61,11 +66,17 @@ class RestGoodItemWidget extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(width: 30, child: TextField()),
+              SizedBox(
+                width: 30,
+                child: TextFormField(
+                  initialValue: amount.toString(),
+                  onChanged: onAmountChanged,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                ),
+              ),
               TextButton(
-                // ignore: no-empty-block
-                onPressed: () {},
-                child: const Text('Delete'),
+                onPressed: onDelete,
+                child: Text(context.localizations.delete),
               ),
             ],
           ),

@@ -18,6 +18,8 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
   final _loadingController = StreamController<bool>.broadcast();
   final _restOfGoodsItemsController = BehaviorSubject<Iterable<RestGoodItemData>>();
 
+  final _goodsToUpdateData = <RestGoodItemData>[];
+
   UpdateRestOfGoodsWm(
     this._initialData,
     this._l10n,
@@ -43,9 +45,19 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
     super.dispose();
   }
 
+  void onDeleteItem(RestGoodItemData selectedItem) {
+    _goodsToUpdateData.removeWhere((good) => good.barcode == selectedItem.barcode);
+    _restOfGoodsItemsController.add(_goodsToUpdateData);
+  }
+
+  void onItemAmountChange(RestGoodItemData itemData, String amount) {}
+
+  void onContinue() {}
+
   void _initialLoading() {
     _loadingController.add(true);
-    _restOfGoodsItemsController.add(_initialData.itemsData);
+    _goodsToUpdateData.addAll(_initialData.itemsData);
+    _restOfGoodsItemsController.add(_goodsToUpdateData);
     _loadingController.add(false);
   }
 }
