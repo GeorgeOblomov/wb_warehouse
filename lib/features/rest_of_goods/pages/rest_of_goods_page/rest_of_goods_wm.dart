@@ -13,6 +13,8 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/nav
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_model.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_page.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/table_data/rest_of_goods_row_data.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_item_data.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/update_rest_of_goods_initial_data.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
@@ -115,10 +117,10 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
                   url: e.pictureUrl,
                   onTap: () => _onPictureTap(e.pictureUrl!),
                 ),
-                TextCellWidget(title: e.name, onTap: _onRowTap),
-                TextCellWidget(title: e.supplierArticle, onTap: _onRowTap),
-                TextCellWidget(title: e.barcode, onTap: _onRowTap),
-                TextCellWidget(title: e.quantity.toString(), onTap: _onRowTap),
+                TextCellWidget(title: e.name, onTap: () => _onRowTap(e)),
+                TextCellWidget(title: e.supplierArticle, onTap: () => _onRowTap(e)),
+                TextCellWidget(title: e.barcode, onTap: () => _onRowTap(e)),
+                TextCellWidget(title: e.quantity.toString(), onTap: () => _onRowTap(e)),
               ])
           .toList(),
     );
@@ -128,8 +130,18 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     _navigator.showPictureDialog(url);
   }
 
-  void _onRowTap() {
-    _navigator.goToUpdateRestOfGoodsPage();
+  void _onRowTap(RestOfGoodsRowData rowData) {
+    final initialData = UpdateRestOfGoodsInitialData(
+      itemsData: [
+        RestGoodItemData(
+          url: rowData.pictureUrl,
+          name: rowData.name,
+          barcode: rowData.barcode,
+          amount: rowData.quantity,
+        ),
+      ],
+    );
+    _navigator.goToUpdateRestOfGoodsPage(initialData);
   }
 
   String _getFilterTitle(FilterType type) {

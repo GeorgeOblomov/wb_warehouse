@@ -42,14 +42,31 @@ class RestGoodItemWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(name, overflow: TextOverflow.ellipsis),
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
               const SizedBox(height: 8),
               Text(barcode, overflow: TextOverflow.ellipsis),
             ],
           ),
           const SizedBox(width: 16),
           const Spacer(),
-          const SizedBox(width: 30, child: TextField()),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(width: 30, child: TextField()),
+              TextButton(
+                // ignore: no-empty-block
+                onPressed: () {},
+                child: const Text('Delete'),
+              ),
+            ],
+          ),
         ],
       ),
     );

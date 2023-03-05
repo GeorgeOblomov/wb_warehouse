@@ -24,9 +24,13 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     UpdateRestOfGoodsRoute.name: (routeData) {
+      final args = routeData.argsAs<UpdateRestOfGoodsRouteArgs>();
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const UpdateRestOfGoodsPage(),
+        child: UpdateRestOfGoodsPage(
+          initialData: args.initialData,
+          key: args.key,
+        ),
       );
     },
     RestOfGoodsRoute.name: (routeData) {
@@ -84,14 +88,36 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [UpdateRestOfGoodsPage]
-class UpdateRestOfGoodsRoute extends PageRouteInfo<void> {
-  const UpdateRestOfGoodsRoute()
-      : super(
+class UpdateRestOfGoodsRoute extends PageRouteInfo<UpdateRestOfGoodsRouteArgs> {
+  UpdateRestOfGoodsRoute({
+    required UpdateRestOfGoodsInitialData initialData,
+    Key? key,
+  }) : super(
           UpdateRestOfGoodsRoute.name,
           path: '/update-rest-of-goods-page',
+          args: UpdateRestOfGoodsRouteArgs(
+            initialData: initialData,
+            key: key,
+          ),
         );
 
   static const String name = 'UpdateRestOfGoodsRoute';
+}
+
+class UpdateRestOfGoodsRouteArgs {
+  const UpdateRestOfGoodsRouteArgs({
+    required this.initialData,
+    this.key,
+  });
+
+  final UpdateRestOfGoodsInitialData initialData;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateRestOfGoodsRouteArgs{initialData: $initialData, key: $key}';
+  }
 }
 
 /// generated route for
