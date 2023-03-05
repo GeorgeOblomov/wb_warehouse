@@ -5,7 +5,8 @@
     "empty": "Empty",
     "addNewGoods": "Add new goods and soon\nthey will be visible here!",
     "searchBarHint": "Search",
-    "updateButtonTitle": "Update",
+    "updateButtonTitle": "Update data",
+    "updateRestOfGoodsButtonTitle": "Update rest of goods",
     "restOfGoods": "Rest of goods",
     "restOfGoodsName": "Name",
     "restOfGoodsSupplierArticle": "Supplier article",
@@ -19,5 +20,7 @@
     "restOfGoodsFilterName": "By name",
     "restOfGoodsFilterSupplierArticle": "By supplier article",
     "restOfGoodsFilterBarcode": "By barcode",
-    "updateRestOfGoodsPageTitle": "Update rest of goods"
+    "updateRestOfGoodsPageTitle": "Update rest of goods",
+    "updateRestOfGoods": "Update rest of goods",
+    "updateRestOfGoodsBarcode": "Barcode"
 }

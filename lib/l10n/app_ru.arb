@@ -5,7 +5,8 @@
     "empty": "Пусто",
     "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
     "searchBarHing": "Поиск",
-    "updateButtonTitle": "Обновить",
+    "updateButtonTitle": "Обновить данные",
+    "updateRestOfGoodsButtonTitle": "Обновить остатки товаров",
     "restOfGoods": "Остатки товаров",
     "restOfGoodsName": "Название",
     "restOfGoodsSupplierArticle": "Артикул продавца",
@@ -19,5 +20,7 @@
     "restOfGoodsFilterName": "По имени",
     "restOfGoodsFilterSupplierArticle": "По артиклу поставика",
     "restOfGoodsFilterBarcode": "По баркоду",
-    "updateRestOfGoodsPageTitle": "Обновление остатков"
+    "updateRestOfGoodsPageTitle": "Обновление остатков",
+    "updateRestOfGoods": "Обновить остатки",
+    "updateRestOfGoodsBarcode": "Баркод"
 }

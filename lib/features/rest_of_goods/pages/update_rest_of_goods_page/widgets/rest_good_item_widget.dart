@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wb_warehouse/common/ui/common_network_image_widget.dart';
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
 class RestGoodItemWidget extends StatelessWidget {
@@ -39,23 +40,24 @@ class RestGoodItemWidget extends StatelessWidget {
         children: [
           CommonNetworkImageWidget(url: url),
           const SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 8),
-              Text(barcode, overflow: TextOverflow.ellipsis),
-            ],
+                const SizedBox(height: 8),
+                Text('${context.localizations.updateRestOfGoodsBarcode}: $barcode', overflow: TextOverflow.ellipsis),
+              ],
+            ),
           ),
           const SizedBox(width: 16),
-          const Spacer(),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

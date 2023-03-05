@@ -4,6 +4,7 @@ class RestOfGoodsRowData {
   final String supplierArticle;
   final String barcode;
   final int quantity;
+  bool isSelected;
 
   RestOfGoodsRowData({
     this.pictureUrl,
@@ -11,5 +12,6 @@ class RestOfGoodsRowData {
     required this.supplierArticle,
     required this.barcode,
     required this.quantity,
+    this.isSelected = false,
   });
 }

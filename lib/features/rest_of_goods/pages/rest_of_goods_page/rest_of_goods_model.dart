@@ -12,7 +12,7 @@ class RestOfGoodsModel extends ElementaryModel {
 
   RestOfGoodsModel(this._repository);
 
-  Future<Iterable<RestOfGoodsRowData>> getWarehouseGoodsTableData() async {
+  Future<List<RestOfGoodsRowData>> getWarehouseGoodsTableData() async {
     final warehouseGoods = await _repository.getWarehouseGoods();
     final vendorCodes = warehouseGoods.data.cards.map((card) => card.vendorCode);
     final barcodes = warehouseGoods.data.cards.map((card) => card.sizes.first.skus.first);
@@ -32,7 +32,7 @@ class RestOfGoodsModel extends ElementaryModel {
       );
     });
 
-    return rowData;
+    return rowData.toList();
   }
 
   Future<WarehouseCardsResponseDto> _getWarehouseCards(Iterable<String> vendorCodes) async {

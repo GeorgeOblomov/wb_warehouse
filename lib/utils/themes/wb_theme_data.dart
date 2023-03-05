@@ -6,7 +6,7 @@ class WbThemeData {
     primaryColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF5F5F5),
       iconTheme: IconThemeData(
         color: Color(0xFF3B3E5B),
       ),
@@ -22,6 +22,7 @@ class WbThemeData {
       selectedItemColor: Color(0xFF3B3E5B),
     ),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF4CAF50)),
+    checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(
       trackHeight: 2,
       activeTrackColor: const Color(0xFF7C7E92),
@@ -59,6 +60,7 @@ class WbThemeData {
       selectedItemColor: Colors.white,
     ),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF6ADA6F)),
+    checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(
       trackHeight: 2,
       activeTrackColor: const Color(0xFF4CAF50),
