@@ -51,7 +51,10 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
     _restOfGoodsItemsController.add(_goodsToUpdateData);
   }
 
-  void onItemAmountChange(RestGoodItemData itemData, String amount) {}
+  void onItemAmountChange(RestGoodItemData itemData, String amount) {
+    final itemToUpdate = _goodsToUpdateData.firstWhere((good) => good.barcode == itemData.barcode);
+    itemToUpdate.amount = amount.isEmpty ? 0 : int.parse(amount);
+  }
 
   void onContinue() {}
 
