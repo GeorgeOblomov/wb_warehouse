@@ -11,3 +11,10 @@ RestOfGoodsStockDto _$RestOfGoodsStockDtoFromJson(Map<String, dynamic> json) =>
       barcode: json['sku'] as String,
       amount: json['amount'] as int,
     );
+
+Map<String, dynamic> _$RestOfGoodsStockDtoToJson(
+        RestOfGoodsStockDto instance) =>
+    <String, dynamic>{
+      'sku': instance.barcode,
+      'amount': instance.amount,
+    };
