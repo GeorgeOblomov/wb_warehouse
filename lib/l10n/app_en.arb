@@ -24,5 +24,8 @@
     "updateRestOfGoodsPageTitle": "Update rest of goods",
     "updateRestOfGoods": "Update rest of goods",
     "updateRestOfGoodsBarcode": "Barcode",
-    "updateRestOfGoodsBottomButtonTitle": "Update"
+    "updateRestOfGoodsBottomButtonTitle": "Update",
+    "updateRestOfGoodsConfirmDialogTitle": "Do you really want to update?",
+    "updateRestOfGoodsConfirmDialogAgree": "Yes",
+    "updateRestOfGoodsConfirmDialogDisagree": "No"
 }

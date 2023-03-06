@@ -24,5 +24,8 @@
     "updateRestOfGoodsPageTitle": "Обновление остатков",
     "updateRestOfGoods": "Обновить остатки",
     "updateRestOfGoodsBarcode": "Баркод",
-    "updateRestOfGoodsBottomButtonTitle": "Обновить"
+    "updateRestOfGoodsBottomButtonTitle": "Обновить",
+    "updateRestOfGoodsConfirmDialogTitle": "Вы действительно хотите обновить остатки?",
+    "updateRestOfGoodsConfirmDialogAgree": "Да",
+    "updateRestOfGoodsConfirmDialogDisagree": "Нет"
 }

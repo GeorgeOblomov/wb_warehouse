@@ -6,4 +6,10 @@ class UpdateRestOfGoodsL10n extends BaseL10n {
   String get pageTitle => localizations.updateRestOfGoodsPageTitle;
 
   String get bottomButtonTitle => localizations.updateRestOfGoodsBottomButtonTitle;
+
+  String get confirmDialogTitle => localizations.updateRestOfGoodsConfirmDialogTitle;
+
+  String get confirmDialogAgree => localizations.updateRestOfGoodsConfirmDialogAgree;
+
+  String get confirmDialogDisagree => localizations.updateRestOfGoodsConfirmDialogDisagree;
 }
