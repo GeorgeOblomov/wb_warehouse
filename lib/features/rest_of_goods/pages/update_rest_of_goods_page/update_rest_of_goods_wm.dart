@@ -31,6 +31,7 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
   Stream<Iterable<RestGoodItemData>> get restOfGoodsItemsStream => _restOfGoodsItemsController.stream;
 
   String get pageTitle => _l10n.pageTitle;
+  String get bottomButtonTitle => _l10n.bottomButtonTitle;
 
   @override
   void initWidgetModel() {

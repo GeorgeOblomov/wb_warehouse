@@ -23,5 +23,6 @@
     "restOfGoodsFilterBarcode": "By barcode",
     "updateRestOfGoodsPageTitle": "Update rest of goods",
     "updateRestOfGoods": "Update rest of goods",
-    "updateRestOfGoodsBarcode": "Barcode"
+    "updateRestOfGoodsBarcode": "Barcode",
+    "updateRestOfGoodsBottomButtonTitle": "Update"
 }

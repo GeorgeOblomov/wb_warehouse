@@ -4,4 +4,6 @@ class UpdateRestOfGoodsL10n extends BaseL10n {
   UpdateRestOfGoodsL10n(super.localizations);
 
   String get pageTitle => localizations.updateRestOfGoodsPageTitle;
+
+  String get bottomButtonTitle => localizations.updateRestOfGoodsBottomButtonTitle;
 }
