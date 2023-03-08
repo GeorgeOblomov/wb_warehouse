@@ -23,6 +23,16 @@ class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    UpdateRestOfGoodsRoute.name: (routeData) {
+      final args = routeData.argsAs<UpdateRestOfGoodsRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: UpdateRestOfGoodsPage(
+          initialData: args.initialData,
+          key: args.key,
+        ),
+      );
+    },
     RestOfGoodsRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
@@ -48,11 +58,6 @@ class _$AppRouter extends RootStackRouter {
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              RestOfGoodsRoute.name,
-              path: 'first',
-              parent: HomeRoute.name,
-            ),
-            RouteConfig(
               '#redirect',
               path: '',
               parent: HomeRoute.name,
@@ -60,7 +65,11 @@ class _$AppRouter extends RootStackRouter {
               fullMatch: true,
             ),
           ],
-        )
+        ),
+        RouteConfig(
+          UpdateRestOfGoodsRoute.name,
+          path: '/update-rest-of-goods-page',
+        ),
       ];
 }
 
@@ -75,6 +84,40 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [UpdateRestOfGoodsPage]
+class UpdateRestOfGoodsRoute extends PageRouteInfo<UpdateRestOfGoodsRouteArgs> {
+  UpdateRestOfGoodsRoute({
+    required UpdateRestOfGoodsInitialData initialData,
+    Key? key,
+  }) : super(
+          UpdateRestOfGoodsRoute.name,
+          path: '/update-rest-of-goods-page',
+          args: UpdateRestOfGoodsRouteArgs(
+            initialData: initialData,
+            key: key,
+          ),
+        );
+
+  static const String name = 'UpdateRestOfGoodsRoute';
+}
+
+class UpdateRestOfGoodsRouteArgs {
+  const UpdateRestOfGoodsRouteArgs({
+    required this.initialData,
+    this.key,
+  });
+
+  final UpdateRestOfGoodsInitialData initialData;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateRestOfGoodsRouteArgs{initialData: $initialData, key: $key}';
+  }
 }
 
 /// generated route for

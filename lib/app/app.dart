@@ -31,6 +31,7 @@ class App extends StatelessWidget {
               locale: localeProvider.locale,
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
+              debugShowCheckedModeBanner: false,
             ),
           );
         },

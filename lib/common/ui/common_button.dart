@@ -7,12 +7,14 @@ class CommonButton extends StatelessWidget {
   final Widget? leading;
   final bool isActive;
   final VoidCallback? onTap;
+  final double? width;
 
   const CommonButton({
     required this.title,
     this.leading,
     this.isActive = true,
     this.onTap,
+    this.width,
     super.key,
   });
 
@@ -28,6 +30,7 @@ class CommonButton extends StatelessWidget {
           color: isActive ? appTheme.commonButttonActiveBackgroundColor : appTheme.commonButtonInactiveBackgroundColor,
           borderRadius: BorderRadius.circular(16.0),
         ),
+        width: width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

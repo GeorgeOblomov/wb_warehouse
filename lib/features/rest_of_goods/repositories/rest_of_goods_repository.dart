@@ -2,6 +2,7 @@ import 'package:wb_warehouse/features/rest_of_goods/data_providers/rest_of_goods
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/barcodes_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/cursor_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/filter_request_dto.dart';
+import 'package:wb_warehouse/features/rest_of_goods/dto/request/update_rest_of_goods_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/vendor_codes_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/warehouse_goods_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/warehouse_request_dto.dart';
@@ -9,6 +10,7 @@ import 'package:wb_warehouse/features/rest_of_goods/dto/response/rest_of_goods_r
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouse_cards_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouse_goods_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouses_list_response_dto.dart';
+import 'package:wb_warehouse/features/rest_of_goods/dto/rest_of_goods_stock_dto.dart';
 import 'package:wb_warehouse/utils/constants.dart';
 
 class RestOfGoodsRepository {
@@ -41,5 +43,11 @@ class RestOfGoodsRepository {
     final vendorCodesRequestDto = VendorCodesRequestDto(vendorCodes: vendorCodes);
 
     return _dataProvider.getWarehouseCards(vendorCodesRequestDto);
+  }
+
+  Future updateRestOfGoods(List<RestOfGoodsStockDto> stocks) {
+    final updateRestOfGoodsRequestDto = UpdateRestOfGoodsRequestDto(stocks: stocks);
+
+    return _dataProvider.updateRestOfGoods(updateRestOfGoodsRequestDto);
   }
 }

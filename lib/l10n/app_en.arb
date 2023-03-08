@@ -1,11 +1,13 @@
 {
     "goodsCatalog": "Goods catalog",
+    "delete": "Delete",
     "arrival": "Arrival",
     "profile": "Profile",
     "empty": "Empty",
     "addNewGoods": "Add new goods and soon\nthey will be visible here!",
     "searchBarHint": "Search",
-    "updateButtonTitle": "Update",
+    "updateButtonTitle": "Update data",
+    "updateRestOfGoodsButtonTitle": "Update rest of goods",
     "restOfGoods": "Rest of goods",
     "restOfGoodsName": "Name",
     "restOfGoodsSupplierArticle": "Supplier article",
@@ -18,5 +20,12 @@
     "restOfGoodsPicture": "Picture",
     "restOfGoodsFilterName": "By name",
     "restOfGoodsFilterSupplierArticle": "By supplier article",
-    "restOfGoodsFilterBarcode": "By barcode"
+    "restOfGoodsFilterBarcode": "By barcode",
+    "updateRestOfGoodsPageTitle": "Update rest of goods",
+    "updateRestOfGoods": "Update rest of goods",
+    "updateRestOfGoodsBarcode": "Barcode",
+    "updateRestOfGoodsBottomButtonTitle": "Update",
+    "updateRestOfGoodsConfirmDialogTitle": "Do you really want to update?",
+    "updateRestOfGoodsConfirmDialogAgree": "Yes",
+    "updateRestOfGoodsConfirmDialogDisagree": "No"
 }

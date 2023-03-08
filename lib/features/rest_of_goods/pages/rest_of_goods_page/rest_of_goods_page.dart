@@ -1,7 +1,6 @@
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/common/ui/common_button.dart';
 import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/common/ui/searh_bar_widget/search_bar_widget.dart';
@@ -41,11 +40,21 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                       onChanged: wm.onSearchInput,
                     ),
                   ),
-                  CommonButton(
-                    title: wm.updateButtonTitle,
-                    onTap: () {
-                      Logger.d('press on update button');
+                  StreamBuilder<bool>(
+                    initialData: false,
+                    stream: wm.isUpdataButtonActiveStream,
+                    builder: (context, isActive) {
+                      return CommonButton(
+                        title: wm.updateRestOfGoodsButtonTitle,
+                        isActive: isActive.data ?? false,
+                        onTap: wm.onUpdateRestOfGoodsTap,
+                      );
                     },
+                  ),
+                  const SizedBox(width: 16),
+                  CommonButton(
+                    title: wm.updateDataButtonTitle,
+                    onTap: wm.onDataUpdateTap,
                   ),
                   const SizedBox(width: 16),
                 ],

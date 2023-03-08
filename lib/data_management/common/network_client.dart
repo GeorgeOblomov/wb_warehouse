@@ -54,6 +54,23 @@ class NetworkClient {
     }
   }
 
+  Future<T> put<T>({
+    required String path,
+    required NetworkClientType type,
+    Map<String, Object?>? payload,
+  }) async {
+    _dio.options.baseUrl = _getBaseUrl(type);
+    final options = Options(headers: _getRequestHeaders(type));
+    try {
+      final response = await _dio.put<String>(path, data: payload ?? {}, options: options);
+      final result = _getResponseResult(response.data);
+
+      return result;
+    } on DioError {
+      rethrow;
+    }
+  }
+
   void _initDio() {
     _dio.options.receiveTimeout = const Duration(seconds: 30);
   }

@@ -1,12 +1,14 @@
 import 'package:wb_warehouse/data_management/common/data_provider.dart';
 import 'package:wb_warehouse/data_management/common/network_client.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/barcodes_request_dto.dart';
+import 'package:wb_warehouse/features/rest_of_goods/dto/request/update_rest_of_goods_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/vendor_codes_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/request/warehouse_request_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/rest_of_goods_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouse_cards_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouse_goods_response_dto.dart';
 import 'package:wb_warehouse/features/rest_of_goods/dto/response/warehouses_list_response_dto.dart';
+import 'package:wb_warehouse/utils/constants.dart';
 
 class RestOfGoodsDataProvider extends DataProvider {
   RestOfGoodsDataProvider({required super.networkClient});
@@ -26,8 +28,7 @@ class RestOfGoodsDataProvider extends DataProvider {
   }
 
   Future<RestOfGoodsResponseDto> getRestOfGoods(BarcodesRequestDto requestDto) async {
-    /// Temporary hardcoded path parameter (warehouse).
-    final accessor = postApiAccessor<Map<String, dynamic>>('/api/v3/stocks/686057', NetworkClientType.standart);
+    final accessor = postApiAccessor<Map<String, dynamic>>('/api/v3/stocks/$warehouseId', NetworkClientType.standart);
     final response = await accessor(requestDto.toJson());
 
     return RestOfGoodsResponseDto.fromJson(response);
@@ -38,5 +39,11 @@ class RestOfGoodsDataProvider extends DataProvider {
     final response = await accessor(requestDto.toJson());
 
     return WarehouseCardsResponseDto.fromJson(response);
+  }
+
+  Future updateRestOfGoods(UpdateRestOfGoodsRequestDto requestDto) async {
+    final accessor = putApiAccessor<Map<String, dynamic>>('/api/v3/stocks/$warehouseId', NetworkClientType.standart);
+
+    return accessor(requestDto.toJson());
   }
 }
