@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^5.0.0
   elementary: ^2.0.0
+  flutter_launcher_icons: ^0.12.0
   provider: ^6.0.5
   intl: ^0.17.0
   json_annotation: ^4.8.0
@@ -36,3 +37,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+
+flutter_icons:
+  windows:
+    generate: true
+    image_path: "assets/icons/wb_warehouse_app_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icons/wb_warehouse_app_icon.png"

@@ -85,9 +85,7 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
   }
 
   void _initialLoading() {
-    _loadingController.add(true);
     _goodsToUpdateData.addAll(_initialData.itemsData);
     _restOfGoodsItemsController.add(_goodsToUpdateData);
-    _loadingController.add(false);
   }
 }
