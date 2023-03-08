@@ -29,7 +29,7 @@ abstract class DataProvider {
   @protected
   ApiAccessor<T> putApiAccessor<T>(String path, NetworkClientType type) {
     return ([payload]) async {
-      return _networkClient.post<T>(path: path, type: type, payload: payload);
+      return _networkClient.put<T>(path: path, type: type, payload: payload);
     };
   }
 }

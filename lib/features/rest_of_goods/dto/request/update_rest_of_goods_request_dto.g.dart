@@ -9,5 +9,5 @@ part of 'update_rest_of_goods_request_dto.dart';
 Map<String, dynamic> _$UpdateRestOfGoodsRequestDtoToJson(
         UpdateRestOfGoodsRequestDto instance) =>
     <String, dynamic>{
-      'stocks': instance.stocks,
+      'stocks': instance.stocks.map((e) => e.toJson()).toList(),
     };
