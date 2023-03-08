@@ -59,7 +59,11 @@ class RestOfGoodsNavigator {
     return selectedType;
   }
 
-  void goToUpdateRestOfGoodsPage(UpdateRestOfGoodsInitialData initialData) {
-    _router.push(UpdateRestOfGoodsRoute(initialData: initialData));
+  void goToUpdateRestOfGoodsPage(UpdateRestOfGoodsInitialData initialData, VoidCallback onFinishUpdating) {
+    _router.push(UpdateRestOfGoodsRoute(initialData: initialData)).then((value) {
+      if ((value as bool?) ?? false) {
+        onFinishUpdating.call();
+      }
+    });
   }
 }

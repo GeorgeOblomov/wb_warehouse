@@ -88,7 +88,7 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
         amount: row.quantity,
       );
     }));
-    _navigator.goToUpdateRestOfGoodsPage(initialData);
+    _navigator.goToUpdateRestOfGoodsPage(initialData, _onFinishUpdating);
   }
 
   void onSearchInput(String query) => _searchProccess(query);
@@ -172,6 +172,11 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
       case FilterType.barcode:
         return context.localizations.restOfGoodsFilterBarcode;
     }
+  }
+
+  void _onFinishUpdating() {
+    _initialLoading();
+    searchTextController.clear();
   }
 }
 

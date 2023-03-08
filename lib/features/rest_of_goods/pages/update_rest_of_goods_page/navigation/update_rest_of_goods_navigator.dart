@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:wb_warehouse/router/app_router.dart';
 
 class UpdateRestOfGoodsNavigator {
   final BuildContext _context;
@@ -25,6 +24,7 @@ class UpdateRestOfGoodsNavigator {
   }
 
   void goHome() {
-    _router.replaceAll([const HomeRoute()]);
+    const needToUpdate = true;
+    _router.pop(needToUpdate);
   }
 }
