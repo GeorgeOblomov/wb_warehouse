@@ -27,4 +27,7 @@ abstract class BaseTheme {
 
   /// Rest item good widget.
   abstract Color restGoodItemWidgetBackgroundColor;
+
+  /// Profile page.
+  abstract Color menuBorderColor;
 }

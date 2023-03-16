@@ -41,4 +41,7 @@ class DarkTheme extends BaseTheme {
 
   @override
   Color restGoodItemWidgetBackgroundColor = const Color(0xFFF5F5F5);
+
+  @override
+  Color menuBorderColor = const Color(0xFFf4b038);
 }

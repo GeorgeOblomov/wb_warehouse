@@ -27,5 +27,7 @@
     "updateRestOfGoodsBottomButtonTitle": "Обновить",
     "updateRestOfGoodsConfirmDialogTitle": "Вы действительно хотите обновить остатки?",
     "updateRestOfGoodsConfirmDialogAgree": "Да",
-    "updateRestOfGoodsConfirmDialogDisagree": "Нет"
+    "updateRestOfGoodsConfirmDialogDisagree": "Нет",
+    "profilePageThemeItemTitle": "Тема",
+    "profilePageLocaleItemTitle": "Язык"
 }

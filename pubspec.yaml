@@ -37,6 +37,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/pictures/
 
 flutter_icons:
   windows:
