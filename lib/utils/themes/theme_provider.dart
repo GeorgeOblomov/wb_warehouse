@@ -10,6 +10,7 @@ class ThemeProvider extends ChangeNotifier {
 
   void setTheme({required bool isLight}) {
     _isLight = isLight;
+    notifyListeners();
   }
 
   bool get isLightTheme => _isLight;

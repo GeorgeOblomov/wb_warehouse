@@ -4,13 +4,13 @@ class ProfileItemWidget extends StatelessWidget {
   final String title;
   final Widget? leading;
   final Widget? trailing;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   const ProfileItemWidget({
     required this.title,
     this.leading,
     this.trailing,
-    required this.onTap,
+    this.onTap,
     super.key,
   });
 

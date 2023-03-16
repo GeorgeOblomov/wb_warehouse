@@ -1,4 +1,5 @@
 import 'package:elementary/elementary.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/di/profile_wm_builder.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/profile_wm.dart';
@@ -30,10 +31,15 @@ class ProfilePage extends ElementaryWidget<ProfileWm> {
                       clipBehavior: Clip.hardEdge,
                     ),
                     const SizedBox(width: 16),
-                    ProfileItemWidget(
-                      title: wm.themeItemTitle,
-                      leading: const Icon(Icons.color_lens),
-                      onTap: wm.onThemeItemTap,
+                    StreamBuilder<bool>(
+                      stream: wm.themeStream,
+                      builder: (context, isLightTheme) {
+                        return ProfileItemWidget(
+                          title: wm.themeItemTitle,
+                          leading: const Icon(Icons.color_lens),
+                          trailing: CupertinoSwitch(value: isLightTheme.data ?? true, onChanged: wm.onThemeItemTap),
+                        );
+                      },
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16),
