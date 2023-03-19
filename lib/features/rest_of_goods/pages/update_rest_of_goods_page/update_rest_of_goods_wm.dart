@@ -10,6 +10,7 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_p
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/navigation/update_rest_of_goods_navigator.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_model.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_page.dart';
+import 'package:wb_warehouse/utils/error_handling/wb_error_handler.dart';
 
 class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestOfGoodsModel> {
   final UpdateRestOfGoodsInitialData _initialData;
@@ -21,6 +22,8 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
   final _canContinueController = StreamController<bool>();
 
   final _goodsToUpdateData = <RestGoodItemData>[];
+
+  final _errorHandler = WBErrorHandler();
 
   UpdateRestOfGoodsWm(
     this._initialData,
@@ -77,6 +80,8 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
       _navigator.goHome();
     } catch (e, st) {
       Logger.e('Error on updating rest of goods: $e.\n$st');
+      // ignore: use_build_context_synchronously
+      _errorHandler.handleError(context, e);
     } finally {
       _loadingController.add(false);
     }
