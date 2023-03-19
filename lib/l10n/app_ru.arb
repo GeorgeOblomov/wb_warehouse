@@ -30,5 +30,6 @@
     "updateRestOfGoodsConfirmDialogDisagree": "Нет",
     "profilePageThemeItemTitle": "Тема",
     "profilePageLocaleItemTitle": "Язык",
-    "profilePageLocalesDialogTitle": "Выберите язык"
+    "profilePageLocalesDialogTitle": "Выберите язык",
+    "somethingWentWrong": "Что-то пошло не так"
 }

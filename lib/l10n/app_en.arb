@@ -30,5 +30,6 @@
     "updateRestOfGoodsConfirmDialogDisagree": "No",
     "profilePageThemeItemTitle": "Theme",
     "profilePageLocaleItemTitle": "Locale",
-    "profilePageLocalesDialogTitle": "Choose language"
+    "profilePageLocalesDialogTitle": "Choose language",
+    "somethingWentWrong": "Something went wrong"
 }

@@ -4,6 +4,7 @@ import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/base_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/check_box_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/network_image_cell_widget.dart';
@@ -16,6 +17,7 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/res
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/table_data/rest_of_goods_row_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_item_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/update_rest_of_goods_initial_data.dart';
+import 'package:wb_warehouse/utils/error_handling/wb_error_handler.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
@@ -31,6 +33,8 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   final _isUpdataButtonActiveController = StreamController<bool>.broadcast();
 
   var _loadedRows = <RestOfGoodsRowData>[];
+
+  final _errorHandler = WBErrorHandler();
 
   RestOfGoodsWm(
     this._l10n,
@@ -106,10 +110,15 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
 
   Future<void> _initialLoading() async {
     _loadingController.add(true);
-
-    _loadedRows = await model.getWarehouseGoodsTableData();
-    _tableDataController.add(_getTableData(_loadedRows));
-    _loadingController.add(false);
+    try {
+      _loadedRows = await model.getWarehouseGoodsTableData();
+      _tableDataController.add(_getTableData(_loadedRows));
+    } catch (e, st) {
+      Logger.e('Error on loading rest of goods data: $e.\n$st');
+      _errorHandler.handleError(context, e);
+    } finally {
+      _loadingController.add(false);
+    }
   }
 
   String _getFilteredRowData(RestOfGoodsRowData rowData) {

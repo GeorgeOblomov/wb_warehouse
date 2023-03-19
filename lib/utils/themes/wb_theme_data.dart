@@ -31,6 +31,10 @@ class WbThemeData {
       overlayShape: SliderComponentShape.noOverlay,
       rangeThumbShape: const RoundRangeSliderThumbShape(enabledThumbRadius: 8, elevation: 5),
     ),
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: Color(0xFFF5F5F5),
+      contentTextStyle: TextStyle(color: Color(0xFF3B3E5B)),
+    ),
     tabBarTheme: TabBarTheme(
       indicator: BoxDecoration(
         color: const Color(0xFF3B3E5B),
@@ -71,6 +75,10 @@ class WbThemeData {
         enabledThumbRadius: 8,
         elevation: 5,
       ),
+    ),
+    snackBarTheme: const SnackBarThemeData(
+      backgroundColor: Color(0xFF2E2E32),
+      contentTextStyle: TextStyle(color: Colors.white),
     ),
     tabBarTheme: TabBarTheme(
       indicator: BoxDecoration(
