@@ -15,11 +15,14 @@ Future<void> main() async {
   final preferences = PreferencesProvider();
   await preferences.initPreferencesIfNeeded();
 
+  final initialThemeKey = await preferences.get(PreferencesKey.theme, 'light');
+  final initialLocaleCode = await preferences.get(PreferencesKey.theme, 'en');
+
   List<SingleChildWidget> injectedDependencies() {
     return [
       Provider<DataManager>(create: (_) => DataManager(NetworkClient())),
-      ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider(preferences)),
-      ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider(preferences)),
+      ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider(preferences, initialThemeKey!)),
+      ChangeNotifierProvider<LocaleProvider>(create: (_) => LocaleProvider(preferences, initialLocaleCode!)),
     ];
   }
 

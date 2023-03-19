@@ -9,14 +9,31 @@ class ThemeProvider extends ChangeNotifier {
 
   bool _isLight = true;
 
-  ThemeProvider(this._preferencesProvider);
+  ThemeProvider(this._preferencesProvider, String initialThemeKey) {
+    _setInitialTheme(initialThemeKey);
+  }
+
+  bool get isLightTheme => _isLight;
 
   BaseTheme get appTheme => _isLight ? LightTheme() : DarkTheme();
 
-  void setTheme({required bool isLight}) {
+  Future<void> setTheme({required bool isLight}) async {
+    await _preferencesProvider.set(PreferencesKey.theme, isLight ? 'light' : 'dark');
     _isLight = isLight;
     notifyListeners();
   }
 
-  bool get isLightTheme => _isLight;
+  void _setInitialTheme(String initialThemeKey) {
+    switch (initialThemeKey) {
+      case 'light':
+        _isLight = true;
+        return;
+      case 'dark':
+        _isLight = false;
+        return;
+      default:
+        _isLight = true;
+        return;
+    }
+  }
 }

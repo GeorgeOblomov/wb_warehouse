@@ -27,6 +27,7 @@ class App extends StatelessWidget {
             theme: themeProvider.isLightTheme ? WbThemeData.lightTheme : WbThemeData.darkTheme,
             locale: localeProvider.locale,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
+            localeResolutionCallback: _setUpDeviceLocaleForApp,
             supportedLocales: AppLocalizations.supportedLocales,
             debugShowCheckedModeBanner: false,
           ),
@@ -39,5 +40,15 @@ class App extends StatelessWidget {
     return [
       Provider(create: (_) => RestOfGoodsRepository(dataManager.restOfGoodsDataProvider)),
     ];
+  }
+
+  Locale _setUpDeviceLocaleForApp(Locale? userLocale, Iterable<Locale> supportedLocales) {
+    for (var locale in supportedLocales) {
+      if (locale.languageCode == userLocale?.languageCode && locale.countryCode == userLocale?.countryCode) {
+        return userLocale!;
+      }
+    }
+
+    return supportedLocales.first;
   }
 }

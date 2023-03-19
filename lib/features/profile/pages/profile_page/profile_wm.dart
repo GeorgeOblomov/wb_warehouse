@@ -1,15 +1,17 @@
 import 'dart:async';
 
 import 'package:elementary/elementary.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/l10n/profile_l10n.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/navigation/profile_navigator.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/profile_model.dart';
 import 'package:wb_warehouse/features/profile/pages/profile_page/profile_page.dart';
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
+import 'package:wb_warehouse/utils/locale/locale_provider.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
-// ignore_for_file: unused_field
 class ProfileWm extends WidgetModel<ProfilePage, ProfileModel> {
   final ProfileL10n _l10n;
   final ProfileNavigator _navigator;
@@ -46,7 +48,13 @@ class ProfileWm extends WidgetModel<ProfilePage, ProfileModel> {
     _themeController.add(isLight);
   }
 
-  void onLocaleItemTap() {}
+  Future<void> onLocaleItemTap() async {
+    final currentLocaleCode = EnumToString.fromString(LocaleCode.values, context.localizations.localeName);
+    final selectedLocaleCode = await _navigator.showLocalesDialog(initialCode: currentLocaleCode);
+    // ignore: use_build_context_synchronously
+    final localeProvider = context.read<LocaleProvider>();
+    localeProvider.setLocale(Locale(EnumToString.convertToString(selectedLocaleCode)));
+  }
 
   void _initThemeSwitcherValue() {
     final isLightTheme = context.read<ThemeProvider>().isLightTheme;

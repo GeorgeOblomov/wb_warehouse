@@ -29,5 +29,6 @@
     "updateRestOfGoodsConfirmDialogAgree": "Yes",
     "updateRestOfGoodsConfirmDialogDisagree": "No",
     "profilePageThemeItemTitle": "Theme",
-    "profilePageLocaleItemTitle": "Locale"
+    "profilePageLocaleItemTitle": "Locale",
+    "profilePageLocalesDialogTitle": "Choose language"
 }
