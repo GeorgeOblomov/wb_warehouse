@@ -1,7 +1,13 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/data_management/common/api_tokens.dart';
+import 'package:wb_warehouse/data_management/common/data_error.dart';
+import 'package:wb_warehouse/data_management/common/request_result.dart';
+import 'package:wb_warehouse/data_management/server_error/content_type_error.dart';
+import 'package:wb_warehouse/data_management/server_error/i_server_error.dart';
+import 'package:wb_warehouse/data_management/server_error/marketplace_type_error.dart';
 import 'package:wb_warehouse/utils/constants.dart';
 
 const authorizationHeaderName = 'Authorization';
@@ -12,6 +18,8 @@ enum NetworkClientType {
   ads,
 }
 
+enum ErrorType { content, marketplace }
+
 class NetworkClient {
   final Dio _dio;
 
@@ -19,56 +27,70 @@ class NetworkClient {
     _initDio();
   }
 
-  Future<T> get<T>({
+  Future<RequestResult> get<T>({
     required String path,
     required NetworkClientType type,
+    required ErrorType errorType,
     Map<String, Object?>? payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
-
     final options = Options(headers: _getRequestHeaders(type));
+
+    RequestResult result;
     try {
       final response = await _dio.get<String>(path, data: payload ?? {}, options: options);
-      final result = _getResponseResult(response.data);
+      result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError {
-      rethrow;
+    } on DioError catch (e, _) {
+      result = _handleError(e, StackTrace.current, errorType);
     }
+
+    return result;
   }
 
-  Future<T> post<T>({
+  Future<RequestResult> post<T>({
     required String path,
     required NetworkClientType type,
+    required ErrorType errorType,
     Map<String, Object?>? payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
     final options = Options(headers: _getRequestHeaders(type));
+
+    RequestResult result;
     try {
       final response = await _dio.post<String>(path, data: payload ?? {}, options: options);
-      final result = _getResponseResult(response.data);
+      result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError {
-      rethrow;
+    } on DioError catch (e, _) {
+      result = _handleError(e, StackTrace.current, errorType);
     }
+
+    return result;
   }
 
-  Future<T> put<T>({
+  Future<RequestResult> put<T>({
     required String path,
     required NetworkClientType type,
+    required ErrorType errorType,
     Map<String, Object?>? payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
     final options = Options(headers: _getRequestHeaders(type));
+
+    RequestResult result;
     try {
       final response = await _dio.put<String>(path, data: payload ?? {}, options: options);
-      final result = _getResponseResult(response.data);
+      result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError {
-      rethrow;
+    } on DioError catch (e, _) {
+      result = _handleError(e, StackTrace.current, errorType);
     }
+
+    return result;
   }
 
   void _initDio() {
@@ -115,5 +137,88 @@ class NetworkClient {
     }
 
     return <String, dynamic>{};
+  }
+
+  RequestResult _handleError(DioError e, StackTrace trace, ErrorType errorType) {
+    ServerError? serverError;
+    try {
+      if (e.response?.data is String) {
+        serverError = _getServerErrorFromJson(
+          Map<String, dynamic>.from(json.decode(e.response!.data as String) as Map<dynamic, dynamic>),
+          errorType,
+        );
+      }
+    } catch (e) {
+      Logger.e(e.toString());
+    }
+
+    if (e.response == null) {
+      return RequestFail(
+        error: DataError(
+          errorCode: ErrorCode.serverUnreachable,
+          message: serverError?.userMessage,
+        ),
+      );
+    }
+
+    switch (e.response!.statusCode) {
+      case 400:
+        final dataError = DataError(
+          errorCode: ErrorCode.badRequest,
+          message: serverError?.userMessage,
+        );
+        return RequestFail(error: dataError);
+      case 401:
+        final dataError = DataError(
+          errorCode: ErrorCode.unauthorized,
+          message: serverError?.userMessage,
+        );
+        return RequestFail(error: dataError);
+      case 403:
+        return RequestFail(
+          error: DataError(
+            errorCode: ErrorCode.permissionDenied,
+            message: serverError?.userMessage,
+          ),
+        );
+      case 404:
+        return RequestFail(
+          error: DataError(
+            errorCode: ErrorCode.notFound,
+            message: serverError?.userMessage,
+          ),
+        );
+      case 500:
+        return RequestFail(
+          error: DataError(
+            errorCode: ErrorCode.internalServerError,
+            message: serverError?.userMessage,
+          ),
+        );
+      case 502:
+      case 503:
+      case 504:
+        return RequestFail(
+          error: DataError(
+            errorCode: ErrorCode.serverUnavailable,
+            message: serverError?.userMessage,
+          ),
+        );
+      default:
+        return RequestFail(
+          error: DataError(
+            errorCode: ErrorCode.serverError,
+          ),
+        );
+    }
+  }
+
+  ServerError _getServerErrorFromJson(Map<String, dynamic> json, ErrorType errorType) {
+    switch (errorType) {
+      case ErrorType.content:
+        return ContentTypeError.fromJson(json);
+      case ErrorType.marketplace:
+        return MarketplaceTypeError.fromJson(json);
+    }
   }
 }
