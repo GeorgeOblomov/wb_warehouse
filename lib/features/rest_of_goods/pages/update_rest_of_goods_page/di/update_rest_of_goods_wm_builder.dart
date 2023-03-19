@@ -6,7 +6,6 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_p
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_model.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_wm.dart';
 import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
-import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 
 UpdateRestOfGoodsWm createUpdateRestOfGoodsWm(
   BuildContext context,
@@ -14,7 +13,7 @@ UpdateRestOfGoodsWm createUpdateRestOfGoodsWm(
 ) {
   return UpdateRestOfGoodsWm(
     initialData,
-    UpdateRestOfGoodsL10n(context.localizations),
+    UpdateRestOfGoodsL10n(context),
     UpdateRestOfGoodsNavigator(context),
     UpdateRestOfGoodsModel(
       context.read<RestOfGoodsRepository>(),

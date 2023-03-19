@@ -39,6 +39,12 @@ class _$AppRouter extends RootStackRouter {
         child: const RestOfGoodsPage(),
       );
     },
+    ProfileRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ProfilePage(),
+      );
+    },
   };
 
   @override
@@ -53,8 +59,8 @@ class _$AppRouter extends RootStackRouter {
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              RestOfGoodsRoute.name,
-              path: 'first',
+              ProfileRoute.name,
+              path: 'second',
               parent: HomeRoute.name,
             ),
             RouteConfig(
@@ -130,4 +136,16 @@ class RestOfGoodsRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'RestOfGoodsRoute';
+}
+
+/// generated route for
+/// [ProfilePage]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute()
+      : super(
+          ProfileRoute.name,
+          path: 'second',
+        );
+
+  static const String name = 'ProfileRoute';
 }

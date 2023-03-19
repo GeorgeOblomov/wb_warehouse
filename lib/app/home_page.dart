@@ -16,7 +16,7 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
     return AutoTabsRouter.tabBar(
       routes: const [
         RestOfGoodsRoute(),
-        RestOfGoodsRoute(),
+        ProfileRoute(),
       ],
       builder: (context, child, controller) {
         final tabsRouter = context.tabsRouter;

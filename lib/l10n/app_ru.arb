@@ -5,7 +5,7 @@
     "profile": "Профиль",
     "empty": "Пусто",
     "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
-    "searchBarHing": "Поиск",
+    "searchBarHint": "Поиск",
     "updateButtonTitle": "Обновить данные",
     "updateRestOfGoodsButtonTitle": "Обновить остатки товаров",
     "restOfGoods": "Остатки товаров",
@@ -27,5 +27,8 @@
     "updateRestOfGoodsBottomButtonTitle": "Обновить",
     "updateRestOfGoodsConfirmDialogTitle": "Вы действительно хотите обновить остатки?",
     "updateRestOfGoodsConfirmDialogAgree": "Да",
-    "updateRestOfGoodsConfirmDialogDisagree": "Нет"
+    "updateRestOfGoodsConfirmDialogDisagree": "Нет",
+    "profilePageThemeItemTitle": "Тема",
+    "profilePageLocaleItemTitle": "Язык",
+    "profilePageLocalesDialogTitle": "Выберите язык"
 }

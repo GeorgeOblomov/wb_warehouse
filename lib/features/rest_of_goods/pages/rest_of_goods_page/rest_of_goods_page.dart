@@ -34,6 +34,7 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       isEnabled: true,
                       suffixIcon: IconButton(
+                        splashRadius: 12,
                         onPressed: wm.showFiltersDialog,
                         icon: SvgPicture.asset(Assets.filtersIcon, color: wm.filtersIconColor),
                       ),

@@ -27,5 +27,8 @@
     "updateRestOfGoodsBottomButtonTitle": "Update",
     "updateRestOfGoodsConfirmDialogTitle": "Do you really want to update?",
     "updateRestOfGoodsConfirmDialogAgree": "Yes",
-    "updateRestOfGoodsConfirmDialogDisagree": "No"
+    "updateRestOfGoodsConfirmDialogDisagree": "No",
+    "profilePageThemeItemTitle": "Theme",
+    "profilePageLocaleItemTitle": "Locale",
+    "profilePageLocalesDialogTitle": "Choose language"
 }

@@ -27,9 +27,10 @@ class SearchBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final appTheme = context.read<ThemeProvider>().appTheme;
 
-    return Material(
-      child: Padding(
-        padding: padding ?? const EdgeInsets.all(16),
+    return Padding(
+      padding: padding ?? const EdgeInsets.all(16),
+      child: Material(
+        borderRadius: BorderRadius.circular(12),
         child: TextFormField(
           controller: textEditingController,
           decoration: InputDecoration(

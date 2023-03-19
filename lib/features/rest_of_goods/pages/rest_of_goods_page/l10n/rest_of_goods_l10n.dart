@@ -1,25 +1,26 @@
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/locale/base_l10n.dart';
 
 class RestOfGoodsL10n extends BaseL10n {
-  RestOfGoodsL10n(super.localizations);
+  RestOfGoodsL10n(super.context);
 
-  String get updateDataButtonTitle => localizations.updateButtonTitle;
+  String get updateDataButtonTitle => context.localizations.updateButtonTitle;
 
-  String get updateRestOfGoodsButtonTitle => localizations.updateRestOfGoodsButtonTitle;
+  String get updateRestOfGoodsButtonTitle => context.localizations.updateRestOfGoodsButtonTitle;
 
-  String get nameColumnTitle => localizations.restOfGoodsName;
+  String get nameColumnTitle => context.localizations.restOfGoodsName;
 
-  String get supplierArticleColumnTitle => localizations.restOfGoodsSupplierArticle;
+  String get supplierArticleColumnTitle => context.localizations.restOfGoodsSupplierArticle;
 
-  String get barcodeColumnTitle => localizations.restOfGoodsBarcode;
+  String get barcodeColumnTitle => context.localizations.restOfGoodsBarcode;
 
-  String get quantityColumnTitle => localizations.restOfGoodsQuantity;
+  String get quantityColumnTitle => context.localizations.restOfGoodsQuantity;
 
-  String get costPriceColumnTitle => localizations.restOfGoodsCostPrice;
+  String get costPriceColumnTitle => context.localizations.restOfGoodsCostPrice;
 
-  String get totalPriceColumnTitle => localizations.restOfGoodsTotalCostPrice;
+  String get totalPriceColumnTitle => context.localizations.restOfGoodsTotalCostPrice;
 
-  String get pictureColumnTitle => localizations.restOfGoodsPicture;
+  String get pictureColumnTitle => context.localizations.restOfGoodsPicture;
 
-  String get updateRestOfGoods => localizations.updateRestOfGoods;
+  String get updateRestOfGoods => context.localizations.updateRestOfGoods;
 }

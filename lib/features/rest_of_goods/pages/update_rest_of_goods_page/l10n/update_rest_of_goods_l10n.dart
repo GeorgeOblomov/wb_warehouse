@@ -1,15 +1,16 @@
+import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/locale/base_l10n.dart';
 
 class UpdateRestOfGoodsL10n extends BaseL10n {
-  UpdateRestOfGoodsL10n(super.localizations);
+  UpdateRestOfGoodsL10n(super.context);
 
-  String get pageTitle => localizations.updateRestOfGoodsPageTitle;
+  String get pageTitle => context.localizations.updateRestOfGoodsPageTitle;
 
-  String get bottomButtonTitle => localizations.updateRestOfGoodsBottomButtonTitle;
+  String get bottomButtonTitle => context.localizations.updateRestOfGoodsBottomButtonTitle;
 
-  String get confirmDialogTitle => localizations.updateRestOfGoodsConfirmDialogTitle;
+  String get confirmDialogTitle => context.localizations.updateRestOfGoodsConfirmDialogTitle;
 
-  String get confirmDialogAgree => localizations.updateRestOfGoodsConfirmDialogAgree;
+  String get confirmDialogAgree => context.localizations.updateRestOfGoodsConfirmDialogAgree;
 
-  String get confirmDialogDisagree => localizations.updateRestOfGoodsConfirmDialogDisagree;
+  String get confirmDialogDisagree => context.localizations.updateRestOfGoodsConfirmDialogDisagree;
 }

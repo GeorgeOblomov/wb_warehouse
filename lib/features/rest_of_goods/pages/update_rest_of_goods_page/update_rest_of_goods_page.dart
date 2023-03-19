@@ -19,57 +19,70 @@ class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
   Widget build(wm) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(wm.pageTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(wm.pageTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
+        ),
       ),
-      body: Column(
-        children: [
-          StreamBuilder<bool>(
-            initialData: false,
-            stream: wm.loadingStream,
-            builder: (context, isLoading) {
-              if (isLoading.data ?? true) {
-                return const Center(child: ProgressIndicatorWidget());
-              }
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            StreamBuilder<bool>(
+              initialData: false,
+              stream: wm.loadingStream,
+              builder: (context, isLoading) {
+                if (isLoading.data ?? true) {
+                  return const Center(child: ProgressIndicatorWidget());
+                }
 
-              return StreamBuilder<Iterable<RestGoodItemData>>(
-                stream: wm.restOfGoodsItemsStream,
-                builder: (_, restOfGoodsData) {
-                  if (restOfGoodsData.hasData && (restOfGoodsData.data?.isNotEmpty ?? false)) {
-                    return Expanded(
-                      child: GridView.count(
-                        padding: const EdgeInsets.all(16),
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 16,
-                        crossAxisSpacing: 16,
-                        childAspectRatio: 5,
-                        children: restOfGoodsData.data!.map((e) {
-                          return RestGoodItemWidget(
-                            url: e.url,
-                            name: e.name,
-                            barcode: e.barcode,
-                            amount: e.amount,
-                            onDelete: () => wm.onDeleteItem(e),
-                            onAmountChanged: (value) => wm.onItemAmountChange(e, value),
-                            key: ValueKey(e.barcode),
-                          );
-                        }).toList(),
-                      ),
-                    );
-                  }
+                return StreamBuilder<Iterable<RestGoodItemData>>(
+                  stream: wm.restOfGoodsItemsStream,
+                  builder: (_, restOfGoodsData) {
+                    if (restOfGoodsData.hasData && (restOfGoodsData.data?.isNotEmpty ?? false)) {
+                      return Expanded(
+                        child: GridView.count(
+                          padding: const EdgeInsets.all(16),
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 16,
+                          crossAxisSpacing: 16,
+                          childAspectRatio: 5,
+                          children: restOfGoodsData.data!.map((e) {
+                            return RestGoodItemWidget(
+                              url: e.url,
+                              name: e.name,
+                              barcode: e.barcode,
+                              amount: e.amount,
+                              onDelete: () => wm.onDeleteItem(e),
+                              onAmountChanged: (value) => wm.onItemAmountChange(e, value),
+                              key: ValueKey(e.barcode),
+                            );
+                          }).toList(),
+                        ),
+                      );
+                    }
 
-                  return const Center(child: EmptyWidget());
-                },
-              );
-            },
-          ),
-          const SizedBox(height: 16),
-          CommonButton(
-            title: wm.bottomButtonTitle,
-            onTap: wm.onContinue,
-            width: 150,
-          ),
-          const SizedBox(height: 16),
-        ],
+                    return const Expanded(child: EmptyWidget());
+                  },
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            StreamBuilder<bool>(
+              initialData: true,
+              stream: wm.canContinueStream,
+              builder: (context, canContinue) {
+                return CommonButton(
+                  title: wm.bottomButtonTitle,
+                  isActive: canContinue.data ?? false,
+                  onTap: wm.onContinue,
+                  width: 150,
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
       ),
     );
   }

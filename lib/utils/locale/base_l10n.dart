@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BaseL10n {
   @protected
-  final AppLocalizations localizations;
+  final BuildContext context;
 
-  BaseL10n(this.localizations);
+  BaseL10n(this.context);
 }

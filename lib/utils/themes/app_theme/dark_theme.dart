@@ -13,13 +13,13 @@ class DarkTheme extends BaseTheme {
   Color searchBarElementsColor = const Color(0xFF7C7E92);
 
   @override
-  Color searchBarFillColor = const Color(0xFF4CAF50);
+  Color searchBarFillColor = const Color(0xFFF5F5F5);
 
   @override
   Color filtersIconColor = const Color(0xFF4CAF50);
 
   @override
-  Color tableRowFillColor = const Color(0xFFF5F5F5);
+  Color tableRowFillColor = const Color(0xFF2E2E32);
 
   @override
   Color progressIndicatorColor = const Color(0xFF4CAF50);
@@ -40,5 +40,8 @@ class DarkTheme extends BaseTheme {
   Color networkPictureCellErrorIconColor = Colors.red;
 
   @override
-  Color restGoodItemWidgetBackgroundColor = const Color(0xFFF5F5F5);
+  Color restGoodItemWidgetBackgroundColor = const Color(0xFF2E2E32);
+
+  @override
+  Color menuBorderColor = const Color(0xFFf4b038);
 }
