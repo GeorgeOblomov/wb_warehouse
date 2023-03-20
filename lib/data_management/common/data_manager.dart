@@ -23,6 +23,8 @@ class DataManager {
     switch (type) {
       case DataProviderType.restOfGoods:
         return RestOfGoodsDataProvider(networkClient: _networkClient);
+      case DataProviderType.pricesAndDiscounts:
+        return PricesAndDiscountsDataProvider(networkClient: _networkClient);
       default:
         throw ArgumentError('Cannot create provider of type ${type.toString()}');
     }

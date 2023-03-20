@@ -59,26 +59,23 @@ class RestGoodItemWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text('${context.localizations.updateRestOfGoodsBarcode}: $barcode', overflow: TextOverflow.ellipsis),
+                const Spacer(),
+                TextButton(
+                  onPressed: onDelete,
+                  style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                  child: Text(context.localizations.delete, textAlign: TextAlign.start),
+                ),
               ],
             ),
           ),
           const SizedBox(width: 16),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: 30,
-                child: TextFormField(
-                  initialValue: amount.toString(),
-                  onChanged: onAmountChanged,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                ),
-              ),
-              TextButton(
-                onPressed: onDelete,
-                child: Text(context.localizations.delete),
-              ),
-            ],
+          SizedBox(
+            width: 30,
+            child: TextFormField(
+              initialValue: amount.toString(),
+              onChanged: onAmountChanged,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            ),
           ),
         ],
       ),

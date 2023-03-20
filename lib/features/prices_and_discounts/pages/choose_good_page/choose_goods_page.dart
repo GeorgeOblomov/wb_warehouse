@@ -8,6 +8,6 @@ class ChooseGoodsPage extends ElementaryWidget<ChooseGoodsWm> {
 
   @override
   Widget build(wm) {
-    throw UnimplementedError();
+    return Scaffold(body: Container());
   }
 }

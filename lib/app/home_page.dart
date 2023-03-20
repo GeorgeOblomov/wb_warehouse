@@ -16,6 +16,7 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
     return AutoTabsRouter.tabBar(
       routes: const [
         RestOfGoodsRoute(),
+        ChooseGoodsRoute(),
         ProfileRoute(),
       ],
       builder: (context, child, controller) {
@@ -29,7 +30,14 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
                 icon: const Icon(Icons.warehouse_outlined),
                 label: context.localizations.restOfGoods,
               ),
-              BottomNavigationBarItem(icon: const Icon(Icons.person_outline), label: context.localizations.profile),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.price_change_outlined),
+                label: context.localizations.priceAndDiscounts,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.person_outline),
+                label: context.localizations.profile,
+              ),
             ],
             onTap: tabsRouter.setActiveIndex,
             currentIndex: tabsRouter.activeIndex,

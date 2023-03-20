@@ -39,6 +39,12 @@ class _$AppRouter extends RootStackRouter {
         child: const RestOfGoodsPage(),
       );
     },
+    ChooseGoodsRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ChooseGoodsPage(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
@@ -59,8 +65,13 @@ class _$AppRouter extends RootStackRouter {
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              ProfileRoute.name,
+              ChooseGoodsRoute.name,
               path: 'second',
+              parent: HomeRoute.name,
+            ),
+            RouteConfig(
+              ProfileRoute.name,
+              path: 'third',
               parent: HomeRoute.name,
             ),
             RouteConfig(
@@ -139,12 +150,24 @@ class RestOfGoodsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ChooseGoodsPage]
+class ChooseGoodsRoute extends PageRouteInfo<void> {
+  const ChooseGoodsRoute()
+      : super(
+          ChooseGoodsRoute.name,
+          path: 'second',
+        );
+
+  static const String name = 'ChooseGoodsRoute';
+}
+
+/// generated route for
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
-          path: 'second',
+          path: 'third',
         );
 
   static const String name = 'ProfileRoute';
