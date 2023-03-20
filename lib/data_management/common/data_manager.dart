@@ -1,5 +1,6 @@
 import 'package:wb_warehouse/data_management/common/data_provider.dart';
 import 'package:wb_warehouse/data_management/common/network_client.dart';
+import 'package:wb_warehouse/features/prices_and_discounts/data_providers/prices_and_discounts_data_provider.dart';
 import 'package:wb_warehouse/features/rest_of_goods/data_providers/rest_of_goods_data_provider.dart';
 
 class DataManager {
@@ -10,6 +11,9 @@ class DataManager {
 
   RestOfGoodsDataProvider get restOfGoodsDataProvider =>
       _getOrCreateProvider(DataProviderType.restOfGoods) as RestOfGoodsDataProvider;
+
+  PricesAndDiscountsDataProvider get pricesAndDiscountsDataProvider =>
+      _getOrCreateProvider(DataProviderType.pricesAndDiscounts) as PricesAndDiscountsDataProvider;
 
   DataProvider _getOrCreateProvider(DataProviderType type) {
     if (_providers.containsKey(type)) {
