@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:surf_logger/surf_logger.dart';
+import 'package:wb_warehouse/common/base_row_data.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/base_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/check_box_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/network_image_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/cell/text_cell_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
+import 'package:wb_warehouse/common/wm/base_goods_wm.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/l10n/rest_of_goods_l10n.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/navigation/rest_of_goods_navigator.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_model.dart';
@@ -17,24 +17,15 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/res
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/table_data/rest_of_goods_row_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_item_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/update_rest_of_goods_initial_data.dart';
-import 'package:wb_warehouse/utils/error_handling/wb_error_handler.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
-class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
-  final searchTextController = TextEditingController();
-
+class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
   final RestOfGoodsL10n _l10n;
   final RestOfGoodsNavigator _navigator;
 
-  final _loadingController = StreamController<bool>.broadcast();
-  final _tableDataController = BehaviorSubject<TableWidgetData>();
   final _filterController = BehaviorSubject<FilterType>.seeded(FilterType.name);
   final _isUpdataButtonActiveController = StreamController<bool>.broadcast();
-
-  var _loadedRows = <RestOfGoodsRowData>[];
-
-  final _errorHandler = WBErrorHandler();
 
   RestOfGoodsWm(
     this._l10n,
@@ -42,8 +33,8 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     super.model,
   );
 
-  Stream<bool> get loadingStream => _loadingController.stream;
-  Stream<TableWidgetData> get tableDataStream => _tableDataController.stream;
+  List<RestOfGoodsRowData> get rows => loadedRows as List<RestOfGoodsRowData>;
+
   Stream<bool> get isUpdataButtonActiveStream => _isUpdataButtonActiveController.stream;
 
   String get updateDataButtonTitle => _l10n.updateDataButtonTitle;
@@ -52,18 +43,9 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   Color get filtersIconColor => context.watch<ThemeProvider>().appTheme.filtersIconColor;
 
   @override
-  void initWidgetModel() {
-    super.initWidgetModel();
-    _initialLoading();
-  }
-
-  @override
   void dispose() {
-    _loadingController.close();
-    _tableDataController.close();
     _filterController.close();
     _isUpdataButtonActiveController.close();
-    searchTextController.dispose();
     super.dispose();
   }
 
@@ -78,12 +60,8 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     _searchProccess(searchTextController.text);
   }
 
-  void onDataUpdateTap() {
-    _initialLoading();
-  }
-
   void onUpdateRestOfGoodsTap() {
-    final selectedRows = _loadedRows.where((row) => row.isSelected);
+    final selectedRows = rows.where((row) => row.isSelected);
     final initialData = UpdateRestOfGoodsInitialData(itemsData: selectedRows.map((row) {
       return RestGoodItemData(
         url: row.pictureUrl,
@@ -98,27 +76,14 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   void onSearchInput(String query) => _searchProccess(query);
 
   void _searchProccess(String query) {
-    final suggestions = _loadedRows.where((row) {
+    final suggestions = rows.where((row) {
       final filteredRowData = _getFilteredRowData(row).toLowerCase();
       final input = query.toLowerCase();
 
       return filteredRowData.contains(input);
-    });
+    }).toList();
 
-    _tableDataController.add(_getTableData(suggestions));
-  }
-
-  Future<void> _initialLoading() async {
-    _loadingController.add(true);
-    try {
-      _loadedRows = await model.getWarehouseGoodsTableData();
-      _tableDataController.add(_getTableData(_loadedRows));
-    } catch (e, st) {
-      Logger.e('Error on loading rest of goods data: $e.\n$st');
-      _errorHandler.handleError(context, e);
-    } finally {
-      _loadingController.add(false);
-    }
+    tableDataController.add(organizeTableData(suggestions));
   }
 
   String _getFilteredRowData(RestOfGoodsRowData rowData) {
@@ -132,7 +97,10 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
     }
   }
 
-  TableWidgetData _getTableData(Iterable<RestOfGoodsRowData> data) {
+  @override
+  TableWidgetData organizeTableData(List<BaseRowData> data) {
+    final loadedData = data as List<RestOfGoodsRowData>;
+
     return TableWidgetData(
       columnNames: [
         _l10n.pictureColumnTitle,
@@ -142,7 +110,7 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
         _l10n.quantityColumnTitle,
         _l10n.updateRestOfGoods,
       ],
-      rows: data
+      rows: loadedData
           .map((e) => <BaseCellWidget>[
                 NetworkImageCellWidget(
                   url: e.pictureUrl,
@@ -163,12 +131,12 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   }
 
   void _onSelectItem(RestOfGoodsRowData rowData, bool? isSelected) {
-    _loadedRows.firstWhere((row) => row.barcode == rowData.barcode).isSelected = isSelected ?? false;
+    rows.firstWhere((row) => row.barcode == rowData.barcode).isSelected = isSelected ?? false;
     _setUpUpdateButtonAvailability();
   }
 
   void _setUpUpdateButtonAvailability() {
-    final isAvailable = _loadedRows.any((row) => row.isSelected);
+    final isAvailable = rows.any((row) => row.isSelected);
     _isUpdataButtonActiveController.add(isAvailable);
   }
 
@@ -184,7 +152,6 @@ class RestOfGoodsWm extends WidgetModel<RestOfGoodsPage, RestOfGoodsModel> {
   }
 
   void _onFinishUpdating() {
-    _initialLoading();
     searchTextController.clear();
   }
 }

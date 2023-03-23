@@ -5,11 +5,15 @@ import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_pag
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/l10n/choose_goods_l10n.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/navigation/choose_goods_navigator.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/repositories/prices_and_discounts_repository.dart';
+import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
 
 ChooseGoodsWm createChooseGoodsWm(BuildContext context) {
   return ChooseGoodsWm(
     ChooseGoodsL10n(context),
     ChooseGoodsNavigator(context),
-    ChooseGoodsModel(context.read<PricesAndDiscountsRepository>()),
+    ChooseGoodsModel(
+      context.read<PricesAndDiscountsRepository>(),
+      context.read<RestOfGoodsRepository>(),
+    ),
   );
 }
