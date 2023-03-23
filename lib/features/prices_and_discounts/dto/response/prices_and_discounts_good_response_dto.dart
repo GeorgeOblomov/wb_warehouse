@@ -6,16 +6,16 @@ part 'prices_and_discounts_good_response_dto.g.dart';
 @immutable
 @JsonSerializable(createToJson: false)
 class PricesAndDiscountsGoodResponseDto {
-  final int nmID;
+  final int nmId;
   final num price;
   final int discount;
-  final num promocode;
+  final num promoCode;
 
   const PricesAndDiscountsGoodResponseDto({
-    required this.nmID,
+    required this.nmId,
     required this.price,
     required this.discount,
-    required this.promocode,
+    required this.promoCode,
   });
 
   factory PricesAndDiscountsGoodResponseDto.fromJson(Map<String, dynamic> json) =>

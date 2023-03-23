@@ -4,7 +4,6 @@ import 'package:wb_warehouse/features/prices_and_discounts/repositories/prices_a
 import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
 
 class ChooseGoodsModel extends BaseGoodsModel {
-  // ignore: unused_field
   final PricesAndDiscountsRepository _pricesAndDiscountsRepository;
   final RestOfGoodsRepository _restOfGoodsRepository;
 
@@ -15,16 +14,21 @@ class ChooseGoodsModel extends BaseGoodsModel {
     final warehouseGoods = await _restOfGoodsRepository.getWarehouseGoods();
     final vendorCodes = warehouseGoods.data.cards.map((card) => card.vendorCode);
     final warehouseCardsDto = await getWarehouseCards(vendorCodes);
+    final pricesAndDiscountsDtos = await _pricesAndDiscountsRepository.getPricesAndDiscountsGoods();
 
     final rowData = warehouseCardsDto.data.map((card) {
       final barcode = card.sizes.first.skus.first;
+
+      final nmID = card.nmID;
+      final price = pricesAndDiscountsDtos.singleWhere((e) => e.nmId == nmID).price;
+      final discount = pricesAndDiscountsDtos.singleWhere((e) => e.nmId == nmID).discount;
 
       return PricesAndDiscountsGoodsRowData(
         pictureUrl: getMainPictureUrl(card.mediaFiles),
         name: getName(card.characteristics),
         barcode: barcode,
-        price: 2,
-        discount: 2,
+        price: price,
+        discount: discount,
       );
     }).toList();
 

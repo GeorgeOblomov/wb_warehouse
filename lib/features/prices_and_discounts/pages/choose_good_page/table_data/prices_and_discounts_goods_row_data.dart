@@ -4,6 +4,7 @@ class PricesAndDiscountsGoodsRowData extends BaseRowData {
   final String barcode;
   final num price;
   final int discount;
+  bool isSelected;
 
   PricesAndDiscountsGoodsRowData({
     String? pictureUrl,
@@ -11,5 +12,6 @@ class PricesAndDiscountsGoodsRowData extends BaseRowData {
     required this.barcode,
     required this.price,
     required this.discount,
+    this.isSelected = false,
   }) : super(pictureUrl: pictureUrl, name: name);
 }

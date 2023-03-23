@@ -32,5 +32,11 @@
     "profilePageLocaleItemTitle": "Locale",
     "profilePageLocalesDialogTitle": "Choose language",
     "somethingWentWrong": "Something went wrong",
-    "priceAndDiscounts": "Price and discounts"
+    "priceAndDiscounts": "Price and discounts",
+    "pricesAndDiscountsPicture": "Picture",
+    "pricesAndDiscountsName": "Name",
+    "pricesAndDiscountsBarcode": "Barcode",
+    "pricesAndDiscountsPrice": "Price",
+    "pricesAndDiscountsDiscount": "Discount",
+    "pricesAndDiscountsUpdate": "Update prices and discounts"
 }

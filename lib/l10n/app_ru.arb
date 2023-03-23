@@ -32,5 +32,11 @@
     "profilePageLocaleItemTitle": "Язык",
     "profilePageLocalesDialogTitle": "Выберите язык",
     "somethingWentWrong": "Что-то пошло не так",
-    "priceAndDiscounts": "Цены и скидки"
+    "priceAndDiscounts": "Цены и скидки",
+    "pricesAndDiscountsPicture": "Картинка",
+    "pricesAndDiscountsName": "Имя",
+    "pricesAndDiscountsBarcode": "Баркод",
+    "pricesAndDiscountsPrice": "Цена",
+    "pricesAndDiscountsDiscount": "Скидка",
+    "pricesAndDiscountsUpdate": "Обновить цены и скидки"
 }

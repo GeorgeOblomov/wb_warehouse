@@ -9,8 +9,8 @@ part of 'prices_and_discounts_good_response_dto.dart';
 PricesAndDiscountsGoodResponseDto _$PricesAndDiscountsGoodResponseDtoFromJson(
         Map<String, dynamic> json) =>
     PricesAndDiscountsGoodResponseDto(
-      nmID: json['nmID'] as int,
+      nmId: json['nmId'] as int,
       price: json['price'] as num,
       discount: json['discount'] as int,
-      promocode: json['promocode'] as num,
+      promoCode: json['promoCode'] as num,
     );
