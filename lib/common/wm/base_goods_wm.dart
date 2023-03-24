@@ -14,15 +14,16 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
   final searchTextController = TextEditingController();
 
   @protected
-  final loadingController = StreamController<bool>.broadcast();
-  @protected
-  final tableDataController = BehaviorSubject<TableWidgetData>();
-
-  @protected
   final errorHandler = WBErrorHandler();
 
   @protected
   var loadedRows = <BaseRowData>[];
+
+  @protected
+  final loadingController = StreamController<bool>.broadcast();
+  @protected
+  final tableDataController = BehaviorSubject<TableWidgetData>();
+  final _isUpdataButtonActiveController = StreamController<bool>.broadcast();
 
   BaseGoodsWm(super.model);
 
@@ -30,6 +31,7 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
 
   Stream<bool> get loadingStream => loadingController.stream;
   Stream<TableWidgetData> get tableDataStream => tableDataController.stream;
+  Stream<bool> get isUpdataButtonActiveStream => _isUpdataButtonActiveController.stream;
 
   @override
   void initWidgetModel() {
@@ -42,6 +44,7 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
     loadingController.close();
     tableDataController.close();
     searchTextController.dispose();
+    _isUpdataButtonActiveController.close();
     super.dispose();
   }
 
@@ -70,5 +73,15 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
     } finally {
       loadingController.add(false);
     }
+  }
+
+  void onSelectItem(BaseRowData rowData, bool? isSelected) {
+    loadedRows.firstWhere((row) => row.barcode == rowData.barcode).isSelected = isSelected ?? false;
+    _setUpUpdateButtonAvailability();
+  }
+
+  void _setUpUpdateButtonAvailability() {
+    final isAvailable = loadedRows.any((row) => row.isSelected);
+    _isUpdataButtonActiveController.add(isAvailable);
   }
 }

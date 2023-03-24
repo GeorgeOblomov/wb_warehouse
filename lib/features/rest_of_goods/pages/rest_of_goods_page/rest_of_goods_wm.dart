@@ -25,7 +25,6 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
   final RestOfGoodsNavigator _navigator;
 
   final _filterController = BehaviorSubject<FilterType>.seeded(FilterType.name);
-  final _isUpdataButtonActiveController = StreamController<bool>.broadcast();
 
   RestOfGoodsWm(
     this._l10n,
@@ -35,8 +34,6 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
 
   List<RestOfGoodsRowData> get rows => loadedRows as List<RestOfGoodsRowData>;
 
-  Stream<bool> get isUpdataButtonActiveStream => _isUpdataButtonActiveController.stream;
-
   String get updateDataButtonTitle => _l10n.updateDataButtonTitle;
   String get updateRestOfGoodsButtonTitle => _l10n.updateRestOfGoodsButtonTitle;
 
@@ -45,7 +42,6 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
   @override
   void dispose() {
     _filterController.close();
-    _isUpdataButtonActiveController.close();
     super.dispose();
   }
 
@@ -120,20 +116,10 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
                 TextCellWidget(title: e.supplierArticle),
                 TextCellWidget(title: e.barcode),
                 TextCellWidget(title: e.quantity.toString()),
-                CheckBoxCellWidget(initialValue: e.isSelected, onChanged: (value) => _onSelectItem(e, value)),
+                CheckBoxCellWidget(initialValue: e.isSelected, onChanged: (value) => onSelectItem(e, value)),
               ])
           .toList(),
     );
-  }
-
-  void _onSelectItem(RestOfGoodsRowData rowData, bool? isSelected) {
-    rows.firstWhere((row) => row.barcode == rowData.barcode).isSelected = isSelected ?? false;
-    _setUpUpdateButtonAvailability();
-  }
-
-  void _setUpUpdateButtonAvailability() {
-    final isAvailable = rows.any((row) => row.isSelected);
-    _isUpdataButtonActiveController.add(isAvailable);
   }
 
   String _getFilterTitle(FilterType type) {

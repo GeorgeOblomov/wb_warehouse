@@ -34,6 +34,17 @@ class ChooseGoodsPage extends ElementaryWidget<ChooseGoodsWm> {
                       onChanged: wm.onSearchInput,
                     ),
                   ),
+                  StreamBuilder<bool>(
+                    initialData: false,
+                    stream: wm.isUpdataButtonActiveStream,
+                    builder: (context, isActive) {
+                      return CommonButton(
+                        title: wm.updatePricesAndDiscountsButtonTitle,
+                        isActive: isActive.data ?? false,
+                        onTap: wm.onUpdatePricesAndDiscountsTap,
+                      );
+                    },
+                  ),
                   const SizedBox(width: 16),
                   CommonButton(
                     title: wm.updateDataButtonTitle,

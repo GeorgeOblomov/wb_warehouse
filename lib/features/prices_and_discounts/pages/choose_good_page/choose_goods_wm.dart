@@ -22,6 +22,8 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
     super.model,
   );
 
+  String get updatePricesAndDiscountsButtonTitle => _l10n.updatePricesAndDiscountsButtonTitle;
+
   String get updateDataButtonTitle => _l10n.updateDataButtonTitle;
 
   void onSearchInput(String query) {}
@@ -49,9 +51,11 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
                 TextCellWidget(title: e.barcode),
                 TextCellWidget(title: e.price.toString()),
                 TextCellWidget(title: e.discount.toString()),
-                CheckBoxCellWidget(initialValue: e.isSelected, onChanged: (value) {}),
+                CheckBoxCellWidget(initialValue: e.isSelected, onChanged: (value) => onSelectItem(e, value)),
               ])
           .toList(),
     );
   }
+
+  void onUpdatePricesAndDiscountsTap() {}
 }

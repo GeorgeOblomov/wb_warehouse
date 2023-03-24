@@ -17,4 +17,6 @@ class ChooseGoodsL10n extends BaseL10n {
   String get discountColumnTitle => context.localizations.pricesAndDiscountsDiscount;
 
   String get updatePriceAndDiscountColumnTitle => context.localizations.pricesAndDiscountsUpdate;
+
+  String get updatePricesAndDiscountsButtonTitle => context.localizations.pricesAndDiscountsUpdate;
 }
