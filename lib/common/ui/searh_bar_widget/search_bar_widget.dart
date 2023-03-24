@@ -52,6 +52,7 @@ class SearchBarWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
           ),
+          style: TextStyle(color: appTheme.contentColor),
           readOnly: !isEnabled,
           onChanged: onChanged,
           onTap: onTap,

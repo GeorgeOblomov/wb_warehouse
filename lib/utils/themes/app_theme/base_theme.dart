@@ -9,6 +9,7 @@ abstract class BaseTheme {
   abstract Color searchBarFillColor;
   abstract Color searchBarElementsColor;
   abstract Color filtersIconColor;
+  abstract Color contentColor;
 
   /// Table widget.
   abstract Color tableRowFillColor;
