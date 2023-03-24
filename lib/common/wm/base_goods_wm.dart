@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/common/base_row_data.dart';
+import 'package:wb_warehouse/common/ui/table_widget/network_picture_dialog.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
 import 'package:wb_warehouse/data_management/models/base_goods_model.dart';
 import 'package:wb_warehouse/utils/error_handling/wb_error_handler.dart';
@@ -46,6 +47,15 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
 
   void onDataUpdateTap() {
     initialLoading();
+  }
+
+  void onPictureTap(String url) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return NetworkPictureDialog(url: url);
+      },
+    );
   }
 
   @protected

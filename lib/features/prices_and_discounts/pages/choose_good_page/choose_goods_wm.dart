@@ -43,7 +43,7 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
           .map((e) => <BaseCellWidget>[
                 NetworkImageCellWidget(
                   url: e.pictureUrl,
-                  onTap: () {},
+                  onTap: () => onPictureTap(e.pictureUrl!),
                 ),
                 TextCellWidget(title: e.name),
                 TextCellWidget(title: e.barcode),

@@ -114,7 +114,7 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
           .map((e) => <BaseCellWidget>[
                 NetworkImageCellWidget(
                   url: e.pictureUrl,
-                  onTap: () => _onPictureTap(e.pictureUrl!),
+                  onTap: () => onPictureTap(e.pictureUrl!),
                 ),
                 TextCellWidget(title: e.name),
                 TextCellWidget(title: e.supplierArticle),
@@ -124,10 +124,6 @@ class RestOfGoodsWm extends BaseGoodsWm<RestOfGoodsPage, RestOfGoodsModel> {
               ])
           .toList(),
     );
-  }
-
-  void _onPictureTap(String url) {
-    _navigator.showPictureDialog(url);
   }
 
   void _onSelectItem(RestOfGoodsRowData rowData, bool? isSelected) {
