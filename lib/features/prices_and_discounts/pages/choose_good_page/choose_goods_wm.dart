@@ -26,7 +26,15 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
 
   String get updateDataButtonTitle => _l10n.updateDataButtonTitle;
 
-  void onSearchInput(String query) {}
+  void onSearchInput(String query) {
+    final suggestions = loadedRows.where((row) {
+      final input = query.toLowerCase();
+
+      return row.name.contains(input);
+    }).toList();
+
+    tableDataController.add(organizeTableData(suggestions));
+  }
 
   @override
   TableWidgetData organizeTableData(List<BaseRowData> data) {
