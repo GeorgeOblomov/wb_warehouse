@@ -12,6 +12,6 @@ class TextCellWidget extends BaseCellWidget {
 
   @override
   Widget child(BuildContext context) {
-    return Text(title);
+    return SelectableText(title);
   }
 }
