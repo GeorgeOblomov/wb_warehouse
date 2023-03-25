@@ -33,6 +33,7 @@ class CommonButton extends StatelessWidget {
         width: width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
             if (leading != null) ...[leading!, const SizedBox(width: 10)],
             Text(

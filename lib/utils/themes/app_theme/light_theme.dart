@@ -44,4 +44,7 @@ class LightTheme extends BaseTheme {
 
   @override
   Color menuBorderColor = const Color(0xFFf4b038);
+
+  @override
+  Color contentColor = Colors.black;
 }

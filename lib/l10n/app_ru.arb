@@ -31,5 +31,21 @@
     "profilePageThemeItemTitle": "Тема",
     "profilePageLocaleItemTitle": "Язык",
     "profilePageLocalesDialogTitle": "Выберите язык",
-    "somethingWentWrong": "Что-то пошло не так"
+    "somethingWentWrong": "Что-то пошло не так",
+    "priceAndDiscounts": "Цены и скидки",
+    "pricesAndDiscountsPicture": "Картинка",
+    "pricesAndDiscountsName": "Имя",
+    "pricesAndDiscountsBarcode": "Баркод",
+    "pricesAndDiscountsPrice": "Цена",
+    "pricesAndDiscountsDiscount": "Скидка",
+    "pricesAndDiscountsUpdate": "Обновить цены и скидки",
+    "priceAndDiscountDetailsPageTitle": "Обновить цену и скидку для  {priceAndDiscountGoodTitle}",
+    "@priceAndDiscountGoodTitle": {
+        "placeHolders": {}
+    },
+    "goodsToUpdatePageTitle": "Товары к обновлению",
+    "goodsToUpdateUpdateButtonTitle": "Обновить цены и скидки",
+    "goodsToUpdateBarcode": "Баркод",
+    "goodsToUpdatePrice": "Цена",
+    "goodsToUpdateDiscount": "Скидка"
 }

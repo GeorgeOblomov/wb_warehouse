@@ -1,15 +1,17 @@
 import 'package:wb_warehouse/common/base_row_data.dart';
 
-class RestOfGoodsRowData extends BaseRowData {
-  final String supplierArticle;
-  final int quantity;
+class PricesAndDiscountsGoodsRowData extends BaseRowData {
+  final int nmID;
+  final num price;
+  final int discount;
 
-  RestOfGoodsRowData({
+  PricesAndDiscountsGoodsRowData({
+    required this.nmID,
     String? pictureUrl,
     required String name,
-    required this.supplierArticle,
     required String barcode,
-    required this.quantity,
+    required this.price,
+    required this.discount,
     bool? isSelected,
   }) : super(
           pictureUrl: pictureUrl,
