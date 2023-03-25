@@ -10,10 +10,11 @@ import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_pag
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/l10n/choose_goods_l10n.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/navigation/choose_goods_navigator.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/table_data/prices_and_discounts_goods_row_data.dart';
+import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/models/good_to_update_item_data.dart.dart';
+import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/models/goods_to_update_initial_data.dart';
 
 class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
   final ChooseGoodsL10n _l10n;
-  // ignore: unused_field
   final ChooseGoodsNavigator _navigator;
 
   ChooseGoodsWm(
@@ -65,5 +66,20 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
     );
   }
 
-  void onUpdatePricesAndDiscountsTap() {}
+  void onUpdatePricesAndDiscountsTap() {
+    final rows = loadedRows as List<PricesAndDiscountsGoodsRowData>;
+    final selectedRows = rows.where((row) => row.isSelected);
+    final goodsToUpdate = selectedRows.map((row) {
+      return GoodToUpdateItemData(
+        nmID: row.nmID,
+        pictureUrl: row.pictureUrl,
+        name: row.name,
+        barcode: row.barcode,
+        price: row.price,
+        discount: row.discount,
+      );
+    }).toList();
+    final initialData = GoodsToUpdateInitialData(goodsToUpdate: goodsToUpdate);
+    _navigator.goToGoodsToUpdatePage(initialData);
+  }
 }

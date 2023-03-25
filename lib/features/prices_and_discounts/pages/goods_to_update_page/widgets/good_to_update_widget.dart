@@ -5,22 +5,26 @@ import 'package:wb_warehouse/common/ui/common_network_image_widget.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
-class RestGoodItemWidget extends StatelessWidget {
+class GoodToUpdateWidget extends StatelessWidget {
   final String? url;
   final String name;
   final String barcode;
-  final int amount;
+  final num price;
+  final int discount;
   final VoidCallback onDelete;
-  final ValueChanged<String> onAmountChanged;
+  final Function(String) onPriceChange;
+  final Function(String) onDiscountChange;
 
-  const RestGoodItemWidget({
+  const GoodToUpdateWidget({
+    super.key,
     this.url,
     required this.name,
     required this.barcode,
-    required this.amount,
+    required this.price,
+    required this.discount,
     required this.onDelete,
-    required this.onAmountChanged,
-    super.key,
+    required this.onPriceChange,
+    required this.onDiscountChange,
   });
 
   @override
@@ -61,7 +65,7 @@ class RestGoodItemWidget extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 8),
-                  Text('${context.localizations.updateRestOfGoodsBarcode}: $barcode', overflow: TextOverflow.ellipsis),
+                  Text('${context.localizations.goodsToUpdateBarcode} $barcode', overflow: TextOverflow.ellipsis),
                   const Spacer(),
                   TextButton(
                     onPressed: onDelete,
@@ -72,13 +76,40 @@ class RestGoodItemWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            SizedBox(
-              width: 30,
-              child: TextFormField(
-                initialValue: amount.toString(),
-                onChanged: onAmountChanged,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  children: [
+                    Text('${context.localizations.goodsToUpdatePrice}:', overflow: TextOverflow.ellipsis),
+                    const SizedBox(width: 16),
+                    SizedBox(
+                      width: 50,
+                      child: TextFormField(
+                        initialValue: price.toString(),
+                        decoration: const InputDecoration(suffixText: '₽'),
+                        onChanged: onPriceChange,
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text('${context.localizations.goodsToUpdateDiscount}:', overflow: TextOverflow.ellipsis),
+                    const SizedBox(width: 16),
+                    SizedBox(
+                      width: 50,
+                      child: TextFormField(
+                        initialValue: discount.toString(),
+                        decoration: const InputDecoration(suffixText: '%'),
+                        onChanged: onDiscountChange,
+                        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

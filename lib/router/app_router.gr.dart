@@ -33,6 +33,16 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    GoodsToUpdateRoute.name: (routeData) {
+      final args = routeData.argsAs<GoodsToUpdateRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: GoodsToUpdatePage(
+          initialData: args.initialData,
+          key: args.key,
+        ),
+      );
+    },
     RestOfGoodsRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
@@ -87,6 +97,10 @@ class _$AppRouter extends RootStackRouter {
           UpdateRestOfGoodsRoute.name,
           path: '/update-rest-of-goods-page',
         ),
+        RouteConfig(
+          GoodsToUpdateRoute.name,
+          path: '/goods-to-update-page',
+        ),
       ];
 }
 
@@ -134,6 +148,40 @@ class UpdateRestOfGoodsRouteArgs {
   @override
   String toString() {
     return 'UpdateRestOfGoodsRouteArgs{initialData: $initialData, key: $key}';
+  }
+}
+
+/// generated route for
+/// [GoodsToUpdatePage]
+class GoodsToUpdateRoute extends PageRouteInfo<GoodsToUpdateRouteArgs> {
+  GoodsToUpdateRoute({
+    required GoodsToUpdateInitialData initialData,
+    Key? key,
+  }) : super(
+          GoodsToUpdateRoute.name,
+          path: '/goods-to-update-page',
+          args: GoodsToUpdateRouteArgs(
+            initialData: initialData,
+            key: key,
+          ),
+        );
+
+  static const String name = 'GoodsToUpdateRoute';
+}
+
+class GoodsToUpdateRouteArgs {
+  const GoodsToUpdateRouteArgs({
+    required this.initialData,
+    this.key,
+  });
+
+  final GoodsToUpdateInitialData initialData;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'GoodsToUpdateRouteArgs{initialData: $initialData, key: $key}';
   }
 }
 

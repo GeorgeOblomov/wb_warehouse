@@ -38,5 +38,14 @@
     "pricesAndDiscountsBarcode": "Barcode",
     "pricesAndDiscountsPrice": "Price",
     "pricesAndDiscountsDiscount": "Discount",
-    "pricesAndDiscountsUpdate": "Update prices and discounts"
+    "pricesAndDiscountsUpdate": "Update prices and discounts",
+    "priceAndDiscountDetailsPageTitle": "Update prices and discount for {priceAndDiscountGoodTitle}",
+    "@priceAndDiscountGoodTitle": {
+        "placeHolders": {}
+    },
+    "goodsToUpdatePageTitle": "Goods to update prices and discounts",
+    "goodsToUpdateUpdateButtonTitle": "Update prices and discounts",
+    "goodsToUpdateBarcode": "Barcode",
+    "goodsToUpdatePrice": "Price",
+    "goodsToUpdateDiscount": "Discount"
 }

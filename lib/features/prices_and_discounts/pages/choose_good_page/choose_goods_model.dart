@@ -24,6 +24,7 @@ class ChooseGoodsModel extends BaseGoodsModel {
       final discount = pricesAndDiscountsDtos.singleWhere((e) => e.nmId == nmID).discount;
 
       return PricesAndDiscountsGoodsRowData(
+        nmID: nmID,
         pictureUrl: getMainPictureUrl(card.mediaFiles),
         name: getName(card.characteristics),
         barcode: barcode,

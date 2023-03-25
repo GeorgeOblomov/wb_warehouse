@@ -38,5 +38,14 @@
     "pricesAndDiscountsBarcode": "Баркод",
     "pricesAndDiscountsPrice": "Цена",
     "pricesAndDiscountsDiscount": "Скидка",
-    "pricesAndDiscountsUpdate": "Обновить цены и скидки"
+    "pricesAndDiscountsUpdate": "Обновить цены и скидки",
+    "priceAndDiscountDetailsPageTitle": "Обновить цену и скидку для  {priceAndDiscountGoodTitle}",
+    "@priceAndDiscountGoodTitle": {
+        "placeHolders": {}
+    },
+    "goodsToUpdatePageTitle": "Товары к обновлению",
+    "goodsToUpdateUpdateButtonTitle": "Обновить цены и скидки",
+    "goodsToUpdateBarcode": "Баркод",
+    "goodsToUpdatePrice": "Цена",
+    "goodsToUpdateDiscount": "Скидка"
 }
