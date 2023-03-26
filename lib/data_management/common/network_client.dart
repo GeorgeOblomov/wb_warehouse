@@ -31,7 +31,7 @@ class NetworkClient {
     required String path,
     required NetworkClientType type,
     required ErrorType errorType,
-    Map<String, Object?>? payload,
+    dynamic payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
     final options = Options(headers: _getRequestHeaders(type));
@@ -53,7 +53,7 @@ class NetworkClient {
     required String path,
     required NetworkClientType type,
     required ErrorType errorType,
-    Map<String, Object?>? payload,
+    dynamic payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
     final options = Options(headers: _getRequestHeaders(type));
@@ -75,7 +75,7 @@ class NetworkClient {
     required String path,
     required NetworkClientType type,
     required ErrorType errorType,
-    Map<String, Object?>? payload,
+    dynamic payload,
   }) async {
     _dio.options.baseUrl = _getBaseUrl(type);
     final options = Options(headers: _getRequestHeaders(type));
@@ -95,6 +95,25 @@ class NetworkClient {
 
   void _initDio() {
     _dio.options.receiveTimeout = const Duration(seconds: 30);
+    _dio.interceptors.add(InterceptorsWrapper(
+      onRequest: (options, handler) {
+        try {
+          // ignore: avoid_print
+          print('outgoing: ${options.path}, ${json.encode(options.data)}');
+        } catch (e) {
+          // ignore: avoid_print
+          print('outgoing: ${options.path}');
+        }
+
+        return handler.next(options);
+      },
+      onResponse: (response, handler) {
+        // ignore: avoid_print
+        print('received: ${response.statusCode}, $response, ${response.data}');
+
+        return handler.next(response);
+      },
+    ));
   }
 
   String _getBaseUrl(NetworkClientType type) {

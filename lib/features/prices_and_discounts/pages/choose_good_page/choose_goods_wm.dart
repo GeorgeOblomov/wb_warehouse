@@ -45,6 +45,7 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
       columnNames: [
         _l10n.pictureColumnTitle,
         _l10n.nameColumnTitle,
+        'nm',
         _l10n.barcodeColumnTitle,
         _l10n.priceColumnTitle,
         _l10n.discountColumnTitle,
@@ -57,6 +58,7 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
                   onTap: () => onPictureTap(e.pictureUrl!),
                 ),
                 TextCellWidget(title: e.name),
+                TextCellWidget(title: e.nmID.toString()),
                 TextCellWidget(title: e.barcode),
                 TextCellWidget(title: e.price.toString()),
                 TextCellWidget(title: e.discount.toString()),

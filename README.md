@@ -4,7 +4,7 @@
 
 # WB Warehouse
 
-Welcome to **WB Warehouse** - inventory management system! This program is designed to help businesses manage their inventory of Wildberries more efficiently. It allows users to add, edit, and delete goods from their inventory, as well as track their stock levels.
+Welcome to **WB Warehouse** - inventory management system! This app is designed to help businesses manage their inventory of Wildberries more efficiently. It allows users to add, edit, and delete goods from their inventory, as well as track their stock levels.
 
 ## Features
 * Update rest of goods
@@ -24,6 +24,6 @@ class ApiTokens {
 ```
 
 ## Support
-If you encounter any issues with the program, please contact me at [t.me/egrischenkov](https://t.me/egrischenkov)
+If you encounter any issues with the app, please contact me at [t.me/egrischenkov](https://t.me/egrischenkov)
 
 Thank you for using **WB Warehouse**!

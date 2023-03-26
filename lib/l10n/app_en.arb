@@ -47,5 +47,8 @@
     "goodsToUpdateUpdateButtonTitle": "Update prices and discounts",
     "goodsToUpdateBarcode": "Barcode",
     "goodsToUpdatePrice": "Price",
-    "goodsToUpdateDiscount": "Discount"
+    "goodsToUpdateDiscount": "Discount",
+    "goodsToUpdateConfirmDialogTitle": "Do you reallly want to update prices and discount?",
+    "goodsToUpdateConfirmDialogAgreeText": "Yes",
+    "goodsToUpdateConfirmDialogDisagreeText": "No"
 }

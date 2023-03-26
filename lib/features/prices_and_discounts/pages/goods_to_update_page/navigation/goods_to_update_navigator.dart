@@ -7,4 +7,8 @@ class GoodsToUpdateNavigator {
   final StackRouter _router;
 
   GoodsToUpdateNavigator(this._context) : _router = _context.router;
+
+  void goHome({bool needToUpdate = false}) {
+    _router.pop(needToUpdate);
+  }
 }

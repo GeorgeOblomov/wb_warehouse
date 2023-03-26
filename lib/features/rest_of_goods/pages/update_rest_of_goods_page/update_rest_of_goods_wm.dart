@@ -10,6 +10,7 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_p
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/navigation/update_rest_of_goods_navigator.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_model.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_page.dart';
+import 'package:wb_warehouse/utils/common_dialogs.dart';
 import 'package:wb_warehouse/utils/error_handling/wb_error_handler.dart';
 
 class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestOfGoodsModel> {
@@ -65,10 +66,11 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
   }
 
   Future<void> onContinue() async {
-    final update = (await _navigator.showConfirmDialog(
-          _l10n.confirmDialogTitle,
-          _l10n.confirmDialogAgree,
-          _l10n.confirmDialogDisagree,
+    final update = (await showConfirmDialog(
+          context: context,
+          title: _l10n.confirmDialogTitle,
+          agreeText: _l10n.confirmDialogAgree,
+          disagreeText: _l10n.confirmDialogDisagree,
         )) ??
         false;
     if (!update) return;
@@ -77,7 +79,7 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
     try {
       final itemsToUpdate = _prepareItemsToUpdate();
       model.updateRestOfGoods(itemsToUpdate);
-      _navigator.goHome();
+      _navigator.goHome(needToUpdate: true);
     } catch (e, st) {
       Logger.e('Error on updating rest of goods: $e.\n$st');
       // ignore: use_build_context_synchronously
