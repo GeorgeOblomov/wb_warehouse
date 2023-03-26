@@ -47,4 +47,7 @@ class LightTheme extends BaseTheme {
 
   @override
   Color contentColor = Colors.black;
+
+  @override
+  Color splashBackgroundColor = const Color(0xFFf4b038);
 }
