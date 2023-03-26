@@ -10,7 +10,7 @@ enum DataProviderType {
   pricesAndDiscounts,
 }
 
-typedef ApiAccessor<T> = Future<T> Function([Map<String, dynamic>? payload]);
+typedef ApiAccessor<T> = Future<T> Function([dynamic payload]);
 
 abstract class DataProvider {
   final NetworkClient _networkClient;
@@ -62,6 +62,7 @@ abstract class DataProvider {
       requestCompleter.complete(dataRequestResult.data);
     } else if (dataRequestResult is RequestFail) {
       requestCompleter.completeError(dataRequestResult.error);
+      // throw dataRequestResult.error;
     } else {
       requestCompleter.completeError(DataError(errorCode: ErrorCode.unhandledError));
     }

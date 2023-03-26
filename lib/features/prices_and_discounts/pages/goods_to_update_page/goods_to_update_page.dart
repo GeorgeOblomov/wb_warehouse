@@ -31,7 +31,7 @@ class GoodsToUpdatePage extends ElementaryWidget<GoodsToUpdateWm> {
               stream: wm.loadingStream,
               builder: (context, isLoading) {
                 if (isLoading.data ?? true) {
-                  return const Center(child: ProgressIndicatorWidget());
+                  return const Expanded(child: Center(child: ProgressIndicatorWidget()));
                 }
 
                 return StreamBuilder<Iterable<GoodToUpdateItemData>>(
