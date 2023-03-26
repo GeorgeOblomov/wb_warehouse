@@ -31,4 +31,7 @@ abstract class BaseTheme {
 
   /// Profile page.
   abstract Color menuBorderColor;
+
+  /// Splash page.
+  abstract Color splashBackgroundColor;
 }
