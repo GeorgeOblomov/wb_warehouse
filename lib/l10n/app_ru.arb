@@ -46,7 +46,7 @@
     "goodsToUpdatePageTitle": "Товары к обновлению",
     "goodsToUpdateUpdateButtonTitle": "Обновить цены и скидки",
     "goodsToUpdateBarcode": "Баркод",
-    "goodsToUpdatePrice": "Цена",
+    "goodsToUpdatePrice": "Розничная цена",
     "goodsToUpdateDiscount": "Скидка",
     "goodsToUpdateConfirmDialogTitle": "Вы действительно хотите обновить цены и скидки?",
     "goodsToUpdateConfirmDialogAgreeText": "Да",

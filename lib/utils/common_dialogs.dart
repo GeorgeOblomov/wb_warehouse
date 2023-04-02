@@ -8,7 +8,7 @@ Future<bool?> showConfirmDialog({
 }) {
   return showDialog<bool>(
     context: context,
-    builder: (_) {
+    builder: (context) {
       return AlertDialog(
         title: Text(title),
         actions: [
