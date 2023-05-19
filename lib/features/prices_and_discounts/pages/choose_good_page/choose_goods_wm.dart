@@ -31,7 +31,7 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
     final suggestions = loadedRows.where((row) {
       final input = query.toLowerCase();
 
-      return row.name.contains(input);
+      return row.name.toLowerCase().contains(input);
     }).toList();
 
     tableDataController.add(organizeTableData(suggestions));
