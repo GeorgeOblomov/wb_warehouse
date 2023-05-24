@@ -72,10 +72,21 @@ class GoodsToUpdatePage extends ElementaryWidget<GoodsToUpdateWm> {
               initialData: true,
               stream: wm.canContinueStream,
               builder: (context, canContinue) {
-                return CommonButton(
-                  title: wm.bottomButtonTitle,
-                  isActive: canContinue.data ?? false,
-                  onTap: wm.onContinue,
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CommonButton(
+                      title: wm.bottomButtonTitle(isPrices: true),
+                      isActive: canContinue.data ?? false,
+                      onTap: () => wm.onContinue(isPrices: true),
+                    ),
+                    const SizedBox(width: 32),
+                    CommonButton(
+                      title: wm.bottomButtonTitle(isPrices: false),
+                      isActive: canContinue.data ?? false,
+                      onTap: () => wm.onContinue(isPrices: false),
+                    ),
+                  ],
                 );
               },
             ),
