@@ -81,7 +81,7 @@ class UpdateRestOfGoodsWm extends WidgetModel<UpdateRestOfGoodsPage, UpdateRestO
       model.updateRestOfGoods(itemsToUpdate);
       _navigator.goHome(needToUpdate: true);
     } catch (e, st) {
-      Logger.e('Error on updating rest of goods: $e.\n$st');
+      Logger.d('Error on updating rest of goods: $e.\n$st');
       // ignore: use_build_context_synchronously
       _errorHandler.handleError(context, e);
     } finally {

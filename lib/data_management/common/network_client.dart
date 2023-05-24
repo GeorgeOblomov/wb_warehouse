@@ -168,7 +168,7 @@ class NetworkClient {
         );
       }
     } catch (e) {
-      Logger.e(e.toString());
+      Logger.d(e.toString());
     }
 
     if (e.response == null) {

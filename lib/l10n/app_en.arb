@@ -44,11 +44,13 @@
         "placeHolders": {}
     },
     "goodsToUpdatePageTitle": "Goods to update prices and discounts",
-    "goodsToUpdateUpdateButtonTitle": "Update prices and discounts",
+    "goodsToUpdatePricesButtonTitle": "Update prices",
+    "goodsToUpdateDiscountsButtonTitle": "Update discounts",
     "goodsToUpdateBarcode": "Barcode",
     "goodsToUpdatePrice": "Price",
     "goodsToUpdateDiscount": "Discount",
-    "goodsToUpdateConfirmDialogTitle": "Do you reallly want to update prices and discount?",
+    "goodsToUpdatePricesConfirmDialogTitle": "Do you reallly want to update prices?",
+    "goodsToUpdateDiscountsConfirmDialogTitle": "Do you reallly want to update discounts?",
     "goodsToUpdateConfirmDialogAgreeText": "Yes",
     "goodsToUpdateConfirmDialogDisagreeText": "No"
 }

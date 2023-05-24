@@ -8,11 +8,11 @@ class GoodsToUpdateModel extends ElementaryModel {
 
   GoodsToUpdateModel(this._repository);
 
-  Future<void> updatePricesAndDiscounts(
-    List<PricesRequestDto> pricesRequests,
-    List<DiscountsRequestDto> discountsRequests,
-  ) async {
-    await _repository.updatePrices(pricesRequests);
-    await _repository.updateDiscounts(discountsRequests);
+  Future<void> updatePrices(List<PricesRequestDto> pricesRequests) {
+    return _repository.updatePrices(pricesRequests);
+  }
+
+  Future<void> updateDiscounts(List<DiscountsRequestDto> discountsRequests) {
+    return _repository.updateDiscounts(discountsRequests);
   }
 }

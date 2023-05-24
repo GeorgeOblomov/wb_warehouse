@@ -39,7 +39,8 @@ class GoodsToUpdateWm extends WidgetModel<GoodsToUpdatePage, GoodsToUpdateModel>
   Stream<bool> get canContinueStream => _canContinueController.stream;
 
   String get pageTitle => _l10n.goodsToUpdatePageTitle;
-  String get bottomButtonTitle => _l10n.goodsToUpdateUpdateButtonTitle;
+  String bottomButtonTitle({required bool isPrices}) =>
+      isPrices ? _l10n.goodsToUpdatePricesConfirmDialogTitle : _l10n.goodsToUpdateDiscountsConfirmDialogTitle;
 
   @override
   void initWidgetModel() {
@@ -61,10 +62,11 @@ class GoodsToUpdateWm extends WidgetModel<GoodsToUpdatePage, GoodsToUpdateModel>
     _canContinueController.add(_goodsToUpdateData.isNotEmpty);
   }
 
-  Future<void> onContinue() async {
+  Future<void> onContinue({required bool isPrices}) async {
     final update = (await showConfirmDialog(
           context: context,
-          title: _l10n.goodsToUpdateConfirmDialogTitle,
+          title:
+              isPrices ? _l10n.goodsToUpdatePricesConfirmDialogTitle : _l10n.goodsToUpdateDiscountsConfirmDialogTitle,
           agreeText: _l10n.goodsToUpdateConfirmDialogAgreeText,
           disagreeText: _l10n.goodsToUpdateConfirmDialogDisagreeText,
         )) ??
@@ -73,12 +75,16 @@ class GoodsToUpdateWm extends WidgetModel<GoodsToUpdatePage, GoodsToUpdateModel>
 
     _loadingController.add(true);
     try {
-      final pricesToUpdate = _preparePricesToUpdate();
-      final discountsToUpdate = _prepareDiscountsToUpdate();
-      await model.updatePricesAndDiscounts(pricesToUpdate, discountsToUpdate);
+      if (isPrices) {
+        final pricesToUpdate = _preparePricesToUpdate();
+        await model.updatePrices(pricesToUpdate);
+      } else {
+        final discountsToUpdate = _prepareDiscountsToUpdate();
+        await model.updateDiscounts(discountsToUpdate);
+      }
       _navigator.goHome(needToUpdate: true);
     } catch (e, st) {
-      Logger.e('Error on updating prices and discounts: $e.\n$st');
+      Logger.d('Error on updating prices and discounts: $e.\n$st');
       // ignore: use_build_context_synchronously
       _errorHandler.handleError(context, e);
     } finally {

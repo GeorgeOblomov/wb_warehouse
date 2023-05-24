@@ -44,11 +44,13 @@
         "placeHolders": {}
     },
     "goodsToUpdatePageTitle": "Товары к обновлению",
-    "goodsToUpdateUpdateButtonTitle": "Обновить цены и скидки",
+    "goodsToUpdatePricesButtonTitle": "Обновить цены",
+    "goodsToUpdateDiscountsButtonTitle": "Обновить скидки",
     "goodsToUpdateBarcode": "Баркод",
     "goodsToUpdatePrice": "Розничная цена",
     "goodsToUpdateDiscount": "Скидка",
-    "goodsToUpdateConfirmDialogTitle": "Вы действительно хотите обновить цены и скидки?",
+    "goodsToUpdatePricesConfirmDialogTitle": "Вы действительно хотите обновить цены?",
+    "goodsToUpdateDiscountsConfirmDialogTitle": "Вы действительно хотите обновить скидки?",
     "goodsToUpdateConfirmDialogAgreeText": "Да",
     "goodsToUpdateConfirmDialogDisagreeText": "Нет"
 }

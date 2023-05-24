@@ -68,7 +68,7 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
       loadedRows = await (model as BaseGoodsModel).getGoodsTableData();
       tableDataController.add(organizeTableData(loadedRows));
     } catch (e, st) {
-      Logger.e('Error on $this goods data: $e.\n$st');
+      Logger.d('Error on $this goods data: $e.\n$st');
       errorHandler.handleError(context, e);
     } finally {
       loadingController.add(false);

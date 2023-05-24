@@ -6,9 +6,13 @@ class GoodsToUpdateL10n extends BaseL10n {
 
   String get goodsToUpdatePageTitle => context.localizations.goodsToUpdatePageTitle;
 
-  String get goodsToUpdateUpdateButtonTitle => context.localizations.goodsToUpdateUpdateButtonTitle;
+  String get goodsToUpdatePricesButtonTitle => context.localizations.goodsToUpdatePricesButtonTitle;
 
-  String get goodsToUpdateConfirmDialogTitle => context.localizations.goodsToUpdateConfirmDialogTitle;
+  String get goodsToUpdateDiscountsButtonTitle => context.localizations.goodsToUpdateDiscountsButtonTitle;
+
+  String get goodsToUpdatePricesConfirmDialogTitle => context.localizations.goodsToUpdatePricesConfirmDialogTitle;
+
+  String get goodsToUpdateDiscountsConfirmDialogTitle => context.localizations.goodsToUpdateDiscountsConfirmDialogTitle;
 
   String get goodsToUpdateConfirmDialogAgreeText => context.localizations.goodsToUpdateConfirmDialogAgreeText;
 
