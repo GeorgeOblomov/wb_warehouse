@@ -10,7 +10,7 @@
     "updateRestOfGoodsButtonTitle": "Update rest of goods",
     "restOfGoods": "Rest of goods",
     "restOfGoodsName": "Name",
-    "restOfGoodsSupplierArticle": "Supplier article",
+    "restOfGoodsSupplierArticle": "Good article",
     "restOfGoodsBarcode": "Barcode",
     "restOfGoodsQuantity": "Quantity",
     "restOfGoodsCostPrice": "Cost price",
@@ -40,6 +40,7 @@
     "pricesAndDiscountsDiscount": "Discount",
     "pricesAndDiscountsUpdate": "Update prices and discounts",
     "priceAndDiscountDetailsPageTitle": "Update prices and discount for {priceAndDiscountGoodTitle}",
+    "pricesAndDiscountsArticleWb": "Article WB",
     "@priceAndDiscountGoodTitle": {
         "placeHolders": {}
     },
@@ -52,5 +53,21 @@
     "goodsToUpdatePricesConfirmDialogTitle": "Do you reallly want to update prices?",
     "goodsToUpdateDiscountsConfirmDialogTitle": "Do you reallly want to update discounts?",
     "goodsToUpdateConfirmDialogAgreeText": "Yes",
-    "goodsToUpdateConfirmDialogDisagreeText": "No"
+    "goodsToUpdateConfirmDialogDisagreeText": "No",
+    "inventoryEditButtonTitle": "Edit",
+    "inventoryWBArticle": "Article WB",
+    "inventoryGoodArticle": "Article",
+    "inventoryGoodName": "Name",
+    "inventoryPurchasePrice": "Purchase price, rub",
+    "inventoryRetailPrice": "Retail price, rub",
+    "inventoryPackagingCost": "Packaging cost, rub",
+    "inventoryCostPrice": "Cost price, rub",
+    "inventoryFeePercent": "Fee, %",
+    "inventoryWBLogistics": "WB logistics, rub",
+    "inventoryTaxRate": "Tax rate, %",
+    "inventoryDiscountedPrice": "Discounted price, rub",
+    "inventoryProfit": "Profit, rub",
+    "inventoryMarginality": "Marginality, %",
+    "inventoryWebSiteDiscount": "Web site discount, %",
+    "inventoryPictureColumnTitle": "Picture"
 }

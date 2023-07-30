@@ -8,6 +8,7 @@ import 'package:wb_warehouse/data_management/common/request_result.dart';
 enum DataProviderType {
   restOfGoods,
   pricesAndDiscounts,
+  inventoryTable,
 }
 
 typedef ApiAccessor<T> = Future<T> Function([dynamic payload]);

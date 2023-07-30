@@ -10,7 +10,7 @@
     "updateRestOfGoodsButtonTitle": "Обновить остатки товаров",
     "restOfGoods": "Остатки товаров",
     "restOfGoodsName": "Название",
-    "restOfGoodsSupplierArticle": "Артикул продавца",
+    "restOfGoodsSupplierArticle": "Артикул товара",
     "restOfGoodsBarcode": "Баркод",
     "restOfGoodsQuantity": "Количество",
     "restOfGoodsCostPrice": "Себестоимость",
@@ -40,6 +40,7 @@
     "pricesAndDiscountsDiscount": "Скидка",
     "pricesAndDiscountsUpdate": "Обновить цены и скидки",
     "priceAndDiscountDetailsPageTitle": "Обновить цену и скидку для  {priceAndDiscountGoodTitle}",
+    "pricesAndDiscountsArticleWb": "Артикул WB",
     "@priceAndDiscountGoodTitle": {
         "placeHolders": {}
     },
@@ -52,5 +53,21 @@
     "goodsToUpdatePricesConfirmDialogTitle": "Вы действительно хотите обновить цены?",
     "goodsToUpdateDiscountsConfirmDialogTitle": "Вы действительно хотите обновить скидки?",
     "goodsToUpdateConfirmDialogAgreeText": "Да",
-    "goodsToUpdateConfirmDialogDisagreeText": "Нет"
+    "goodsToUpdateConfirmDialogDisagreeText": "Нет",
+    "inventoryEditButtonTitle": "Редактировать",
+    "inventoryWBArticle": "Артикул WB",
+    "inventoryGoodArticle": "Артикул товара",
+    "inventoryGoodName": "Название",
+    "inventoryPurchasePrice": "Цена закупки, руб",
+    "inventoryRetailPrice": "Розничная цена, руб",
+    "inventoryPackagingCost": "Стоимость упаковки, руб",
+    "inventoryCostPrice": "Себестоимость, руб",
+    "inventoryFeePercent": "Комиссия, %",
+    "inventoryWBLogistics": "Логистика WB, руб",
+    "inventoryTaxRate": "Налоговая ставка, %",
+    "inventoryDiscountedPrice": "Цена со скидкой, руб",
+    "inventoryProfit": "Прибыль, руб",
+    "inventoryMarginality": "Маржинальность, %",
+    "inventoryWebSiteDiscount": "Скидка на сайте, %",
+    "inventoryPictureColumnTitle": "Картинка"
 }

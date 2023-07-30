@@ -8,6 +8,8 @@ class ChooseGoodsL10n extends BaseL10n {
 
   String get pictureColumnTitle => context.localizations.pricesAndDiscountsPicture;
 
+  String get articleWb => context.localizations.pricesAndDiscountsArticleWb;
+
   String get nameColumnTitle => context.localizations.pricesAndDiscountsName;
 
   String get barcodeColumnTitle => context.localizations.pricesAndDiscountsBarcode;

@@ -45,8 +45,7 @@ class ChooseGoodsWm extends BaseGoodsWm<ChooseGoodsPage, ChooseGoodsModel> {
       columnNames: [
         _l10n.pictureColumnTitle,
         _l10n.nameColumnTitle,
-        'nm',
-        _l10n.barcodeColumnTitle,
+        _l10n.articleWb,
         _l10n.priceColumnTitle,
         _l10n.discountColumnTitle,
         _l10n.updatePriceAndDiscountColumnTitle,
