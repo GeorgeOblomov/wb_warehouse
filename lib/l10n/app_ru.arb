@@ -69,5 +69,6 @@
     "inventoryProfit": "Прибыль, руб",
     "inventoryMarginality": "Маржинальность, %",
     "inventoryWebSiteDiscount": "Скидка на сайте, %",
-    "inventoryPictureColumnTitle": "Картинка"
+    "inventoryPictureColumnTitle": "Картинка",
+    "inventoryControl": "Складской учет"
 }

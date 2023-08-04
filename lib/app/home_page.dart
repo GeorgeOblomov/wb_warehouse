@@ -17,6 +17,7 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
       routes: const [
         RestOfGoodsRoute(),
         ChooseGoodsRoute(),
+        InventoryTableRoute(),
         ProfileRoute(),
       ],
       builder: (context, child, controller) {
@@ -33,6 +34,10 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.price_change_outlined),
                 label: context.localizations.priceAndDiscounts,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.table_view_outlined),
+                label: context.localizations.inventoryControl,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.person_outline),

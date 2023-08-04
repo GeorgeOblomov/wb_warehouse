@@ -19,7 +19,9 @@ class WbThemeData {
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       selectedIconTheme: IconThemeData(color: Color(0xFF3B3E5B)),
+      unselectedIconTheme: IconThemeData(color: Color(0xFF7C7E92)),
       selectedItemColor: Color(0xFF3B3E5B),
+      unselectedItemColor: Color(0xFF7C7E92),
     ),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF4CAF50)),
     checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),

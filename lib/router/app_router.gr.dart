@@ -55,6 +55,12 @@ class _$AppRouter extends RootStackRouter {
         child: const ChooseGoodsPage(),
       );
     },
+    InventoryTableRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const InventoryTablePage(),
+      );
+    },
     ProfileRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
@@ -80,8 +86,13 @@ class _$AppRouter extends RootStackRouter {
               parent: HomeRoute.name,
             ),
             RouteConfig(
-              ProfileRoute.name,
+              InventoryTableRoute.name,
               path: 'third',
+              parent: HomeRoute.name,
+            ),
+            RouteConfig(
+              ProfileRoute.name,
+              path: 'fourth',
               parent: HomeRoute.name,
             ),
             RouteConfig(
@@ -210,12 +221,24 @@ class ChooseGoodsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [InventoryTablePage]
+class InventoryTableRoute extends PageRouteInfo<void> {
+  const InventoryTableRoute()
+      : super(
+          InventoryTableRoute.name,
+          path: 'third',
+        );
+
+  static const String name = 'InventoryTableRoute';
+}
+
+/// generated route for
 /// [ProfilePage]
 class ProfileRoute extends PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
-          path: 'third',
+          path: 'fourth',
         );
 
   static const String name = 'ProfileRoute';

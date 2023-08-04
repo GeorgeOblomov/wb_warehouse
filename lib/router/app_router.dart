@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/app/home_page.dart';
+import 'package:wb_warehouse/features/inventory_table/pages/inventory_table_page/inventory_table_page.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/choose_good_page/choose_goods_page.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/goods_to_update_page.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/models/goods_to_update_initial_data.dart';
@@ -20,7 +21,8 @@ part 'app_router.gr.dart';
       children: [
         AutoRoute(page: RestOfGoodsPage, path: 'first'),
         AutoRoute(page: ChooseGoodsPage, path: 'second'),
-        AutoRoute(page: ProfilePage, path: 'third'),
+        AutoRoute(page: InventoryTablePage, path: 'third'),
+        AutoRoute(page: ProfilePage, path: 'fourth'),
         RedirectRoute(path: '', redirectTo: 'first'),
       ],
     ),

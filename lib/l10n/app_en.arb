@@ -69,5 +69,6 @@
     "inventoryProfit": "Profit, rub",
     "inventoryMarginality": "Marginality, %",
     "inventoryWebSiteDiscount": "Web site discount, %",
-    "inventoryPictureColumnTitle": "Picture"
+    "inventoryPictureColumnTitle": "Picture",
+    "inventoryControl": "Inventory control"
 }
