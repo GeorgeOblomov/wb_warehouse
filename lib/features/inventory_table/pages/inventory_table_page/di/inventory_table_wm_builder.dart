@@ -5,6 +5,7 @@ import 'package:wb_warehouse/features/inventory_table/pages/inventory_table_page
 import 'package:wb_warehouse/features/inventory_table/pages/inventory_table_page/l10n/inventory_table_l10n.dart';
 import 'package:wb_warehouse/features/inventory_table/pages/inventory_table_page/navigation/inventory_table_navigator.dart';
 import 'package:wb_warehouse/features/inventory_table/repositories/inventory_table_repository.dart';
+import 'package:wb_warehouse/features/prices_and_discounts/repositories/prices_and_discounts_repository.dart';
 import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
 
 InventoryTableWm createInventoryTableWm(BuildContext context) {
@@ -13,6 +14,7 @@ InventoryTableWm createInventoryTableWm(BuildContext context) {
     InventoryTableNavigator(context),
     InventoryTableModel(
       context.read<InventoryTableRepository>(),
+      context.read<PricesAndDiscountsRepository>(),
       context.read<RestOfGoodsRepository>(),
     ),
   );

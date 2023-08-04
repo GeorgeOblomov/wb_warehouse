@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class InventoryTableNavigator {
+  // ignore: unused_field
   final StackRouter _router;
 
   InventoryTableNavigator(BuildContext context) : _router = context.router;

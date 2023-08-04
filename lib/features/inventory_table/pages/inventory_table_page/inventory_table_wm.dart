@@ -13,6 +13,7 @@ import 'package:wb_warehouse/features/inventory_table/pages/inventory_table_page
 
 class InventoryTableWm extends BaseGoodsWm<InventoryTablePage, InventoryTableModel> {
   final InventoryTableL10n _l10n;
+  // ignore: unused_field
   final InventoryTableNavigator _navigator;
 
   InventoryTableWm(
@@ -35,6 +36,7 @@ class InventoryTableWm extends BaseGoodsWm<InventoryTablePage, InventoryTableMod
   }
 
   void onEditTap() {
+    // ignore: unused_local_variable
     final selectedRows = loadedRows.where((row) => row.isSelected).toList();
 
     // _navigator.openEditGoodsPage(EditInventoryGoodsInitialData(selectedRows));
