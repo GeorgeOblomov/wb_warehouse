@@ -186,12 +186,14 @@ class NetworkClient {
           errorCode: ErrorCode.badRequest,
           message: serverError?.userMessage,
         );
+
         return RequestFail(error: dataError);
       case 401:
         final dataError = DataError(
           errorCode: ErrorCode.unauthorized,
           message: serverError?.userMessage,
         );
+
         return RequestFail(error: dataError);
       case 403:
         return RequestFail(

@@ -27,12 +27,15 @@ class ThemeProvider extends ChangeNotifier {
     switch (initialThemeKey) {
       case 'light':
         _isLight = true;
+
         return;
       case 'dark':
         _isLight = false;
+
         return;
       default:
         _isLight = true;
+
         return;
     }
   }

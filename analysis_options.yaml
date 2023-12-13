@@ -1,9 +1,5 @@
 include: package:flutter_lints/flutter.yaml
 
-analyzer:
-  plugins:
-    - dart_code_metrics
-
 dart_code_metrics:
   metrics:
     cyclomatic-complexity: 20
@@ -21,8 +17,6 @@ dart_code_metrics:
     - avoid-unnecessary-setstate
     - arguments-ordering
     - avoid-unnecessary-conditionals
-    - prefer-trailing-comma
-    - newline-before-return
     - member-ordering:
         order:
           - public-fields

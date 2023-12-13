@@ -21,7 +21,12 @@ abstract class DataProvider {
   ApiAccessor<T> getApiAccessor<T>(String path, NetworkClientType type, ErrorType errorType) {
     return ([payload]) async {
       final completer = Completer<T>();
-      final requestResult = await _networkClient.get<T>(path: path, type: type, payload: payload, errorType: errorType);
+      final requestResult = await _networkClient.get<T>(
+        path: path,
+        type: type,
+        errorType: errorType,
+        payload: payload,
+      );
 
       handleResponse(requestResult, completer);
 
@@ -33,8 +38,12 @@ abstract class DataProvider {
   ApiAccessor<T> postApiAccessor<T>(String path, NetworkClientType type, ErrorType errorType) {
     return ([payload]) async {
       final completer = Completer<T>();
-      final requestResult =
-          await _networkClient.post<T>(path: path, type: type, payload: payload, errorType: errorType);
+      final requestResult = await _networkClient.post<T>(
+        path: path,
+        type: type,
+        errorType: errorType,
+        payload: payload,
+      );
 
       handleResponse(requestResult, completer);
 
@@ -46,7 +55,12 @@ abstract class DataProvider {
   ApiAccessor<T> putApiAccessor<T>(String path, NetworkClientType type, ErrorType errorType) {
     return ([payload]) async {
       final completer = Completer<T>();
-      final requestResult = await _networkClient.put<T>(path: path, type: type, payload: payload, errorType: errorType);
+      final requestResult = await _networkClient.put<T>(
+        path: path,
+        type: type,
+        errorType: errorType,
+        payload: payload,
+      );
 
       handleResponse(requestResult, completer);
 

@@ -69,6 +69,7 @@ abstract class BaseGoodsWm<W extends ElementaryWidget, M extends ElementaryModel
       tableDataController.add(organizeTableData(loadedRows));
     } catch (e, st) {
       Logger.d('Error on $this goods data: $e.\n$st');
+      // ignore: use_build_context_synchronously
       errorHandler.handleError(context, e);
     } finally {
       loadingController.add(false);
