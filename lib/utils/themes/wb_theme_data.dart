@@ -24,7 +24,7 @@ class WbThemeData {
         unselectedItemColor: Colors.grey,
         unselectedLabelStyle: TextStyle(color: Colors.grey)),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF4CAF50)),
-    checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
+    checkboxTheme: const CheckboxThemeData(side: BorderSide(color: Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(
       trackHeight: 2,
       activeTrackColor: const Color(0xFF7C7E92),
@@ -68,7 +68,7 @@ class WbThemeData {
         unselectedItemColor: Colors.grey,
         unselectedLabelStyle: TextStyle(color: Colors.grey)),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF6ADA6F)),
-    checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
+    checkboxTheme: const CheckboxThemeData(side: BorderSide(color: Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(
       trackHeight: 2,
       activeTrackColor: const Color(0xFF4CAF50),

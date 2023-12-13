@@ -49,7 +49,7 @@ class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
                           crossAxisCount: 2,
                           mainAxisSpacing: 16,
                           crossAxisSpacing: 16,
-                          childAspectRatio: 5,
+                          childAspectRatio: 3,
                           children: restOfGoodsData.data!.map((e) {
                             return RestGoodItemWidget(
                               url: e.url,
