@@ -93,6 +93,28 @@ class NetworkClient {
     return result;
   }
 
+  Future<RequestResult> patch<T>({
+    required String path,
+    required NetworkClientType type,
+    required ErrorType errorType,
+    dynamic payload,
+  }) async {
+    _dio.options.baseUrl = _getBaseUrl(type);
+    final options = Options(headers: _getRequestHeaders(type));
+
+    RequestResult result;
+    try {
+      final response = await _dio.put<String>(path, data: payload ?? {}, options: options);
+      result = RequestSuccess(data: _getResponseResult(response.data));
+
+      return result;
+    } on DioException catch (e, _) {
+      result = _handleError(e, StackTrace.current, errorType);
+    }
+
+    return result;
+  }
+
   void _initDio() {
     _dio.options.receiveTimeout = const Duration(seconds: 30);
     _dio.interceptors.add(InterceptorsWrapper(

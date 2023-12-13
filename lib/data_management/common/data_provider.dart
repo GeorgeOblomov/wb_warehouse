@@ -8,6 +8,7 @@ import 'package:wb_warehouse/data_management/common/request_result.dart';
 enum DataProviderType {
   restOfGoods,
   pricesAndDiscounts,
+  reviews,
 }
 
 typedef ApiAccessor<T> = Future<T> Function([dynamic payload]);
@@ -53,6 +54,23 @@ abstract class DataProvider {
 
   @protected
   ApiAccessor<T> putApiAccessor<T>(String path, NetworkClientType type, ErrorType errorType) {
+    return ([payload]) async {
+      final completer = Completer<T>();
+      final requestResult = await _networkClient.put<T>(
+        path: path,
+        type: type,
+        errorType: errorType,
+        payload: payload,
+      );
+
+      handleResponse(requestResult, completer);
+
+      return completer.future;
+    };
+  }
+
+  @protected
+  ApiAccessor<T> patchApiAccessor<T>(String path, NetworkClientType type, ErrorType errorType) {
     return ([payload]) async {
       final completer = Completer<T>();
       final requestResult = await _networkClient.put<T>(
