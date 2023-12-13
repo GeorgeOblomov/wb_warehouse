@@ -42,7 +42,7 @@ class NetworkClient {
       result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError catch (e, _) {
+    } on DioException catch (e, _) {
       result = _handleError(e, StackTrace.current, errorType);
     }
 
@@ -64,7 +64,7 @@ class NetworkClient {
       result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError catch (e, _) {
+    } on DioException catch (e, _) {
       result = _handleError(e, StackTrace.current, errorType);
     }
 
@@ -86,7 +86,7 @@ class NetworkClient {
       result = RequestSuccess(data: _getResponseResult(response.data));
 
       return result;
-    } on DioError catch (e, _) {
+    } on DioException catch (e, _) {
       result = _handleError(e, StackTrace.current, errorType);
     }
 
@@ -158,7 +158,7 @@ class NetworkClient {
     return <String, dynamic>{};
   }
 
-  RequestResult _handleError(DioError e, StackTrace trace, ErrorType errorType) {
+  RequestResult _handleError(DioException e, StackTrace trace, ErrorType errorType) {
     ServerError? serverError;
     try {
       if (e.response?.data is String) {

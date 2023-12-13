@@ -1,14 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/common/ui/common_button.dart';
 import 'package:wb_warehouse/common/ui/empty_widget.dart';
 import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/di/goods_to_update_wm_builder.dart';
+import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/goods_to_update_page_route.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/goods_to_update_wm.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/models/good_to_update_item_data.dart.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/models/goods_to_update_initial_data.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/pages/goods_to_update_page/widgets/good_to_update_widget.dart';
 
+@RoutePage(name: GoodsToUpdatePageRoute.name)
 class GoodsToUpdatePage extends ElementaryWidget<GoodsToUpdateWm> {
   GoodsToUpdatePage({required GoodsToUpdateInitialData initialData, super.key})
       : super((context) => createGoodsToUpdateWm(context, initialData));

@@ -7,16 +7,13 @@ class PricesAndDiscountsGoodsRowData extends BaseRowData {
 
   PricesAndDiscountsGoodsRowData({
     required this.nmID,
-    String? pictureUrl,
-    required String name,
-    required String barcode,
+    super.pictureUrl,
+    required super.name,
+    required super.barcode,
     required this.price,
     required this.discount,
     bool? isSelected,
   }) : super(
-          pictureUrl: pictureUrl,
-          name: name,
-          barcode: barcode,
           isSelected: isSelected ?? false,
         );
 }

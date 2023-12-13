@@ -1,8 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:wb_warehouse/app/home_page_route.dart';
 import 'package:wb_warehouse/router/app_router.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 
+@RoutePage(name: HomePageRoute.name)
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -15,9 +17,10 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return AutoTabsRouter.tabBar(
       routes: const [
-        RestOfGoodsRoute(),
-        ChooseGoodsRoute(),
-        ProfileRoute(),
+        RestOfGoodsPageRouter(),
+        ChooseGoodsPageRouter(),
+        ReviewsPageRouter(),
+        ProfilePageRouter(),
       ],
       builder: (context, child, controller) {
         final tabsRouter = context.tabsRouter;
@@ -33,6 +36,10 @@ class _HomeState extends State<HomePage> with TickerProviderStateMixin {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.price_change_outlined),
                 label: context.localizations.priceAndDiscounts,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.reviews_outlined),
+                label: context.localizations.review,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.person_outline),

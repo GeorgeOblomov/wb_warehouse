@@ -9,6 +9,6 @@ class ChooseGoodsNavigator {
   ChooseGoodsNavigator(BuildContext context) : _router = context.router;
 
   void goToGoodsToUpdatePage(GoodsToUpdateInitialData initialData) {
-    _router.push(GoodsToUpdateRoute(initialData: initialData));
+    _router.push(GoodsToUpdatePageRouter(initialData: initialData));
   }
 }

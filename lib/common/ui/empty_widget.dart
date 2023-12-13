@@ -11,11 +11,11 @@ class EmptyWidget extends StatelessWidget {
   final bool withSubtitle;
 
   const EmptyWidget({
-    Key? key,
+    super.key,
     this.title,
     this.subtitle,
     this.withSubtitle = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

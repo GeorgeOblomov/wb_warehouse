@@ -1,41 +1,29 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 part of 'app_router.dart';
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
-      return AdaptivePage<dynamic>(
+    ChooseGoodsPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HomePage(),
+        child: const ChooseGoodsPage(),
       );
     },
-    UpdateRestOfGoodsRoute.name: (routeData) {
-      final args = routeData.argsAs<UpdateRestOfGoodsRouteArgs>();
-      return AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: UpdateRestOfGoodsPage(
-          initialData: args.initialData,
-          key: args.key,
-        ),
-      );
-    },
-    GoodsToUpdateRoute.name: (routeData) {
-      final args = routeData.argsAs<GoodsToUpdateRouteArgs>();
-      return AdaptivePage<dynamic>(
+    GoodsToUpdatePageRouter.name: (routeData) {
+      final args = routeData.argsAs<GoodsToUpdatePageRouterArgs>();
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: GoodsToUpdatePage(
           initialData: args.initialData,
@@ -43,134 +31,82 @@ class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    RestOfGoodsRoute.name: (routeData) {
-      return AdaptivePage<dynamic>(
+    HomePageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const RestOfGoodsPage(),
+        child: const HomePage(),
       );
     },
-    ChooseGoodsRoute.name: (routeData) {
-      return AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const ChooseGoodsPage(),
-      );
-    },
-    ProfileRoute.name: (routeData) {
-      return AdaptivePage<dynamic>(
+    ProfilePageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfilePage(),
       );
     },
+    RestOfGoodsPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RestOfGoodsPage(),
+      );
+    },
+    ReviewsPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ReviewsPage(),
+      );
+    },
+    UpdateRestOfGoodsPageRouter.name: (routeData) {
+      final args = routeData.argsAs<UpdateRestOfGoodsPageRouterArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UpdateRestOfGoodsPage(
+          initialData: args.initialData,
+          key: args.key,
+        ),
+      );
+    },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(
-          HomeRoute.name,
-          path: '/',
-          children: [
-            RouteConfig(
-              RestOfGoodsRoute.name,
-              path: 'first',
-              parent: HomeRoute.name,
-            ),
-            RouteConfig(
-              ChooseGoodsRoute.name,
-              path: 'second',
-              parent: HomeRoute.name,
-            ),
-            RouteConfig(
-              ProfileRoute.name,
-              path: 'third',
-              parent: HomeRoute.name,
-            ),
-            RouteConfig(
-              '#redirect',
-              path: '',
-              parent: HomeRoute.name,
-              redirectTo: 'first',
-              fullMatch: true,
-            ),
-          ],
-        ),
-        RouteConfig(
-          UpdateRestOfGoodsRoute.name,
-          path: '/update-rest-of-goods-page',
-        ),
-        RouteConfig(
-          GoodsToUpdateRoute.name,
-          path: '/goods-to-update-page',
-        ),
-      ];
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
+/// [ChooseGoodsPage]
+class ChooseGoodsPageRouter extends PageRouteInfo<void> {
+  const ChooseGoodsPageRouter({List<PageRouteInfo>? children})
       : super(
-          HomeRoute.name,
-          path: '/',
+          ChooseGoodsPageRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeRoute';
-}
+  static const String name = 'ChooseGoodsPageRouter';
 
-/// generated route for
-/// [UpdateRestOfGoodsPage]
-class UpdateRestOfGoodsRoute extends PageRouteInfo<UpdateRestOfGoodsRouteArgs> {
-  UpdateRestOfGoodsRoute({
-    required UpdateRestOfGoodsInitialData initialData,
-    Key? key,
-  }) : super(
-          UpdateRestOfGoodsRoute.name,
-          path: '/update-rest-of-goods-page',
-          args: UpdateRestOfGoodsRouteArgs(
-            initialData: initialData,
-            key: key,
-          ),
-        );
-
-  static const String name = 'UpdateRestOfGoodsRoute';
-}
-
-class UpdateRestOfGoodsRouteArgs {
-  const UpdateRestOfGoodsRouteArgs({
-    required this.initialData,
-    this.key,
-  });
-
-  final UpdateRestOfGoodsInitialData initialData;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'UpdateRestOfGoodsRouteArgs{initialData: $initialData, key: $key}';
-  }
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [GoodsToUpdatePage]
-class GoodsToUpdateRoute extends PageRouteInfo<GoodsToUpdateRouteArgs> {
-  GoodsToUpdateRoute({
+class GoodsToUpdatePageRouter
+    extends PageRouteInfo<GoodsToUpdatePageRouterArgs> {
+  GoodsToUpdatePageRouter({
     required GoodsToUpdateInitialData initialData,
     Key? key,
+    List<PageRouteInfo>? children,
   }) : super(
-          GoodsToUpdateRoute.name,
-          path: '/goods-to-update-page',
-          args: GoodsToUpdateRouteArgs(
+          GoodsToUpdatePageRouter.name,
+          args: GoodsToUpdatePageRouterArgs(
             initialData: initialData,
             key: key,
           ),
+          initialChildren: children,
         );
 
-  static const String name = 'GoodsToUpdateRoute';
+  static const String name = 'GoodsToUpdatePageRouter';
+
+  static const PageInfo<GoodsToUpdatePageRouterArgs> page =
+      PageInfo<GoodsToUpdatePageRouterArgs>(name);
 }
 
-class GoodsToUpdateRouteArgs {
-  const GoodsToUpdateRouteArgs({
+class GoodsToUpdatePageRouterArgs {
+  const GoodsToUpdatePageRouterArgs({
     required this.initialData,
     this.key,
   });
@@ -181,42 +117,101 @@ class GoodsToUpdateRouteArgs {
 
   @override
   String toString() {
-    return 'GoodsToUpdateRouteArgs{initialData: $initialData, key: $key}';
+    return 'GoodsToUpdatePageRouterArgs{initialData: $initialData, key: $key}';
   }
 }
 
 /// generated route for
-/// [RestOfGoodsPage]
-class RestOfGoodsRoute extends PageRouteInfo<void> {
-  const RestOfGoodsRoute()
+/// [HomePage]
+class HomePageRouter extends PageRouteInfo<void> {
+  const HomePageRouter({List<PageRouteInfo>? children})
       : super(
-          RestOfGoodsRoute.name,
-          path: 'first',
+          HomePageRouter.name,
+          initialChildren: children,
         );
 
-  static const String name = 'RestOfGoodsRoute';
-}
+  static const String name = 'HomePageRouter';
 
-/// generated route for
-/// [ChooseGoodsPage]
-class ChooseGoodsRoute extends PageRouteInfo<void> {
-  const ChooseGoodsRoute()
-      : super(
-          ChooseGoodsRoute.name,
-          path: 'second',
-        );
-
-  static const String name = 'ChooseGoodsRoute';
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
 /// [ProfilePage]
-class ProfileRoute extends PageRouteInfo<void> {
-  const ProfileRoute()
+class ProfilePageRouter extends PageRouteInfo<void> {
+  const ProfilePageRouter({List<PageRouteInfo>? children})
       : super(
-          ProfileRoute.name,
-          path: 'third',
+          ProfilePageRouter.name,
+          initialChildren: children,
         );
 
-  static const String name = 'ProfileRoute';
+  static const String name = 'ProfilePageRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RestOfGoodsPage]
+class RestOfGoodsPageRouter extends PageRouteInfo<void> {
+  const RestOfGoodsPageRouter({List<PageRouteInfo>? children})
+      : super(
+          RestOfGoodsPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RestOfGoodsPageRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReviewsPage]
+class ReviewsPageRouter extends PageRouteInfo<void> {
+  const ReviewsPageRouter({List<PageRouteInfo>? children})
+      : super(
+          ReviewsPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewsPageRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UpdateRestOfGoodsPage]
+class UpdateRestOfGoodsPageRouter
+    extends PageRouteInfo<UpdateRestOfGoodsPageRouterArgs> {
+  UpdateRestOfGoodsPageRouter({
+    required UpdateRestOfGoodsInitialData initialData,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UpdateRestOfGoodsPageRouter.name,
+          args: UpdateRestOfGoodsPageRouterArgs(
+            initialData: initialData,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'UpdateRestOfGoodsPageRouter';
+
+  static const PageInfo<UpdateRestOfGoodsPageRouterArgs> page =
+      PageInfo<UpdateRestOfGoodsPageRouterArgs>(name);
+}
+
+class UpdateRestOfGoodsPageRouterArgs {
+  const UpdateRestOfGoodsPageRouterArgs({
+    required this.initialData,
+    this.key,
+  });
+
+  final UpdateRestOfGoodsInitialData initialData;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UpdateRestOfGoodsPageRouterArgs{initialData: $initialData, key: $key}';
+  }
 }

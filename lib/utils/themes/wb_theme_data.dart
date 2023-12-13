@@ -17,10 +17,12 @@ class WbThemeData {
       ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
-      selectedIconTheme: IconThemeData(color: Color(0xFF3B3E5B)),
-      selectedItemColor: Color(0xFF3B3E5B),
-    ),
+        backgroundColor: Colors.white,
+        selectedIconTheme: IconThemeData(color: Color(0xFF3B3E5B)),
+        selectedItemColor: Color(0xFF3B3E5B),
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
+        unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: TextStyle(color: Colors.grey)),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF4CAF50)),
     checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(
@@ -59,10 +61,12 @@ class WbThemeData {
       ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: Color(0xFF2E2E2E),
-      selectedIconTheme: IconThemeData(color: Colors.white),
-      selectedItemColor: Colors.white,
-    ),
+        backgroundColor: Color(0xFF2E2E2E),
+        selectedIconTheme: IconThemeData(color: Colors.white),
+        selectedItemColor: Colors.white,
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
+        unselectedItemColor: Colors.grey,
+        unselectedLabelStyle: TextStyle(color: Colors.grey)),
     buttonTheme: const ButtonThemeData(buttonColor: Color(0xFF6ADA6F)),
     checkboxTheme: CheckboxThemeData(fillColor: MaterialStateColor.resolveWith((_) => const Color(0xFF4CAF50))),
     sliderTheme: SliderThemeData(

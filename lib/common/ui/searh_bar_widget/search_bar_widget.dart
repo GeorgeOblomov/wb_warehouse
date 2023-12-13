@@ -38,7 +38,13 @@ class SearchBarWidget extends StatelessWidget {
             hintStyle: TextStyle(color: appTheme.searchBarElementsColor),
             prefixIcon: Padding(
               padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-              child: SvgPicture.asset(Assets.searchIcon, color: appTheme.searchBarElementsColor),
+              child: SvgPicture.asset(
+                Assets.searchIcon,
+                colorFilter: ColorFilter.mode(
+                  appTheme.searchBarElementsColor,
+                  BlendMode.srcIn,
+                ),
+              ),
             ),
             suffixIcon: Padding(padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12), child: suffixIcon),
             filled: true,

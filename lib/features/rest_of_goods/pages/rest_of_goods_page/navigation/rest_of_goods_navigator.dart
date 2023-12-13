@@ -50,7 +50,7 @@ class RestOfGoodsNavigator {
   }
 
   void goToUpdateRestOfGoodsPage(UpdateRestOfGoodsInitialData initialData, VoidCallback onFinishUpdating) {
-    _router.push(UpdateRestOfGoodsRoute(initialData: initialData)).then((value) {
+    _router.push(UpdateRestOfGoodsPageRouter(initialData: initialData)).then((value) {
       if ((value as bool?) ?? false) {
         onFinishUpdating.call();
       }

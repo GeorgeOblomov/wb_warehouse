@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,9 +8,11 @@ import 'package:wb_warehouse/common/ui/searh_bar_widget/search_bar_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget.dart';
 import 'package:wb_warehouse/common/ui/table_widget/table_widget_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/di/rest_of_goods_wm_builder.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_page_route.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/rest_of_goods_page/rest_of_goods_wm.dart';
 import 'package:wb_warehouse/utils/assets.dart';
 
+@RoutePage(name: RestOfGoodsPageRoute.name)
 class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
   const RestOfGoodsPage({super.key}) : super(createRestOfGoodsWm);
 
@@ -36,7 +39,13 @@ class RestOfGoodsPage extends ElementaryWidget<RestOfGoodsWm> {
                       suffixIcon: IconButton(
                         splashRadius: 12,
                         onPressed: wm.showFiltersDialog,
-                        icon: SvgPicture.asset(Assets.filtersIcon, color: wm.filtersIconColor),
+                        icon: SvgPicture.asset(
+                          Assets.filtersIcon,
+                          colorFilter: ColorFilter.mode(
+                            wm.filtersIconColor,
+                            BlendMode.srcIn,
+                          ),
+                        ),
                       ),
                       onChanged: wm.onSearchInput,
                     ),

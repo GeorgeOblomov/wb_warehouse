@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:elementary/elementary.dart';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/common/ui/common_button.dart';
@@ -6,9 +7,11 @@ import 'package:wb_warehouse/common/ui/progress_indicator_widget.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/di/update_rest_of_goods_wm_builder.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/rest_good_item_data.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/models/update_rest_of_goods_initial_data.dart';
+import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_page_route.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_wm.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/widgets/rest_good_item_widget.dart';
 
+@RoutePage(name: UpdateRestOfGoodsPageRoute.name)
 class UpdateRestOfGoodsPage extends ElementaryWidget<UpdateRestOfGoodsWm> {
   UpdateRestOfGoodsPage({
     required UpdateRestOfGoodsInitialData initialData,
