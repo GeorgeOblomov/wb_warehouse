@@ -1,3 +1,5 @@
+const materialAppTitle = 'WB Warehouse';
+
 /// Base endpoints.
 const standartEndpoint = 'https://suppliers-api.wildberries.ru';
 const statisticsEndpoint = 'https://statistics-api.wildberries.ru';
