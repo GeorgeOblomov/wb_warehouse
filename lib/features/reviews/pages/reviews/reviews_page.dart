@@ -16,8 +16,6 @@ class ReviewsPage extends ElementaryWidget<ReviewsWm> {
   Widget build(ReviewsWm wm) {
     return AutoTabsRouter.tabBar(
       routes: wm.routes,
-
-      /// Restrict scrolling of the tab bar.
       physics: const NeverScrollableScrollPhysics(),
       builder: (context, child, controller) {
         final tabsRouter = AutoTabsRouter.of(context);

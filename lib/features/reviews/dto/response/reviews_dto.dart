@@ -7,12 +7,9 @@ part 'reviews_dto.g.dart';
 @immutable
 @JsonSerializable(createToJson: false)
 class ReviewsDto {
-  @JsonKey(name: 'countUnanswered')
-  final int count;
   final List<ReviewDto> feedbacks;
 
   const ReviewsDto({
-    required this.count,
     required this.feedbacks,
   });
 

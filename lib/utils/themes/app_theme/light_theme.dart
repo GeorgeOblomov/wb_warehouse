@@ -50,4 +50,7 @@ class LightTheme extends BaseTheme {
 
   @override
   Color splashBackgroundColor = const Color(0xFFf4b038);
+
+  @override
+  Color commonTextButtonColor = Colors.blue;
 }

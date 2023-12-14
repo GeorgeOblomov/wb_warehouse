@@ -3,6 +3,7 @@
     "delete": "Удалить",
     "arrival": "Приход",
     "profile": "Профиль",
+    "review": "Отзывы",
     "empty": "Пусто",
     "addNewGoods": "Добавляйте новые товары\nи они появятся здесь!",
     "searchBarHint": "Поиск",
@@ -52,5 +53,14 @@
     "goodsToUpdatePricesConfirmDialogTitle": "Вы действительно хотите обновить цены?",
     "goodsToUpdateDiscountsConfirmDialogTitle": "Вы действительно хотите обновить скидки?",
     "goodsToUpdateConfirmDialogAgreeText": "Да",
-    "goodsToUpdateConfirmDialogDisagreeText": "Нет"
+    "goodsToUpdateConfirmDialogDisagreeText": "Нет",
+    "reviewsReviewTabTitle": "Отзывы",
+    "reviewsQuestionsTabTitle": "Вопросы",
+    "reviewAnswerButtonTitle": "ОТВЕТИТЬ",
+    "reviewHideButtonTitle": "СКРЫТЬ",
+    "reviewAnswerFieldLabel": "Комментарий",
+    "reviewResponseButtonTitle": "Ответить",
+    "reviewGenerateButtonTitle": "Сгенерировать",
+    "reviewDateTitle": "Дата",
+    "reviewValuationTitle": "Оценка"
 }

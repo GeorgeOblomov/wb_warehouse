@@ -54,6 +54,13 @@
     "goodsToUpdateDiscountsConfirmDialogTitle": "Do you reallly want to update discounts?",
     "goodsToUpdateConfirmDialogAgreeText": "Yes",
     "goodsToUpdateConfirmDialogDisagreeText": "No",
-    "reviews_review_tab_title": "Reviews",
-    "reviews_questions_tab_title": "Questions"
+    "reviewsReviewTabTitle": "Reviews",
+    "reviewsQuestionsTabTitle": "Questions",
+    "reviewAnswerButtonTitle": "ANSWER",
+    "reviewHideButtonTitle": "HIDE",
+    "reviewAnswerFieldLabel": "Comment",
+    "reviewResponseButtonTitle": "Answer",
+    "reviewGenerateButtonTitle": "Generate",
+    "reviewDateTitle": "Date",
+    "reviewValuationTitle": "Valuation"
 }

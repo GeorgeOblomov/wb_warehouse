@@ -4,22 +4,20 @@ import 'package:wb_warehouse/utils/assets.dart';
 import 'package:wb_warehouse/utils/extensions/context_extension.dart';
 import 'package:wb_warehouse/utils/themes/theme_provider.dart';
 
-// ignore_for_file: unused_element
 class EmptyWidget extends StatelessWidget {
   final String? title;
   final String? subtitle;
-  final bool withSubtitle;
 
   const EmptyWidget({
     super.key,
     this.title,
     this.subtitle,
-    this.withSubtitle = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final appTheme = context.watch<ThemeProvider>().appTheme;
+    final subtitle = this.subtitle;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -29,9 +27,9 @@ class EmptyWidget extends StatelessWidget {
         const SizedBox(height: 24),
         Text(title ?? context.localizations.empty, style: appTheme.emptyWidgetTitleStyle),
         const SizedBox(height: 8),
-        if (withSubtitle)
+        if (subtitle != null)
           Text(
-            subtitle ?? context.localizations.addNewGoods,
+            subtitle,
             style: appTheme.emptyWidgetSubtitleStyle,
             textAlign: TextAlign.center,
           ),

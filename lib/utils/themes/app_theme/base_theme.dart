@@ -34,4 +34,7 @@ abstract class BaseTheme {
 
   /// Splash page.
   abstract Color splashBackgroundColor;
+
+  /// Common text button color.
+  abstract Color commonTextButtonColor;
 }
