@@ -43,6 +43,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfilePage(),
       );
     },
+    QuestionsTabRouter.name: (routeData) {
+      final args = routeData.argsAs<QuestionsTabRouterArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: QuestionsTab(
+          wm: args.wm,
+          key: args.key,
+        ),
+      );
+    },
     RestOfGoodsPageRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -53,6 +63,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ReviewsPage(),
+      );
+    },
+    ReviewsTabRouter.name: (routeData) {
+      final args = routeData.argsAs<ReviewsTabRouterArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReviewsTab(
+          wm: args.wm,
+          key: args.key,
+        ),
       );
     },
     UpdateRestOfGoodsPageRouter.name: (routeData) {
@@ -150,6 +170,44 @@ class ProfilePageRouter extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [QuestionsTab]
+class QuestionsTabRouter extends PageRouteInfo<QuestionsTabRouterArgs> {
+  QuestionsTabRouter({
+    required ReviewsWm wm,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          QuestionsTabRouter.name,
+          args: QuestionsTabRouterArgs(
+            wm: wm,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'QuestionsTabRouter';
+
+  static const PageInfo<QuestionsTabRouterArgs> page =
+      PageInfo<QuestionsTabRouterArgs>(name);
+}
+
+class QuestionsTabRouterArgs {
+  const QuestionsTabRouterArgs({
+    required this.wm,
+    this.key,
+  });
+
+  final ReviewsWm wm;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'QuestionsTabRouterArgs{wm: $wm, key: $key}';
+  }
+}
+
+/// generated route for
 /// [RestOfGoodsPage]
 class RestOfGoodsPageRouter extends PageRouteInfo<void> {
   const RestOfGoodsPageRouter({List<PageRouteInfo>? children})
@@ -175,6 +233,44 @@ class ReviewsPageRouter extends PageRouteInfo<void> {
   static const String name = 'ReviewsPageRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReviewsTab]
+class ReviewsTabRouter extends PageRouteInfo<ReviewsTabRouterArgs> {
+  ReviewsTabRouter({
+    required ReviewsWm wm,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReviewsTabRouter.name,
+          args: ReviewsTabRouterArgs(
+            wm: wm,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ReviewsTabRouter';
+
+  static const PageInfo<ReviewsTabRouterArgs> page =
+      PageInfo<ReviewsTabRouterArgs>(name);
+}
+
+class ReviewsTabRouterArgs {
+  const ReviewsTabRouterArgs({
+    required this.wm,
+    this.key,
+  });
+
+  final ReviewsWm wm;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ReviewsTabRouterArgs{wm: $wm, key: $key}';
+  }
 }
 
 /// generated route for

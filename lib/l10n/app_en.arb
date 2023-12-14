@@ -53,5 +53,7 @@
     "goodsToUpdatePricesConfirmDialogTitle": "Do you reallly want to update prices?",
     "goodsToUpdateDiscountsConfirmDialogTitle": "Do you reallly want to update discounts?",
     "goodsToUpdateConfirmDialogAgreeText": "Yes",
-    "goodsToUpdateConfirmDialogDisagreeText": "No"
+    "goodsToUpdateConfirmDialogDisagreeText": "No",
+    "reviews_review_tab_title": "Reviews",
+    "reviews_questions_tab_title": "Questions"
 }

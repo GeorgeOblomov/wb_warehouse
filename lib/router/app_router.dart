@@ -12,6 +12,9 @@ import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_p
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_page.dart';
 import 'package:wb_warehouse/features/rest_of_goods/pages/update_rest_of_goods_page/update_rest_of_goods_page_route.dart';
 import 'package:wb_warehouse/features/reviews/pages/reviews/reviews_page.dart';
+import 'package:wb_warehouse/features/reviews/pages/reviews/reviews_wm.dart';
+import 'package:wb_warehouse/features/reviews/pages/reviews/tabs/questions/questions_tab.dart';
+import 'package:wb_warehouse/features/reviews/pages/reviews/tabs/reviews/reviews_tab.dart';
 
 part 'app_router.gr.dart';
 
