@@ -18,7 +18,7 @@ class ReviewsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return UnionStateListenableBuilder(
       loadingBuilder: (_, __) => const Center(child: ProgressIndicatorWidget()),
-      failureBuilder: (_, __, ___) => const SizedBox.shrink(),
+      failureBuilder: (_, __, ___) => Center(child: Text(wm.l10n.somethingWentWrong)),
       unionStateListenable: wm.reviewsState,
       builder: (_, reviews) {
         return _ReviewTabState(wm: wm, reviews: reviews);

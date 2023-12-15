@@ -41,5 +41,13 @@ class ReviewsWm extends WidgetModel<ReviewsPage, ReviewsModel> {
 
   void onGoodTap() {}
 
-  Future<void> _init() async {}
+  Future<void> _init() async {
+    try {
+      reviewsState.loading();
+      final dto = await model.getReviews();
+      reviewsState.content(dto.feedbacks ?? []);
+    } catch (_) {
+      reviewsState.failure();
+    }
+  }
 }

@@ -1,6 +1,5 @@
 import 'package:wb_warehouse/features/reviews/data_providers/reviews_data_provider.dart';
 import 'package:wb_warehouse/features/reviews/dto/request/reply_to_review_request_dto.dart';
-import 'package:wb_warehouse/features/reviews/dto/request/reviews_request_dto.dart';
 import 'package:wb_warehouse/features/reviews/dto/response/reviews_dto.dart';
 
 class ReviewsRepository {
@@ -8,15 +7,7 @@ class ReviewsRepository {
 
   ReviewsRepository(this._dataProvider);
 
-  Future<ReviewsDto> getReviews() async {
-    const requestDto = ReviewsRequestDto(
-      isAnswered: false,
-      take: 5000,
-      skip: 0,
-    );
-
-    return _dataProvider.getReviews(requestDto);
-  }
+  Future<ReviewsDto> getReviews() => _dataProvider.getReviews();
 
   Future<void> replyToReview(String id, String text) {
     final requestDto = ReplyToReviewRequestDto(

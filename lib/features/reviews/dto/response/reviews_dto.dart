@@ -7,7 +7,7 @@ part 'reviews_dto.g.dart';
 @immutable
 @JsonSerializable(createToJson: false)
 class ReviewsDto {
-  final List<ReviewDto> feedbacks;
+  final List<ReviewDto>? feedbacks;
 
   const ReviewsDto({
     required this.feedbacks,

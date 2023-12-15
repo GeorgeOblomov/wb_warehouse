@@ -7,7 +7,7 @@ part of 'reviews_dto.dart';
 // **************************************************************************
 
 ReviewsDto _$ReviewsDtoFromJson(Map<String, dynamic> json) => ReviewsDto(
-      feedbacks: (json['feedbacks'] as List<dynamic>)
-          .map((e) => ReviewDto.fromJson(e as Map<String, dynamic>))
+      feedbacks: (json['feedbacks'] as List<dynamic>?)
+          ?.map((e) => ReviewDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
