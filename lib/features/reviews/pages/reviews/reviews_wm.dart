@@ -39,8 +39,6 @@ class ReviewsWm extends WidgetModel<ReviewsPage, ReviewsModel> {
         QuestionsTabRouter(wm: this),
       ];
 
-  void onGoodTap() {}
-
   Future<void> _init() async {
     try {
       reviewsState.loading();
