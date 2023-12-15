@@ -10,9 +10,9 @@ part 'warehouse_request_dto.g.dart';
   explicitToJson: true,
 )
 class WarehouseRequestDto {
-  final WarehouseGoodsRequestDto sort;
+  final WarehouseGoodsRequestDto settings;
 
-  const WarehouseRequestDto({required this.sort});
+  const WarehouseRequestDto({required this.settings});
 
   Map<String, dynamic> toJson() => _$WarehouseRequestDtoToJson(this);
 }

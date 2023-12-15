@@ -7,32 +7,29 @@ class ChooseGoodsModel extends BaseGoodsModel {
   final PricesAndDiscountsRepository _pricesAndDiscountsRepository;
   final RestOfGoodsRepository _restOfGoodsRepository;
 
-  ChooseGoodsModel(this._pricesAndDiscountsRepository, this._restOfGoodsRepository) : super(_restOfGoodsRepository);
+  ChooseGoodsModel(this._pricesAndDiscountsRepository, this._restOfGoodsRepository);
 
   @override
   Future<List<PricesAndDiscountsGoodsRowData>> getGoodsTableData() async {
     final warehouseGoods = await _restOfGoodsRepository.getWarehouseGoods();
-    final vendorCodes = warehouseGoods.data.cards.map((card) => card.vendorCode);
-    final warehouseCardsDto = await getWarehouseCards(vendorCodes);
     final pricesAndDiscountsDtos = await _pricesAndDiscountsRepository.getPricesAndDiscountsGoods();
 
-    final rowData = warehouseCardsDto.data.map((card) {
+    return warehouseGoods.cards.map((card) {
       final barcode = card.sizes.first.skus.first;
 
       final nmID = card.nmID;
       final price = pricesAndDiscountsDtos.singleWhere((e) => e.nmId == nmID).price;
       final discount = pricesAndDiscountsDtos.singleWhere((e) => e.nmId == nmID).discount;
+      final pictureUrl = card.photos.first.photoUrl;
 
       return PricesAndDiscountsGoodsRowData(
         nmID: nmID,
-        pictureUrl: getMainPictureUrl(card.mediaFiles),
-        name: getName(card.characteristics),
+        pictureUrl: pictureUrl,
+        name: card.subjectName,
         barcode: barcode,
         price: price,
         discount: discount,
       );
     }).toList();
-
-    return rowData;
   }
 }

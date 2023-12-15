@@ -9,8 +9,7 @@ part of 'warehouse_goods_response_dto.dart';
 WarehouseGoodsResponseDto _$WarehouseGoodsResponseDtoFromJson(
         Map<String, dynamic> json) =>
     WarehouseGoodsResponseDto(
-      data:
-          WarehouseGoodsDataDto.fromJson(json['data'] as Map<String, dynamic>),
-      error: json['error'] as bool,
-      errorText: json['errorText'] as String,
+      cards: (json['cards'] as List<dynamic>)
+          .map((e) => WarehouseGoodsCardDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );

@@ -1,22 +1,17 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:surf_logger/surf_logger.dart';
 import 'package:wb_warehouse/data_management/common/api_tokens.dart';
 import 'package:wb_warehouse/data_management/common/data_error.dart';
+import 'package:wb_warehouse/data_management/common/network_client_type.dart';
 import 'package:wb_warehouse/data_management/common/request_result.dart';
 import 'package:wb_warehouse/data_management/server_error/content_type_error.dart';
 import 'package:wb_warehouse/data_management/server_error/i_server_error.dart';
 import 'package:wb_warehouse/data_management/server_error/marketplace_type_error.dart';
-import 'package:wb_warehouse/utils/constants.dart';
 
 const authorizationHeaderName = 'Authorization';
-
-enum NetworkClientType {
-  standart,
-  statistics,
-  ads,
-}
 
 enum ErrorType { content, marketplace }
 
@@ -33,7 +28,7 @@ class NetworkClient {
     required ErrorType errorType,
     dynamic payload,
   }) async {
-    _dio.options.baseUrl = _getBaseUrl(type);
+    _dio.options.baseUrl = type.baseUrl;
     final options = Options(headers: _getRequestHeaders(type));
 
     RequestResult result;
@@ -55,7 +50,7 @@ class NetworkClient {
     required ErrorType errorType,
     dynamic payload,
   }) async {
-    _dio.options.baseUrl = _getBaseUrl(type);
+    _dio.options.baseUrl = type.baseUrl;
     final options = Options(headers: _getRequestHeaders(type));
 
     RequestResult result;
@@ -77,7 +72,7 @@ class NetworkClient {
     required ErrorType errorType,
     dynamic payload,
   }) async {
-    _dio.options.baseUrl = _getBaseUrl(type);
+    _dio.options.baseUrl = type.baseUrl;
     final options = Options(headers: _getRequestHeaders(type));
 
     RequestResult result;
@@ -99,7 +94,7 @@ class NetworkClient {
     required ErrorType errorType,
     dynamic payload,
   }) async {
-    _dio.options.baseUrl = _getBaseUrl(type);
+    _dio.options.baseUrl = type.baseUrl;
     final options = Options(headers: _getRequestHeaders(type));
 
     RequestResult result;
@@ -120,33 +115,19 @@ class NetworkClient {
     _dio.interceptors.add(InterceptorsWrapper(
       onRequest: (options, handler) {
         try {
-          // ignore: avoid_print
-          print('outgoing: ${options.path}, ${json.encode(options.data)}');
+          log('outgoing: ${options.path}, ${json.encode(options.data)}');
         } catch (e) {
-          // ignore: avoid_print
-          print('outgoing: ${options.path}');
+          log('outgoing: ${options.path}');
         }
 
         return handler.next(options);
       },
       onResponse: (response, handler) {
-        // ignore: avoid_print
-        print('received: ${response.statusCode}, $response, ${response.data}');
+        log('received: ${response.statusCode}, $response, ${response.data}');
 
         return handler.next(response);
       },
     ));
-  }
-
-  String _getBaseUrl(NetworkClientType type) {
-    switch (type) {
-      case NetworkClientType.standart:
-        return standartEndpoint;
-      case NetworkClientType.statistics:
-        return statisticsEndpoint;
-      case NetworkClientType.ads:
-        return adsEndpoint;
-    }
   }
 
   Map<String, dynamic> _getRequestHeaders(NetworkClientType type) {
@@ -161,12 +142,20 @@ class NetworkClient {
 
   String _getToken(NetworkClientType type) {
     switch (type) {
-      case NetworkClientType.standart:
-        return ApiTokens.standard;
+      case NetworkClientType.content:
+        return ApiTokens.content;
+      case NetworkClientType.marketplace:
+        return ApiTokens.marketplace;
       case NetworkClientType.statistics:
         return ApiTokens.statistics;
-      case NetworkClientType.ads:
-        return ApiTokens.ads;
+      case NetworkClientType.reviews:
+        return ApiTokens.reviews;
+      case NetworkClientType.prices:
+        return ApiTokens.prices;
+      case NetworkClientType.analytics:
+        return ApiTokens.analytics;
+      case NetworkClientType.gpt:
+        return ApiTokens.gpt;
     }
   }
 

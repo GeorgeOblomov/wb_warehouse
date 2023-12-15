@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:wb_warehouse/data_management/common/data_error.dart';
 import 'package:wb_warehouse/data_management/common/network_client.dart';
+import 'package:wb_warehouse/data_management/common/network_client_type.dart';
 import 'package:wb_warehouse/data_management/common/request_result.dart';
 
 enum DataProviderType {
