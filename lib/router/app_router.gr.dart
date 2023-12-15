@@ -104,8 +104,7 @@ class ChooseGoodsPageRouter extends PageRouteInfo<void> {
 
 /// generated route for
 /// [GoodsToUpdatePage]
-class GoodsToUpdatePageRouter
-    extends PageRouteInfo<GoodsToUpdatePageRouterArgs> {
+class GoodsToUpdatePageRouter extends PageRouteInfo<GoodsToUpdatePageRouterArgs> {
   GoodsToUpdatePageRouter({
     required GoodsToUpdateInitialData initialData,
     Key? key,
@@ -121,8 +120,7 @@ class GoodsToUpdatePageRouter
 
   static const String name = 'GoodsToUpdatePageRouter';
 
-  static const PageInfo<GoodsToUpdatePageRouterArgs> page =
-      PageInfo<GoodsToUpdatePageRouterArgs>(name);
+  static const PageInfo<GoodsToUpdatePageRouterArgs> page = PageInfo<GoodsToUpdatePageRouterArgs>(name);
 }
 
 class GoodsToUpdatePageRouterArgs {
@@ -187,8 +185,7 @@ class QuestionsTabRouter extends PageRouteInfo<QuestionsTabRouterArgs> {
 
   static const String name = 'QuestionsTabRouter';
 
-  static const PageInfo<QuestionsTabRouterArgs> page =
-      PageInfo<QuestionsTabRouterArgs>(name);
+  static const PageInfo<QuestionsTabRouterArgs> page = PageInfo<QuestionsTabRouterArgs>(name);
 }
 
 class QuestionsTabRouterArgs {
@@ -253,8 +250,7 @@ class ReviewsTabRouter extends PageRouteInfo<ReviewsTabRouterArgs> {
 
   static const String name = 'ReviewsTabRouter';
 
-  static const PageInfo<ReviewsTabRouterArgs> page =
-      PageInfo<ReviewsTabRouterArgs>(name);
+  static const PageInfo<ReviewsTabRouterArgs> page = PageInfo<ReviewsTabRouterArgs>(name);
 }
 
 class ReviewsTabRouterArgs {
@@ -275,8 +271,7 @@ class ReviewsTabRouterArgs {
 
 /// generated route for
 /// [UpdateRestOfGoodsPage]
-class UpdateRestOfGoodsPageRouter
-    extends PageRouteInfo<UpdateRestOfGoodsPageRouterArgs> {
+class UpdateRestOfGoodsPageRouter extends PageRouteInfo<UpdateRestOfGoodsPageRouterArgs> {
   UpdateRestOfGoodsPageRouter({
     required UpdateRestOfGoodsInitialData initialData,
     Key? key,
@@ -292,8 +287,7 @@ class UpdateRestOfGoodsPageRouter
 
   static const String name = 'UpdateRestOfGoodsPageRouter';
 
-  static const PageInfo<UpdateRestOfGoodsPageRouterArgs> page =
-      PageInfo<UpdateRestOfGoodsPageRouterArgs>(name);
+  static const PageInfo<UpdateRestOfGoodsPageRouterArgs> page = PageInfo<UpdateRestOfGoodsPageRouterArgs>(name);
 }
 
 class UpdateRestOfGoodsPageRouterArgs {

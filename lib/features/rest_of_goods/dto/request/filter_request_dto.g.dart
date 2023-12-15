@@ -6,7 +6,6 @@ part of 'filter_request_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$FilterRequestDtoToJson(FilterRequestDto instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$FilterRequestDtoToJson(FilterRequestDto instance) => <String, dynamic>{
       'withPhoto': instance.withPhoto,
     };

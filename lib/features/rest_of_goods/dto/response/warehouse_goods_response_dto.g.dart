@@ -6,9 +6,7 @@ part of 'warehouse_goods_response_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WarehouseGoodsResponseDto _$WarehouseGoodsResponseDtoFromJson(
-        Map<String, dynamic> json) =>
-    WarehouseGoodsResponseDto(
+WarehouseGoodsResponseDto _$WarehouseGoodsResponseDtoFromJson(Map<String, dynamic> json) => WarehouseGoodsResponseDto(
       cards: (json['cards'] as List<dynamic>)
           .map((e) => WarehouseGoodsCardDto.fromJson(e as Map<String, dynamic>))
           .toList(),

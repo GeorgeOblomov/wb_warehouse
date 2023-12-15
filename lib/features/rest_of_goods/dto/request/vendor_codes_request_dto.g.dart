@@ -6,8 +6,6 @@ part of 'vendor_codes_request_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$VendorCodesRequestDtoToJson(
-        VendorCodesRequestDto instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$VendorCodesRequestDtoToJson(VendorCodesRequestDto instance) => <String, dynamic>{
       'vendorCodes': instance.vendorCodes.toList(),
     };

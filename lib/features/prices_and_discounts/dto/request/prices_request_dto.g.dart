@@ -6,8 +6,7 @@ part of 'prices_request_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$PricesRequestDtoToJson(PricesRequestDto instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$PricesRequestDtoToJson(PricesRequestDto instance) => <String, dynamic>{
       'nmId': instance.nmId,
       'price': instance.price,
     };

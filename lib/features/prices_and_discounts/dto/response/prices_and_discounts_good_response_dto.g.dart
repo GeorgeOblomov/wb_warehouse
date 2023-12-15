@@ -6,8 +6,7 @@ part of 'prices_and_discounts_good_response_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PricesAndDiscountsGoodResponseDto _$PricesAndDiscountsGoodResponseDtoFromJson(
-        Map<String, dynamic> json) =>
+PricesAndDiscountsGoodResponseDto _$PricesAndDiscountsGoodResponseDtoFromJson(Map<String, dynamic> json) =>
     PricesAndDiscountsGoodResponseDto(
       nmId: json['nmId'] as int,
       price: json['price'] as num,

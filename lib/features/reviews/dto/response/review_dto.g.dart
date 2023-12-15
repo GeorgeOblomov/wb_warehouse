@@ -12,6 +12,5 @@ ReviewDto _$ReviewDtoFromJson(Map<String, dynamic> json) => ReviewDto(
       text: json['text'] as String,
       productValuation: json['productValuation'] as int,
       createdDate: json['createdDate'] as String,
-      productDetails: ReviewGoodDto.fromJson(
-          json['productDetails'] as Map<String, dynamic>),
+      productDetails: ReviewGoodDto.fromJson(json['productDetails'] as Map<String, dynamic>),
     );
