@@ -9,4 +9,6 @@ class ReviewsL10n extends BaseL10n {
   String get questionsTabTitle => context.localizations.reviewsQuestionsTabTitle;
 
   String get somethingWentWrong => context.localizations.somethingWentWrong;
+
+  String get updateTitle => context.localizations.updateButtonTitle;
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wb_warehouse/features/reviews/pages/reviews/l10n/review_l10n.dart';
+import 'package:wb_warehouse/features/reviews/pages/reviews/l10n/reviews_l10n.dart';
 import 'package:wb_warehouse/features/reviews/pages/reviews/navigation/reviews_navigator.dart';
 import 'package:wb_warehouse/features/reviews/pages/reviews/reviews_model.dart';
 import 'package:wb_warehouse/features/reviews/pages/reviews/reviews_wm.dart';

@@ -10,6 +10,7 @@ enum DataProviderType {
   restOfGoods,
   pricesAndDiscounts,
   reviews,
+  chatGPTDataProvider,
 }
 
 typedef ApiAccessor<T> = Future<T> Function([dynamic payload]);

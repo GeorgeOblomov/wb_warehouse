@@ -1,4 +1,4 @@
-import 'package:wb_warehouse/features/reviews/pages/reviews/l10n/review_l10n.dart';
+import 'package:wb_warehouse/features/reviews/pages/reviews/l10n/reviews_l10n.dart';
 
 enum ReviewsTabEntity {
   reviews,

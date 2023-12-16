@@ -5,6 +5,7 @@ import 'package:provider/single_child_widget.dart';
 import 'package:wb_warehouse/data_management/common/data_manager.dart';
 import 'package:wb_warehouse/features/prices_and_discounts/repositories/prices_and_discounts_repository.dart';
 import 'package:wb_warehouse/features/rest_of_goods/repositories/rest_of_goods_repository.dart';
+import 'package:wb_warehouse/features/reviews/repositories/chat_gpt_repository.dart';
 import 'package:wb_warehouse/features/reviews/repositories/reviews_repository.dart';
 import 'package:wb_warehouse/router/app_router.dart';
 import 'package:wb_warehouse/utils/assets.dart';
@@ -52,6 +53,7 @@ class App extends StatelessWidget {
       Provider(create: (_) => RestOfGoodsRepository(dataManager.restOfGoodsDataProvider)),
       Provider(create: (_) => PricesAndDiscountsRepository(dataManager.pricesAndDiscountsDataProvider)),
       Provider(create: (_) => ReviewsRepository(dataManager.reviewsDataProvider)),
+      Provider(create: (_) => ChatGPTRepository(dataManager.chatGPTDataProvider)),
     ];
   }
 
